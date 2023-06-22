@@ -14,6 +14,14 @@ public class AdminFinancier {
         this.prenom = prenom;
     }
 
+    public String getCin() {
+        return cin;
+    }
+
+    public void setCin(String cin) {
+        this.cin = cin;
+    }
+
     public String getIdentifiantA() {
         return cin;
     }

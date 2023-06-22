@@ -3,6 +3,7 @@ package com.afm.suppliermanagementsystem.model;
 import java.util.Date;
 
 public class DocumentPDF {
+    private int id;
     private String nomFichier; // Le nom du fichier PDF
     private Date dateCreation; // La date de création du fichier PDF
     private String cheminStockage;
@@ -11,6 +12,22 @@ public class DocumentPDF {
     public enum TypeDocument {
         ORDRE_VIREMENT,
         REGLEMENT_ASSURANCE
+    }
+
+    public DocumentPDF(int id, String nomFichier, Date dateCreation, String cheminStockage, TypeDocument typeDocument) {
+        this.id = id;
+        this.nomFichier = nomFichier;
+        this.dateCreation = dateCreation;
+        this.cheminStockage = cheminStockage;
+        this.typeDocument = typeDocument;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public DocumentPDF(String nomFichier, Date dateCreation, String cheminStockage, TypeDocument typeDocument) {
