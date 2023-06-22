@@ -60,7 +60,7 @@
             <children>
                 <ImageView fitHeight="590.0" fitWidth="535.0">
                     <image>
-                        <Image url="/com/afm/suppliermanagementsystem/img/Frame 1.png" />
+                        <Image url="@../img/Frame 1.png" />
                     </image>
                 </ImageView>
             </children>

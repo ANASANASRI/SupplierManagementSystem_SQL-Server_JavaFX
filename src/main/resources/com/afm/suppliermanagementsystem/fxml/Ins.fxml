@@ -17,9 +17,6 @@
             prefHeight="590.0" prefWidth="1370.0" style="-fx-background-color: #2e3131;">
     <children>
 
-
-
-
         <Pane prefHeight="584.0" prefWidth="841.0" style="-fx-background-color: #2e3131;">
             <children>
                 <JFXTextField fx:id="nom" focusColor="#FF6B17" labelFloat="true" layoutX="40.0" layoutY="133.0" maxWidth="293.0" minWidth="293.0" prefHeight="31.0" prefWidth="293.0" promptText="Nom*" style="-fx-text-inner-color: #e8ecf1;">
@@ -81,7 +78,7 @@
                         <Font name="Century Gothic" size="18.0" />
                     </font>
                 </Label>
-                <JFXButton fx:id="inscrirevous1" layoutX="103.0" onAction="#connecter" layoutY="514.0" prefHeight="28.0" prefWidth="307.0" stylesheets="@slide.css" text="Se Connecter" textFill="#22a7f0">
+                <JFXButton fx:id="inscrirevous1" layoutX="103.0" onAction="#connecter" layoutY="514.0" prefHeight="28.0" prefWidth="307.0" stylesheets="../css/slide.css" text="Se Connecter" textFill="#22a7f0">
                     <font>
                         <Font name="Century Gothic" size="13.0" />
                     </font>

@@ -2,10 +2,8 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXPasswordField?>
-<?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -32,7 +30,7 @@
                 </JFXPasswordField>
 
 <!--                ////-->
-                <JFXButton layoutX="114.0" layoutY="464.0"  prefHeight="28.0" prefWidth="307.0" stylesheets="@connection.css" text="Connecter" textFill="#22a7f0">
+                <JFXButton layoutX="114.0" layoutY="464.0"  prefHeight="28.0" prefWidth="307.0" stylesheets="../css/connection.css" text="Connecter" textFill="#22a7f0">
                     <font>
                         <Font name="Century Gothic" size="13.0" />
                     </font>
@@ -58,7 +56,7 @@
             <children>
                 <ImageView fitHeight="590.0" fitWidth="535.0">
                     <image>
-                        <Image url="/com/afm/suppliermanagementsystem/img/Frame 1.png" />
+                        <Image url="@../img/Frame 1.png" />
                     </image>
                 </ImageView>
                 <Label fx:id="inscrirelabel" layoutX="125.0" layoutY="465.0" prefHeight="46.0" prefWidth="279.0" text="Si vous n'avez pas un compte" textFill="WHITE">
@@ -66,7 +64,7 @@
                         <Font name="Century Gothic" size="18.0" />
                     </font>
                 </Label>
-                <JFXButton fx:id="inscrirevous1" layoutX="103.0" onAction="#inscrire" layoutY="514.0" prefHeight="28.0" prefWidth="307.0" stylesheets="@slide.css" text="Inscrire" textFill="#22a7f0">
+                <JFXButton fx:id="inscrirevous1" layoutX="103.0" onAction="#inscrire" layoutY="514.0" prefHeight="28.0" prefWidth="307.0" stylesheets="../css/slide.css" text="Inscrire" textFill="#22a7f0">
                     <font>
                         <Font name="Century Gothic" size="13.0" />
                     </font>
