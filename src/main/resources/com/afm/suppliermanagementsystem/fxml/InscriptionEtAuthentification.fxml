@@ -30,11 +30,15 @@
                         <Font name="Century Gothic" size="14.0" />
                     </font>
                 </JFXPasswordField>
+
+<!--                ////-->
                 <JFXButton layoutX="114.0" layoutY="464.0"  prefHeight="28.0" prefWidth="307.0" stylesheets="@connection.css" text="Connecter" textFill="#22a7f0">
                     <font>
                         <Font name="Century Gothic" size="13.0" />
                     </font>
                 </JFXButton>
+<!--                ////-->
+
                 <Label layoutX="196.0" layoutY="146.0" prefHeight="17.0" prefWidth="239.0" text="Se connecter" textFill="#ec644b">
                     <font>
                         <Font name="Century Gothic" size="24.0" />
@@ -47,6 +51,8 @@
                 </Label>
             </children>
         </Pane>
+
+
 
         <Pane fx:id="sld" prefHeight="590.0" prefWidth="535.0" style="-fx-background-color: #ffffff;">
             <children>

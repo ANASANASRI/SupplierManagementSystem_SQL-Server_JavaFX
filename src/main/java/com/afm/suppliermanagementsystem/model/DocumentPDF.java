@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class DocumentPDF {
     private String nomFichier; // Le nom du fichier PDF
-    private int nombrePages; // Le nombre de pages du fichier PDF
     private Date dateCreation; // La date de création du fichier PDF
     private String cheminStockage;
     private TypeDocument typeDocument; // Updated to use the TypeDocument enum
@@ -14,9 +13,8 @@ public class DocumentPDF {
         REGLEMENT_ASSURANCE
     }
 
-    public DocumentPDF(String nomFichier, int nombrePages, Date dateCreation, String cheminStockage, TypeDocument typeDocument) {
+    public DocumentPDF(String nomFichier, Date dateCreation, String cheminStockage, TypeDocument typeDocument) {
         this.nomFichier = nomFichier;
-        this.nombrePages = nombrePages;
         this.dateCreation = dateCreation;
         this.cheminStockage = cheminStockage;
         this.typeDocument = typeDocument;
@@ -28,14 +26,6 @@ public class DocumentPDF {
 
     public void setNomFichier(String nomFichier) {
         this.nomFichier = nomFichier;
-    }
-
-    public int getNombrePages() {
-        return nombrePages;
-    }
-
-    public void setNombrePages(int nombrePages) {
-        this.nombrePages = nombrePages;
     }
 
     public Date getDateCreation() {

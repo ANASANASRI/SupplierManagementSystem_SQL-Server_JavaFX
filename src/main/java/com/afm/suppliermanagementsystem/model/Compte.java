@@ -1,13 +1,17 @@
 package com.afm.suppliermanagementsystem.model;
 
 public class Compte {
-    private String pseudo_nom;
-    private String mot_pass;
-    private String identifiant;
-
+    private String nom;
+    private String prenom;
     private String telephone;
+    private String pseudo_nom;
+    private String cin;
+    private String mot_pass;
+
+
+
     private String adresse;
-    private int etat;
+    private int etat = 1;
 
 
     public Compte(String pseudo_nom, String mot_pass) {
@@ -16,6 +20,22 @@ public class Compte {
     }
 
     public Compte() {
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
 
     public String getPseudo_nom() {
@@ -35,7 +55,7 @@ public class Compte {
     }
 
     public void setCode_adh(String code_adh) {
-        identifiant = code_adh;
+        cin = code_adh;
     }
 
     public int getEtat() {
@@ -63,10 +83,10 @@ public class Compte {
     }
 
     public void setIdentifiant(String identifiant) {
-        this.identifiant = identifiant;
+        this.cin = identifiant;
     }
 
     public String getIdentifiant() {
-        return identifiant;
+        return cin;
     }
 }

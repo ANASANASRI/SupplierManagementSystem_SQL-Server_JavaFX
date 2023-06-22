@@ -1,12 +1,11 @@
 package com.afm.suppliermanagementsystem;
 
-import com.afm.suppliermanagementsystem.controller.Authentification;
 import com.afm.suppliermanagementsystem.controller.InscriptionEtAuthentification;
-import com.afm.suppliermanagementsystem.controller.detDict;
+import com.afm.suppliermanagementsystem.dao.imp.DB;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.stage.Stage;;
+import javafx.stage.Stage;
 import javafx.scene.Parent;
 
 import java.io.IOException;
@@ -19,6 +18,8 @@ public class HelloApplication extends Application {
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         try {
+            DB.getConnection();
+            System.out.println("Welcome to our AFM app!");
             showLoginView();
         } catch (IOException e) {
             e.printStackTrace();

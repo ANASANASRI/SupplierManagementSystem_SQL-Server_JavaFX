@@ -36,4 +36,8 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-public class MenuAdmins {}
+public class MenuAdmins {
+
+    public void setAccountInfo(String nom, String prenom) {
+    }
+}

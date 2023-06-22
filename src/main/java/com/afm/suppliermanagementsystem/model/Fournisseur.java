@@ -2,19 +2,28 @@ package com.afm.suppliermanagementsystem.model;
 
 public class Fournisseur {
 
+    private String cin;
     private String nom;
     private String adresse;
     private String numeroTelephone;
     private String email;
     private String numeroCompteBancaire;
 
-
-    public Fournisseur(String nom, String adresse, String numeroTelephone, String email, String numeroCompteBancaire) {
+    public Fournisseur(String cin, String nom, String adresse, String numeroTelephone, String email, String numeroCompteBancaire) {
+        this.cin = cin;
         this.nom = nom;
         this.adresse = adresse;
         this.numeroTelephone = numeroTelephone;
         this.email = email;
         this.numeroCompteBancaire = numeroCompteBancaire;
+    }
+
+    public String getCin() {
+        return cin;
+    }
+
+    public void setCin(String cin) {
+        this.cin = cin;
     }
 
     //get

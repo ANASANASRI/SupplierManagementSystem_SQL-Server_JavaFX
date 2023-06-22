@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Random;
 
-import com.afm.suppliermanagementsystem.db.DB;
+import com.afm.suppliermanagementsystem.dao.imp.DB;
 import com.afm.suppliermanagementsystem.model.Compte;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -57,9 +57,8 @@ public class Inscription {
 	@FXML
 	private JFXButton inscrireB;
 
-	// Disable enable
-	public void loadAuthen(ActionEvent e) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
+	private void loadCon(ActionEvent e) throws IOException {
+		Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/InscriptionEtAuthentification.fxml"));
 		Scene s = new Scene(root);
 		Stage fenetre = (Stage) ((Node) e.getSource()).getScene().getWindow();
 		fenetre.setScene(s);
@@ -67,70 +66,13 @@ public class Inscription {
 		Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
 		fenetre.setX((primScreenBounds.getWidth() - fenetre.getWidth()) / 2);
 		fenetre.setY((primScreenBounds.getHeight() - fenetre.getHeight()) / 4);
+
 		fenetre.show();
 	}
 
-	// Générer un mot de passe
-	public String GenMotPass() {
-		Random random = new Random();
-		StringBuilder buffer = new StringBuilder(8);
-		for (int i = 0; i < 8; i++) {
-			int randomLimitedInt = 97 + (int) (random.nextFloat() * (122 - 97 + 1));
-			buffer.append((char) randomLimitedInt);
-		}
-		String mot_pass = buffer.toString();
-		return mot_pass;
-	}
 
-	// Fonction inscrire
-	public void inscrire(ActionEvent e) throws IOException, SQLException {
-		message1.setVisible(false);
-		message.setVisible(false);
-
-		if (nom.getText().isEmpty() || pseudo.getText().isEmpty() || prenom.getText().isEmpty()
-				|| tel.getText().isEmpty() || id.getText().isEmpty()) {
-			//MenuAdmins.messageWarning();
-			return;
-		} else {
-			if (verificationCompte()) {
-				message.setVisible(true);
-				message.setText("Le nom d'utilisateur est déjà utilisé.");
-				return;
-			} else {
-				// Enregistrer les informations
-				Compte compte;
-						compte = new Compte();
-
-
-
-
-				String motpass = GenMotPass();
-				compte.setMot_pass(motpass);
-				compte.setPseudo_nom(pseudo.getText());
-
-				// Save the account and display success message
-				int statues = DB.save(compte);
-
-				if (statues > 0) {
-					message1.setVisible(true);
-					message1.setText("Vous êtes inscrit, votre mot de passe est : ");
-					message11.setText(motpass);
-				} else {
-					message.setVisible(true);
-					message.setText("Désolé, il y a un problème.");
-				}
-			}
-		}
-	}
-
-	// Vérifier si le compte existe déjà
-	public boolean verificationCompte() {
-		List<Compte> comptes = DB.getComptes();
-		for (Compte compte : comptes) {
-			if (compte.getPseudo_nom().equals(pseudo.getText())) {
-				return true;
-			}
-		}
-		return false;
+	public void connecter(ActionEvent e) throws IOException, SQLException {
+		DB.getConnection();
+		loadCon(e);
 	}
 }
