@@ -42,7 +42,7 @@ public class FournisseurDaoImp implements FournisseurDao {
         PreparedStatement ps = null;
 
         try {
-            ps = conn.prepareStatement("UPDATE fournisseur SET nom = ?, adresse = ?, numero_telephone = ?, email = ?, numeroCompteBancaire = ? WHERE numSIREN = ?");
+            ps = conn.prepareStatement("UPDATE fournisseur SET nom = ?, adresse = ?, numeroTelephone = ?, email = ?, numeroCompteBancaire = ? WHERE numSIREN = ?");
 
             ps.setString(1, fournisseur.getNom());
             ps.setString(2, fournisseur.getAdresse());

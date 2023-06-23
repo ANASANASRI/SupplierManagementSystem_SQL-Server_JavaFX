@@ -12,7 +12,7 @@
     <children>
         <Pane prefHeight="575.0" prefWidth="429.0" style="-fx-background-color: #616161;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <ImageView fitHeight="52.0" fitWidth="52.0" layoutX="55.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView onMouseClicked="#handleImageClick" fitHeight="52.0" fitWidth="52.0" layoutX="55.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../img/Frame 2.png" />
                     </image>
@@ -35,7 +35,7 @@
                 <TextField fx:id="txtEmail" layoutX="75.0" layoutY="334.0" prefHeight="32.0" prefWidth="278.0" promptText="Email" />
                 <TextField fx:id="txtNumeroCompteBancaire" layoutX="75.0" layoutY="390.0" prefHeight="32.0" prefWidth="278.0" promptText="Numéro de Compte Bancaire" />
                 <Button fx:id="btnSave" onAction="#handleSaveButtonAction" layoutX="76.0" layoutY="449.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Ajouter" />
-                <Button fx:id="btnUPdate" onAction="#handleUPdateButtonAction" layoutX="76.0" layoutY="449.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Modifier" />
+                <Button fx:id="btnUPdate" onAction="#handleUpdateButtonAction" layoutX="76.0" layoutY="508.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Modifier" />
 
             </children>
         </Pane>
@@ -49,7 +49,6 @@
                 <TableColumn fx:id="tableColumnEmail" prefWidth="75.0" text="Email" style="-fx-text-fill: #09253B;" />
                 <TableColumn fx:id="tableColumnNumeroCompteBancaire" prefWidth="75.0" text="Numéro de Compte Bancaire" style="-fx-text-fill: #09253B;" />
                 <TableColumn fx:id="tableColumnPaiement" prefWidth="75.0" text="Paiement" style="-fx-text-fill: #09253B;" />
-                <TableColumn fx:id="tableColumnEDIT" prefWidth="75.0" text="Modifier" style="-fx-text-fill: #09253B;" />
                 <TableColumn fx:id="tableColumnREMOVE" prefWidth="75.0" text="Supprimer" style="-fx-text-fill: #09253B;" />
             </columns>
         </TableView>

@@ -16,8 +16,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import org.w3c.dom.events.MouseEvent;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -57,8 +57,6 @@ public class MenuAdmins {
     private TableColumn<Fournisseur, String> tableColumnNumeroCompteBancaire;
     @FXML
     private TableColumn<Fournisseur, Button> tableColumnPaiement;
-    @FXML
-    private TableColumn<Fournisseur, Button> tableColumnEDIT;
     @FXML
     private TableColumn<Fournisseur, Button> tableColumnREMOVE;
     @FXML
@@ -168,27 +166,28 @@ public class MenuAdmins {
     /////////////////MODIFIER//////////////////
 
     @FXML
-    private void handleUPdateButtonAction(ActionEvent event) {
+    public void handleUpdateButtonAction(ActionEvent event) {
         Fournisseur selectedFournisseur = tableViewFournisseur.getSelectionModel().getSelectedItem();
         if (selectedFournisseur != null) {
-            // Update the selected fournisseur
-            // You can modify this code based on your requirements and UI fields
+            // Update the selected row's data
+            selectedFournisseur.setNumSIREN(Integer.parseInt(txtnumSIREN.getText()));
             selectedFournisseur.setNom(txtNom.getText());
             selectedFournisseur.setAdresse(txtAdresse.getText());
             selectedFournisseur.setNumeroTelephone(txtNumeroTelephone.getText());
             selectedFournisseur.setEmail(txtEmail.getText());
             selectedFournisseur.setNumeroCompteBancaire(txtNumeroCompteBancaire.getText());
 
-            // Call the update method in the service
+            // Call the update method in FournisseurService
+            FournisseurService fournisseurService = new FournisseurService();
             fournisseurService.update(selectedFournisseur);
 
-            // Refresh the table view to reflect the changes
+            // Refresh the table view to reflect the updated data
             tableViewFournisseur.refresh();
 
-            // Clear the input fields
             clearInputFields();
         }
     }
+
 
     ///////////////////////////////////
 
@@ -225,33 +224,6 @@ public class MenuAdmins {
                     if (fournisseur != null) {
                         // Perform the payment action for the fournisseur
                         performPayment(fournisseur);
-                    }
-                });
-            }
-
-            @Override
-            protected void updateItem(Button item, boolean empty) {
-                super.updateItem(item, empty);
-                if (empty) {
-                    setGraphic(null);
-                } else {
-                    setGraphic(button);
-                }
-            }
-        });
-
-        // Set the button cell factory for the "Modifier" column
-        tableColumnEDIT.setCellFactory(param -> new TableCell<Fournisseur, Button>() {
-            private final Button button = new Button("Modifier");
-
-            {
-                // Add button action
-                button.setOnAction(event -> {
-                    // Get the fournisseur associated with this row
-                    Fournisseur fournisseur = getTableRow().getItem();
-                    if (fournisseur != null) {
-                        // Open the edit fournisseur dialog for the selected fournisseur
-                        openEditFournisseurDialog(fournisseur);
                     }
                 });
             }
@@ -360,4 +332,9 @@ public class MenuAdmins {
         tableViewFournisseur.getItems().addAll(searchResults);
     }
 
+    ///////////////Cleare////////////////
+    @FXML
+    public void handleImageClick(MouseEvent mouseEvent) {
+        clearInputFields();
+    }
 }
