@@ -53,6 +53,8 @@
                 </JFXButton>
             </children>
         </Pane>
+
+
         <Pane fx:id="sld" layoutX="380.0" prefHeight="590.0" prefWidth="535.0" style="-fx-background-color: #ffffff;">
             <children>
                 <ImageView fitHeight="590.0" fitWidth="535.0">

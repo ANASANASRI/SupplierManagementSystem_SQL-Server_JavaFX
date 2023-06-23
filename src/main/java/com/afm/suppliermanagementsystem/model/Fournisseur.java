@@ -2,15 +2,15 @@ package com.afm.suppliermanagementsystem.model;
 
 public class Fournisseur {
 
-    private String cin;
+    private int numSIREN;
     private String nom;
     private String adresse;
     private String numeroTelephone;
     private String email;
     private String numeroCompteBancaire;
 
-    public Fournisseur(String cin, String nom, String adresse, String numeroTelephone, String email, String numeroCompteBancaire) {
-        this.cin = cin;
+    public Fournisseur(int numSIREN, String nom, String adresse, String numeroTelephone, String email, String numeroCompteBancaire) {
+        this.numSIREN = numSIREN;
         this.nom = nom;
         this.adresse = adresse;
         this.numeroTelephone = numeroTelephone;
@@ -18,12 +18,16 @@ public class Fournisseur {
         this.numeroCompteBancaire = numeroCompteBancaire;
     }
 
-    public String getCin() {
-        return cin;
+    public Fournisseur() {
+
     }
 
-    public void setCin(String cin) {
-        this.cin = cin;
+    public int getNumSIREN() {
+        return numSIREN;
+    }
+
+    public void setNumSIREN(int numSIREN) {
+        this.numSIREN = numSIREN;
     }
 
     //get
@@ -68,5 +72,17 @@ public class Fournisseur {
 
     public void setNumeroCompteBancaire(String numeroCompteBancaire) {
         this.numeroCompteBancaire = numeroCompteBancaire;
+    }
+
+    @Override
+    public String toString() {
+        return "Fournisseur{" +
+                "numSIREN='" + numSIREN + '\'' +
+                ", nom='" + nom + '\'' +
+                ", adresse='" + adresse + '\'' +
+                ", numeroTelephone='" + numeroTelephone + '\'' +
+                ", email='" + email + '\'' +
+                ", numeroCompteBancaire='" + numeroCompteBancaire + '\'' +
+                '}';
     }
 }

@@ -1,6 +1,7 @@
 package com.afm.suppliermanagementsystem;
 
 import com.afm.suppliermanagementsystem.controller.InscriptionEtAuthentification;
+import com.afm.suppliermanagementsystem.controller.MenuAdmins;
 import com.afm.suppliermanagementsystem.dao.imp.DB;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -32,9 +33,9 @@ public class HelloApplication extends Application {
     }
 
     public void showLoginView() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/InscriptionEtAuthentification.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
         Parent root = loader.load();
-        InscriptionEtAuthentification authentification = loader.getController();
+        MenuAdmins authentification = loader.getController();
         authentification.setApplication(this);
 
         primaryStage.setTitle("Authentification");
