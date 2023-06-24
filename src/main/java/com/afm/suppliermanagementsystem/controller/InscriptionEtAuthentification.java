@@ -48,6 +48,26 @@ public class InscriptionEtAuthentification  {
 
     //////////////////////////////////////////////////////////////
 
+    private void loadConnAdm(ActionEvent e) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
+        Scene s = new Scene(root);
+        Stage fenetre = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        fenetre.setScene(s);
+        fenetre.setResizable(false);
+        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+        fenetre.setX((primScreenBounds.getWidth() - fenetre.getWidth()) / 2);
+        fenetre.setY((primScreenBounds.getHeight() - fenetre.getHeight()) / 4);
+
+        fenetre.show();
+    }
+
+    public void ConnectAdmin(ActionEvent e)throws IOException, SQLException {
+        DB.getConnection();
+        loadConnAdm(e);
+    }
+
+    //////////////////////////////////////////////////////////////
+
     /*@FXML
     private JFXTextField pseudoc;
 

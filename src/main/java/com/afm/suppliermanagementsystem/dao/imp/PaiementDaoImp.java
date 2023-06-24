@@ -13,10 +13,10 @@ import java.util.List;
 
 public class PaiementDaoImp implements PaiementDao {
 
-    private final Connection connection;
+    private final Connection connection = DB.getConnection();
 
-    public PaiementDaoImp(Connection connection) {
-        this.connection = connection;
+    public PaiementDaoImp() {
+
     }
 
     @Override
@@ -128,6 +128,11 @@ public class PaiementDaoImp implements PaiementDao {
         }
 
         return paiements;
+    }
+
+    @Override
+    public Paiement findByIdentifiant(String identifiant) {
+        return null;
     }
 
     private Paiement extractPaiementFromResultSet(ResultSet rs) throws SQLException {

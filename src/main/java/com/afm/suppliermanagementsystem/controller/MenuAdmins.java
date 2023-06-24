@@ -14,7 +14,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -78,7 +77,6 @@ public class MenuAdmins {
     @FXML
     private void initialize() {
         populateFournisseurTable();
-        setupButtonActions();
         //
         tableViewFournisseur.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 1) {
@@ -116,7 +114,8 @@ public class MenuAdmins {
             tableColumnEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
             tableColumnNumeroCompteBancaire.setCellValueFactory(new PropertyValueFactory<>("numeroCompteBancaire"));
 
-            setupButtonActions();
+            setupPaiementColumn();
+            setupRemoveColumn();
 
             tableViewFournisseur.getItems().addAll(fournisseurs);
 
@@ -125,6 +124,7 @@ public class MenuAdmins {
         }
 
     }
+
 
 
     ////////////////AJOUTER////////////////////
@@ -139,6 +139,13 @@ public class MenuAdmins {
         fournisseur.setEmail(txtEmail.getText());
         fournisseur.setNumeroCompteBancaire(txtNumeroCompteBancaire.getText());
 
+        // Check if the fournisseur already exists
+        if (fournisseurService.findBynumSIREN(fournisseur.getNumSIREN()) != null) {
+            showAlert("Fournisseur déjà existant", "Un fournisseur avec le même numéro SIREN existe déjà.");
+            return;
+        }
+
+
         // Call the save method in FournisseurService to insert the fournisseur
         fournisseurService.save(fournisseur);
 
@@ -148,6 +155,15 @@ public class MenuAdmins {
         // Refresh the table view to reflect the updated data
         refreshTableView();
     }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
 
     private void refreshTableView() {
         // Get the current data model of the table view
@@ -189,7 +205,11 @@ public class MenuAdmins {
     }
 
 
-    ///////////////////////////////////
+    /////////////////REMOVE//////////////////
+
+
+
+    ///////////////CLEARE///////////////////
 
     private void clearInputFields() {
         txtnumSIREN.clear();
@@ -212,88 +232,6 @@ public class MenuAdmins {
 
     /////////////////////////////////////////
 
-    private void setupButtonActions() {
-        tableColumnPaiement.setCellFactory(param -> new TableCell<Fournisseur, Button>() {
-            private final Button button = new Button("Paiement");
-
-            {
-                // Add button action
-                button.setOnAction(event -> {
-                    // Get the fournisseur associated with this row
-                    Fournisseur fournisseur = getTableRow().getItem();
-                    if (fournisseur != null) {
-                        // Perform the payment action for the fournisseur
-                        performPayment(fournisseur);
-                    }
-                });
-            }
-
-            @Override
-            protected void updateItem(Button item, boolean empty) {
-                super.updateItem(item, empty);
-                if (empty) {
-                    setGraphic(null);
-                } else {
-                    setGraphic(button);
-                }
-            }
-        });
-
-        // Set the button cell factory for the "Supprimer" column
-        tableColumnREMOVE.setCellFactory(param -> new TableCell<Fournisseur, Button>() {
-            private final Button button = new Button("Supprimer");
-
-            {
-                // Add button action
-                button.setOnAction(event -> {
-                    // Get the fournisseur associated with this row
-                    Fournisseur fournisseur = getTableRow().getItem();
-                    if (fournisseur != null) {
-                        // Prompt the user for confirmation before deleting the fournisseur
-                        boolean confirmed = showDeleteConfirmationDialog(fournisseur);
-                        if (confirmed) {
-                            // Delete the fournisseur from the table and database
-                            deleteFournisseur(fournisseur);
-                        }
-                    }
-                });
-            }
-
-            @Override
-            protected void updateItem(Button item, boolean empty) {
-                super.updateItem(item, empty);
-                if (empty) {
-                    setGraphic(null);
-                } else {
-                    setGraphic(button);
-                }
-            }
-        });
-    }
-
-    private void performPayment(Fournisseur fournisseur) {
-        // Add your code here to handle the payment action for the fournisseur
-        // You can implement the logic to perform the payment operation
-        // such as displaying payment dialog, updating payment status, etc.
-    }
-
-    private void openEditFournisseurDialog(Fournisseur fournisseur) {
-        // Add your code here to open the edit fournisseur dialog
-        // You can implement the logic to display the dialog and allow the user to edit the fournisseur details
-    }
-
-    private boolean showDeleteConfirmationDialog(Fournisseur fournisseur) {
-        // Add your code here to show a confirmation dialog for deleting the fournisseur
-        // You can implement the logic to display a dialog box asking for confirmation
-        // and return true if the user confirms the deletion, or false otherwise
-        return false; // Replace this with your actual implementation
-    }
-
-    private void deleteFournisseur(Fournisseur fournisseur) {
-        // Add your code here to delete the fournisseur from the table and database
-        // You can implement the logic to remove the fournisseur from the table view
-        // and delete it from the underlying data source (e.g., database)
-    }
 
     ///////////////////////////////////
 
@@ -337,4 +275,127 @@ public class MenuAdmins {
     public void handleImageClick(MouseEvent mouseEvent) {
         clearInputFields();
     }
+
+    ////////////////REMOVE///////////////
+
+    private void setupButtonActions() {
+    }
+
+    private void setupRemoveColumn() {
+        tableColumnREMOVE.setCellFactory(column -> {
+            TableCell<Fournisseur, Button> remove = new TableCell<>() {
+                final Button removeButton = new Button("REMOVE");
+
+                {
+                    removeButton.setOnAction(event -> {
+                        Fournisseur fournisseur = getTableView().getItems().get(getIndex());
+                        fournisseurService.remove(fournisseur);
+                        refreshTableView();
+                        System.out.println("Removing fournisseur: " + fournisseur.getNumSIREN());
+                    });
+                }
+
+                @Override
+                protected void updateItem(Button item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    if (empty) {
+                        setGraphic(null);
+                    } else {
+                        setGraphic(removeButton);
+                    }
+                }
+            };
+            return remove;
+        });
+    }
+
+
+
+    ////////////Paiement/////////////
+
+    private void setupPaiementColumn() {
+        tableColumnPaiement.setCellFactory(column -> {
+            TableCell<Fournisseur, Button> paiement = new TableCell<>() {
+                final Button paiementButton = new Button("Paiement");
+
+                {
+                    paiementButton.setOnAction(event -> {
+                        try {
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/PaiementManager.fxml"));
+                            Parent root = loader.load();
+                            Stage stage = new Stage();
+                            stage.setScene(new Scene(root));
+                            stage.show();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    });
+                }
+
+                @Override
+                protected void updateItem(Button item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    if (empty) {
+                        setGraphic(null);
+                    } else {
+                        setGraphic(paiementButton);
+                    }
+                }
+            };
+            return paiement;
+        });
+    }
+
+
+
+    /*?*?*?*??/
+
+     private void setupPaiementColumn() {
+        tableColumnPaiement.setCellFactory(column -> {
+            TableCell<Fournisseur, Button> paiement = new TableCell<>() {
+                final Button paiementButton = new Button("Paiement");
+
+                {
+                    paiementButton.setOnAction(event -> {
+                        Fournisseur fournisseur = getTableView().getItems().get(getIndex());
+                        openADDFournisseurWindow(fournisseur);
+                    });
+                }
+
+                @Override
+                protected void updateItem(Button item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    if (empty) {
+                        setGraphic(null);
+                    } else {
+                        setGraphic(paiementButton);
+                    }
+                }
+            };
+            return paiement;
+        });
+    }
+
+    private void openADDFournisseurWindow(Fournisseur fournisseur) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ADDFournisseur.fxml"));
+            Parent root = loader.load();
+
+            // Access the controller of ADDFournisseur.fxml and set the fournisseur values
+            Ins controller = loader.getController();
+            controller.setFournisseur(fournisseur);
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+     */
+
 }

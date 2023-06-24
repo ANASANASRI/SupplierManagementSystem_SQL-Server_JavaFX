@@ -17,8 +17,9 @@ public class FournisseurService {
         fournisseurDao.update(fournisseur);
     }
 
-    public void deleteBynumSIREN(int numSIREN) {
-        fournisseurDao.deleteBynumSIREN(numSIREN);
+
+    public static void remove(Fournisseur fournisseur) {
+        fournisseurDao.deleteBynumSIREN(fournisseur.getNumSIREN());
     }
 
     public Fournisseur findBynumSIREN(int numSIREN) {

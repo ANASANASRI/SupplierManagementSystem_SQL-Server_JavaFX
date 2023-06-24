@@ -10,19 +10,19 @@
             fx:controller="com.afm.suppliermanagementsystem.controller.MenuAdmins">
 
     <children>
-        <Pane prefHeight="575.0" prefWidth="429.0" style="-fx-background-color: #616161;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Pane prefHeight="575.0" prefWidth="429.0" style="-fx-background-color: #B7B7B7;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <ImageView onMouseClicked="#handleImageClick" fitHeight="52.0" fitWidth="52.0" layoutX="55.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../img/Frame 2.png" />
                     </image>
                 </ImageView>
-                <Label alignment="CENTER" layoutX="140.0" layoutY="34.0" prefHeight="23.0" prefWidth="173.0" text="ATTIJARI FACTORING MAROC" textFill="WHITE">
+                <Label alignment="CENTER" layoutX="140.0" layoutY="34.0" prefHeight="23.0" prefWidth="200.0" text="ATTIJARI FACTORING MAROC" textFill="WHITE">
                     <font>
                         <Font name="Segoe UI" size="18.0" />
                     </font>
                 </Label>
-                <Label alignment="CENTER" layoutX="148.0" layoutY="57.0" prefHeight="23.0" prefWidth="114.0" text="Ajouter Fournisseur" textFill="WHITE">
+                <Label alignment="CENTER" layoutX="148.0" layoutY="57.0" prefHeight="23.0" prefWidth="180.0" text="Gestion des Fournisseurs" textFill="WHITE">
                     <font>
                         <Font name="Segoe UI" size="12.0" />
                     </font>
@@ -52,7 +52,7 @@
                 <TableColumn fx:id="tableColumnREMOVE" prefWidth="75.0" text="Supprimer" style="-fx-text-fill: #09253B;" />
             </columns>
         </TableView>
-        <TextField fx:id="txtSearch" layoutX="438.0" layoutY="26.0" prefHeight="32.0" prefWidth="354.0" promptText="Rechercher un fournisseur avec numSIREN..." />
+        <TextField fx:id="txtSearch" layoutX="438.0" layoutY="26.0" prefHeight="32.0" prefWidth="354.0" promptText="Rechercher un fournisseur par numSIREN..." />
     </children>
 
 </AnchorPane>

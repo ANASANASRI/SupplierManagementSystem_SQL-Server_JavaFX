@@ -14,4 +14,6 @@ public interface PaiementDao {
     Paiement findById(String id);
 
     List<Paiement> findAll();
+
+    Paiement findByIdentifiant(String identifiant);
 }

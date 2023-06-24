@@ -33,9 +33,9 @@ public class HelloApplication extends Application {
     }
 
     public void showLoginView() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/InscriptionEtAuthentification.fxml"));
         Parent root = loader.load();
-        MenuAdmins authentification = loader.getController();
+        InscriptionEtAuthentification authentification = loader.getController();
         authentification.setApplication(this);
 
         primaryStage.setTitle("Authentification");

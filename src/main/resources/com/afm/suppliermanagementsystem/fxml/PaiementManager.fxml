@@ -6,9 +6,80 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.afm.suppliermanagementsystem.controller.PaiementManager"
-            prefHeight="400.0" prefWidth="600.0">
+            prefHeight="564.0" prefWidth="1061.0" style="-fx-background-color: #FFF;">
+
+    <children>
+        <Pane prefHeight="575.0" prefWidth="429.0" style="-fx-background-color: #B7B7B7;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <ImageView fitHeight="52.0" fitWidth="52.0" layoutX="55.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/Frame 2.png" />
+                    </image>
+                </ImageView>
+                <Label alignment="CENTER" layoutX="140.0" layoutY="34.0" prefHeight="23.0" prefWidth="200.0" text="ATTIJARI FACTORING MAROC" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe UI" size="18.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" layoutX="148.0" layoutY="57.0" prefHeight="23.0" prefWidth="180.0" text="Gestion Paiement" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe UI" size="12.0" />
+                    </font>
+                </Label>
+
+                <TextField fx:id="identifiant" layoutX="75.0" layoutY="105.0" prefHeight="32.0" prefWidth="278.0" promptText="identifiant" />
+                <TextField fx:id="montant" layoutX="75.0" layoutY="159.0" prefHeight="32.0" prefWidth="278.0" promptText="montant" />
+                <TextField fx:id="devise" layoutX="75.0" layoutY="217.0" prefHeight="32.0" prefWidth="278.0" promptText="devise" />
+                <TextField fx:id="date" layoutX="75.0" layoutY="276.0" prefHeight="32.0" prefWidth="278.0" promptText="date" />
+                <TextField fx:id="effectue" layoutX="75.0" layoutY="334.0" prefHeight="32.0" prefWidth="278.0" promptText="effectue" />
+                <TextField fx:id="moyenPaiement" layoutX="75.0" layoutY="390.0" prefHeight="32.0" prefWidth="278.0" promptText="moyenPaiement" />
+                <Button fx:id="btnSave" layoutX="76.0" layoutY="449.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Ajouter" />
+                <Button fx:id="btnUPdate"  layoutX="76.0" layoutY="508.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Modifier" />
+
+
+            </children>
+        </Pane>
+
+        <TableView fx:id="tableViewPaiement" layoutX="438.0" layoutY="221.0" >
+            <columns>
+                <TableColumn fx:id="tableColumnIdentifiant" prefWidth="75.0" text="Identifiant" style="-fx-text-fill: #09253B;" />
+                <TableColumn fx:id="tableColumnMontant" prefWidth="75.0" text="Montant" style="-fx-text-fill: #09253B;" />
+                <TableColumn fx:id="tableColumnDevise" prefWidth="75.0" text="Devise" style="-fx-text-fill: #09253B;" />
+                <TableColumn fx:id="tableColumnDate" prefWidth="75.0" text="Date" style="-fx-text-fill: #09253B;" />
+                <TableColumn fx:id="tableColumnEffectue" prefWidth="75.0" text="Effectué" style="-fx-text-fill: #09253B;" />
+                <TableColumn fx:id="tableColumnMoyenPaiement" prefWidth="75.0" text="Moyen de Paiement" style="-fx-text-fill: #09253B;" />
+                <TableColumn fx:id="tableColumnPaiement" prefWidth="75.0" text="Paiement" style="-fx-text-fill: #09253B;" />
+                <TableColumn fx:id="tableColumnREMOVE" prefWidth="75.0" text="Supprimer" style="-fx-text-fill: #09253B;" />
+            </columns>
+        </TableView>
+
+        <TextField fx:id="txtSearch" layoutX="438.0" layoutY="176.0" prefHeight="32.0" prefWidth="354.0" promptText="Rechercher un paiement par date..." />
+
+        <VBox layoutX="438.0" layoutY="26.0" prefHeight="130.0" prefWidth="354.0" style="-fx-border-color: black; -fx-border-width: 1px;">
+            <!-- Add your content here -->
+        </VBox>
+        <VBox layoutX="800.0" layoutY="26.0" prefHeight="180.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 1px;">
+            <!-- Add your content here -->
+        </VBox>
+
+    </children>
 
 </AnchorPane>
+
+
+
+
+<!--
+<Label fx:id="lblNumSIREN" layoutX="75.0" layoutY="105.0" prefHeight="32.0" prefWidth="278.0" text="numSIREN" />
+<Label fx:id="lblNom" layoutX="75.0" layoutY="159.0" prefHeight="32.0" prefWidth="278.0" text="Nom" />
+<Label fx:id="lblAdresse" layoutX="75.0" layoutY="217.0" prefHeight="32.0" prefWidth="278.0" text="Adresse" />
+<Label fx:id="lblNumeroTelephone" layoutX="75.0" layoutY="276.0" prefHeight="32.0" prefWidth="278.0" text="Numéro de Téléphone" />
+<Label fx:id="lblEmail" layoutX="75.0" layoutY="334.0" prefHeight="32.0" prefWidth="278.0" text="Email" />
+<Label fx:id="lblNumeroCompteBancaire" layoutX="75.0" layoutY="390.0" prefHeight="32.0" prefWidth="278.0" text="Numéro de Compte Bancaire" />
+-->
