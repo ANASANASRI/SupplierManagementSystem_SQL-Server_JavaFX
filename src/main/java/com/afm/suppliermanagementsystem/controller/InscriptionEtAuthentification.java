@@ -8,16 +8,28 @@ import com.afm.suppliermanagementsystem.dao.imp.DB;
 import com.afm.suppliermanagementsystem.model.Compte;
 
 
+import com.afm.suppliermanagementsystem.services.CompteService;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class InscriptionEtAuthentification  {
+
+    @FXML
+    private JFXTextField pseudoc;
+
+    @FXML
+    private JFXPasswordField motpassc;
+
     private HelloApplication application;
 
     public void setApplication(HelloApplication application) {
@@ -49,22 +61,39 @@ public class InscriptionEtAuthentification  {
     //////////////////////////////////////////////////////////////
 
     private void loadConnAdm(ActionEvent e) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
-        Scene s = new Scene(root);
-        Stage fenetre = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        fenetre.setScene(s);
-        fenetre.setResizable(false);
-        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-        fenetre.setX((primScreenBounds.getWidth() - fenetre.getWidth()) / 2);
-        fenetre.setY((primScreenBounds.getHeight() - fenetre.getHeight()) / 4);
+        String nom = pseudoc.getText();
+        String password = motpassc.getText();
+        boolean compteExists = CompteService.findCompte(nom, password);
 
-        fenetre.show();
+        if (compteExists) {
+            Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
+            Scene s = new Scene(root);
+            Stage fenetre = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            fenetre.setScene(s);
+            fenetre.setResizable(false);
+            Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+            fenetre.setX((primScreenBounds.getWidth() - fenetre.getWidth()) / 2);
+            fenetre.setY((primScreenBounds.getHeight() - fenetre.getHeight()) / 4);
+
+            fenetre.show();
+        } else {
+            showAlert("Compte non existant", "Le compte spécifié n'existe pas.");
+        }
     }
 
-    public void ConnectAdmin(ActionEvent e)throws IOException, SQLException {
+    public void ConnectAdmin(ActionEvent e) throws IOException, SQLException {
         DB.getConnection();
         loadConnAdm(e);
     }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
 
     //////////////////////////////////////////////////////////////
 

@@ -11,11 +11,9 @@ import java.util.List;
 
 public class CompteDaoImp implements CompteDao {
 
-    private final Connection conn;
+    private final Connection conn=DB.getConnection();
 
-    public CompteDaoImp(Connection connection) {
-        this.conn = connection;
-    }
+    public CompteDaoImp() {  }
 
     @Override
     public void insert(Compte compte) {
@@ -98,37 +96,29 @@ public class CompteDaoImp implements CompteDao {
     }
 
     @Override
-    public Compte findById(Integer id) {
-        PreparedStatement ps = null;
-        ResultSet rs = null;
+    public boolean findCompte(String nom, String password) {
+        boolean compteExists = false;
+        String query = "SELECT COUNT(*) AS count FROM compte WHERE pseudo_nom = ? AND mot_pass = ?";
 
-        try {
-            ps = conn.prepareStatement("SELECT * FROM compte WHERE id = ?");
-            ps.setInt(1, id);
+        try (PreparedStatement statement = conn.prepareStatement(query)) {
+            statement.setString(1, nom);
+            statement.setString(2, password);
 
-            rs = ps.executeQuery();
-
-            if (rs.next()) {
-                String nom = rs.getString("nom");
-                String prenom = rs.getString("prenom");
-                String telephone = rs.getString("telephone");
-                String pseudoNom = rs.getString("pseudo_nom");
-                String cin = rs.getString("cin");
-                String motPass = rs.getString("mot_pass");
-                String adresse = rs.getString("adresse");
-                int etat = rs.getInt("etat");
-
-                return new Compte(nom, prenom, telephone, pseudoNom, cin, motPass, adresse, etat);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    int count = resultSet.getInt("count");
+                    compteExists = count > 0;
+                }
             }
         } catch (SQLException e) {
-            System.err.println("Error finding compte by id: " + e);
-        } finally {
-            closeResultSet(rs);
-            closePreparedStatement(ps);
+            e.printStackTrace();
         }
 
-        return null;
+        return compteExists;
     }
+
+
+
 
     private void closeResultSet(ResultSet rs) {
         if (rs != null) {

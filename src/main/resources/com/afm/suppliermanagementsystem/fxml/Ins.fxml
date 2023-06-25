@@ -70,12 +70,12 @@
                         <Image url="@../img/Frame 1.png" />
                     </image>
                 </ImageView>
-                <Label fx:id="inscrirelabel" layoutX="125.0" layoutY="465.0" prefHeight="46.0" prefWidth="279.0" text="Si vous avez deja un compte" textFill="WHITE">
+                <Label fx:id="inscrirelabel" layoutX="148.0" layoutY="465.0" prefHeight="46.0" prefWidth="279.0" text="Si vous avez deja un compte" textFill="#2e3131">
                     <font>
                         <Font name="Century Gothic" size="18.0" />
                     </font>
                 </Label>
-                <JFXButton fx:id="inscrirevous1" layoutX="103.0" onAction="#connecter" layoutY="514.0" prefHeight="28.0" prefWidth="307.0" stylesheets="../css/slide.css" text="Se Connecter" textFill="#FB3741">
+                <JFXButton fx:id="inscrirevous1" layoutX="123.0" onAction="#connecter" layoutY="514.0" prefHeight="28.0" prefWidth="307.0" stylesheets="../css/slide.css" text="Se Connecter" textFill="#FB3741">
                     <font>
                         <Font name="Century Gothic" size="13.0" />
                     </font>

@@ -59,7 +59,7 @@
                         <Image url="@../img/Frame 1.png" />
                     </image>
                 </ImageView>
-                <Label fx:id="inscrirelabel" layoutX="125.0" layoutY="465.0" prefHeight="46.0" prefWidth="279.0" text="Si vous n'avez pas un compte" textFill="WHITE">
+                <Label fx:id="inscrirelabel" layoutX="125.0" layoutY="465.0" prefHeight="46.0" prefWidth="279.0" text="Si vous n'avez pas un compte" textFill="#2e3131">
                     <font>
                         <Font name="Century Gothic" size="18.0" />
                     </font>

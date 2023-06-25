@@ -17,5 +17,5 @@ public interface CompteDao {
 
     void deleteById(Integer id);
 
-    Compte findById(Integer id);
+    boolean findCompte(String nom, String password);
 }
