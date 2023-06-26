@@ -2,15 +2,15 @@ package com.afm.suppliermanagementsystem.model;
 
 public class Fournisseur {
 
-    private int numSIREN;
+    private int numIF;
     private String nom;
     private String adresse;
     private String numeroTelephone;
     private String email;
     private String numeroCompteBancaire;
 
-    public Fournisseur(int numSIREN, String nom, String adresse, String numeroTelephone, String email, String numeroCompteBancaire) {
-        this.numSIREN = numSIREN;
+    public Fournisseur(int numIF, String nom, String adresse, String numeroTelephone, String email, String numeroCompteBancaire) {
+        this.numIF = numIF;
         this.nom = nom;
         this.adresse = adresse;
         this.numeroTelephone = numeroTelephone;
@@ -22,12 +22,12 @@ public class Fournisseur {
 
     }
 
-    public int getNumSIREN() {
-        return numSIREN;
+    public int getNumIF() {
+        return numIF;
     }
 
-    public void setNumSIREN(int numSIREN) {
-        this.numSIREN = numSIREN;
+    public void setNumIF(int numIF) {
+        this.numIF = numIF;
     }
 
     //get
@@ -77,7 +77,7 @@ public class Fournisseur {
     @Override
     public String toString() {
         return "Fournisseur{" +
-                "numSIREN='" + numSIREN + '\'' +
+                "numIF='" + numIF + '\'' +
                 ", nom='" + nom + '\'' +
                 ", adresse='" + adresse + '\'' +
                 ", numeroTelephone='" + numeroTelephone + '\'' +

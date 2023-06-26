@@ -28,7 +28,7 @@
                     </font>
                 </Label>
 
-                <TextField fx:id="txtnumSIREN" layoutX="75.0" layoutY="105.0" prefHeight="32.0" prefWidth="278.0" promptText="numSIREN" />
+                <TextField fx:id="txtnumIF" layoutX="75.0" layoutY="105.0" prefHeight="32.0" prefWidth="278.0" promptText="numIF" />
                 <TextField fx:id="txtNom" layoutX="75.0" layoutY="159.0" prefHeight="32.0" prefWidth="278.0" promptText="Nom" />
                 <TextField fx:id="txtAdresse" layoutX="75.0" layoutY="217.0" prefHeight="32.0" prefWidth="278.0" promptText="Adresse" />
                 <TextField fx:id="txtNumeroTelephone" layoutX="75.0" layoutY="276.0" prefHeight="32.0" prefWidth="278.0" promptText="Numéro de Téléphone" />
@@ -42,7 +42,7 @@
 
         <TableView fx:id="tableViewFournisseur" layoutX="438.0" layoutY="71.0" prefHeight="488.0" prefWidth="651.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="438.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="71.0">
             <columns>
-                <TableColumn fx:id="tableColumnnumSIREN" prefWidth="75.0" text="numSIREN" style="-fx-text-fill: #09253B;" />
+                <TableColumn fx:id="tableColumnnumIF" prefWidth="75.0" text="numIF" style="-fx-text-fill: #09253B;" />
                 <TableColumn fx:id="tableColumnNom" prefWidth="75.0" text="Nom" style="-fx-text-fill: #09253B;" />
                 <TableColumn fx:id="tableColumnAdresse" prefWidth="75.0" text="Adresse" style="-fx-text-fill: #09253B;" />
                 <TableColumn fx:id="tableColumnNumeroTelephone" prefWidth="75.0" text="Numéro de Téléphone" style="-fx-text-fill: #09253B;" />
@@ -52,7 +52,7 @@
                 <TableColumn fx:id="tableColumnREMOVE" prefWidth="75.0" text="Supprimer" style="-fx-text-fill: #09253B;" />
             </columns>
         </TableView>
-        <TextField fx:id="txtSearch" layoutX="438.0" layoutY="26.0" prefHeight="32.0" prefWidth="354.0" promptText="Rechercher un fournisseur par numSIREN..." />
+        <TextField fx:id="txtSearch" layoutX="438.0" layoutY="26.0" prefHeight="32.0" prefWidth="354.0" promptText="Rechercher un fournisseur par numIF..." />
     </children>
 
 </AnchorPane>

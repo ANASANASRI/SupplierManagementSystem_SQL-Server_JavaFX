@@ -24,7 +24,7 @@ import java.util.List;
 
 public class MenuAdmins {
     @FXML
-    private TextField txtnumSIREN;
+    private TextField txtnumIF;
     @FXML
     private TextField txtNom;
     @FXML
@@ -43,7 +43,7 @@ public class MenuAdmins {
     @FXML
     private Button btnUpadte;
     @FXML
-    private TableColumn<Fournisseur, Integer> tableColumnnumSIREN;
+    private TableColumn<Fournisseur, Integer> tableColumnnumIF;
     @FXML
     private TableColumn<Fournisseur, String> tableColumnNom;
     @FXML
@@ -107,7 +107,7 @@ public class MenuAdmins {
             System.out.println("Fournisseur!");
 
             //
-            tableColumnnumSIREN.setCellValueFactory(new PropertyValueFactory<>("numSIREN"));
+            tableColumnnumIF.setCellValueFactory(new PropertyValueFactory<>("numIF"));
             tableColumnNom.setCellValueFactory(new PropertyValueFactory<>("nom"));
             tableColumnAdresse.setCellValueFactory(new PropertyValueFactory<>("adresse"));
             tableColumnNumeroTelephone.setCellValueFactory(new PropertyValueFactory<>("numeroTelephone"));
@@ -132,7 +132,7 @@ public class MenuAdmins {
     private void handleSaveButtonAction() {
         // Create a new Fournisseur object and set its properties using the text fields
         Fournisseur fournisseur = new Fournisseur();
-        fournisseur.setNumSIREN(Integer.parseInt(txtnumSIREN.getText()));
+        fournisseur.setNumIF(Integer.parseInt(txtnumIF.getText()));
         fournisseur.setNom(txtNom.getText());
         fournisseur.setAdresse(txtAdresse.getText());
         fournisseur.setNumeroTelephone(txtNumeroTelephone.getText());
@@ -140,8 +140,8 @@ public class MenuAdmins {
         fournisseur.setNumeroCompteBancaire(txtNumeroCompteBancaire.getText());
 
         // Check if the fournisseur already exists
-        if (fournisseurService.findBynumSIREN(fournisseur.getNumSIREN()) != null) {
-            showAlert("Fournisseur déjà existant", "Un fournisseur avec le même numéro SIREN existe déjà.");
+        if (fournisseurService.findBynumIF(fournisseur.getNumIF()) != null) {
+            showAlert("Fournisseur déjà existant", "Un fournisseur avec le même numéro IF existe déjà.");
             return;
         }
 
@@ -151,6 +151,8 @@ public class MenuAdmins {
 
         // Clear the input fields after saving
         clearInputFields();
+
+        showAlert("Fournisseur ajouté", "Le Fournisseur a été ajouté avec succès.");
 
         // Refresh the table view to reflect the updated data
         refreshTableView();
@@ -186,7 +188,7 @@ public class MenuAdmins {
         Fournisseur selectedFournisseur = tableViewFournisseur.getSelectionModel().getSelectedItem();
         if (selectedFournisseur != null) {
             // Update the selected row's data
-            selectedFournisseur.setNumSIREN(Integer.parseInt(txtnumSIREN.getText()));
+            selectedFournisseur.setNumIF(Integer.parseInt(txtnumIF.getText()));
             selectedFournisseur.setNom(txtNom.getText());
             selectedFournisseur.setAdresse(txtAdresse.getText());
             selectedFournisseur.setNumeroTelephone(txtNumeroTelephone.getText());
@@ -212,7 +214,7 @@ public class MenuAdmins {
     ///////////////CLEARE///////////////////
 
     private void clearInputFields() {
-        txtnumSIREN.clear();
+        txtnumIF.clear();
         txtNom.clear();
         txtAdresse.clear();
         txtNumeroTelephone.clear();
@@ -238,7 +240,7 @@ public class MenuAdmins {
     private void handleRowClick() {
         Fournisseur selectedRow = tableViewFournisseur.getSelectionModel().getSelectedItem();
         if (selectedRow != null) {
-            txtnumSIREN.setText(String.valueOf(selectedRow.getNumSIREN()));
+            txtnumIF.setText(String.valueOf(selectedRow.getNumIF()));
             txtNom.setText(selectedRow.getNom());
             txtAdresse.setText(selectedRow.getAdresse());
             txtNumeroTelephone.setText(selectedRow.getNumeroTelephone());
@@ -257,8 +259,8 @@ public class MenuAdmins {
 
         // Iterate over the filteredList and add matching suppliers to the searchResults list
         for (Fournisseur supplier : fournisseurs) {
-            String numSIREN = Integer.toString(supplier.getNumSIREN());
-            if (numSIREN.contains(searchText)) {
+            String numIF = Integer.toString(supplier.getNumIF());
+            if (numIF.contains(searchText)) {
                 searchResults.add(supplier);
             }
         }
@@ -284,14 +286,14 @@ public class MenuAdmins {
     private void setupRemoveColumn() {
         tableColumnREMOVE.setCellFactory(column -> {
             TableCell<Fournisseur, Button> remove = new TableCell<>() {
-                final Button removeButton = new Button("REMOVE");
+                final Button removeButton = new Button("Supprimer");
 
                 {
                     removeButton.setOnAction(event -> {
                         Fournisseur fournisseur = getTableView().getItems().get(getIndex());
                         fournisseurService.remove(fournisseur);
                         refreshTableView();
-                        System.out.println("Removing fournisseur: " + fournisseur.getNumSIREN());
+                        System.out.println("Removing fournisseur: " + fournisseur.getNumIF());
                     });
                 }
 
@@ -324,6 +326,17 @@ public class MenuAdmins {
                         try {
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/PaiementManager.fxml"));
                             Parent root = loader.load();
+
+                            PaiementManager paiementManagerController = loader.getController();
+
+                            /*{*/
+                                // Get the selected fournisseur object from the table
+                                Fournisseur fournisseur = getTableView().getItems().get(getIndex());
+
+                                // Pass the fournisseur object to the PaiementManager controller
+                                paiementManagerController.setFournisseur(fournisseur);
+                            /*}*/
+
                             Stage stage = new Stage();
                             stage.setScene(new Scene(root));
                             stage.show();
@@ -347,6 +360,7 @@ public class MenuAdmins {
             return paiement;
         });
     }
+
 
 
 

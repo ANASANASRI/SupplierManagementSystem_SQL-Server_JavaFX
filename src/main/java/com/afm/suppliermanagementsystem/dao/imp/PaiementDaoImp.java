@@ -24,14 +24,14 @@ public class PaiementDaoImp implements PaiementDao {
         PreparedStatement ps = null;
 
         try {
-            ps = connection.prepareStatement("INSERT INTO paiement (identifiant, montant, devise, date, effectue, moyenPaiement) VALUES (?, ?, ?, ?, ?, ?)");
+            ps = connection.prepareStatement("INSERT INTO paiement (montant, devise, date, effectue, moyenPaiement,numIF) VALUES (?, ?, ?, ?, ? ,?)");
 
-            ps.setString(1, paiement.getIdentifiant());
-            ps.setDouble(2, paiement.getMontant());
-            ps.setString(3, paiement.getDevise());
-            ps.setDate(4, new java.sql.Date(paiement.getDate().getTime()));
-            ps.setBoolean(5, paiement.isEffectue());
-            ps.setString(6, paiement.getMoyenPaiement().name());
+            ps.setDouble(1, paiement.getMontant());
+            ps.setString(2, paiement.getDevise());
+            ps.setDate(3, new java.sql.Date(paiement.getDate().getTime()));
+            ps.setBoolean(4, paiement.isEffectue());
+            ps.setString(5, paiement.getMoyenPaiement().name());
+            ps.setString(6, String.valueOf(paiement.getNumIF()));
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -53,7 +53,7 @@ public class PaiementDaoImp implements PaiementDao {
             ps.setDate(3, new java.sql.Date(paiement.getDate().getTime()));
             ps.setBoolean(4, paiement.isEffectue());
             ps.setString(5, paiement.getMoyenPaiement().name());
-            ps.setString(6, paiement.getIdentifiant());
+            ps.setInt(6, paiement.getIdentifiant());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -62,6 +62,7 @@ public class PaiementDaoImp implements PaiementDao {
             closePreparedStatement(ps);
         }
     }
+
 
     @Override
     public void deleteById(String identifiant) {
@@ -135,8 +136,38 @@ public class PaiementDaoImp implements PaiementDao {
         return null;
     }
 
+    @Override
+    public List<Paiement> findAllIF(int numIF) {
+        List<Paiement> paiements = new ArrayList<>();
+
+        try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM paiement WHERE numIF = ?")) {
+            statement.setInt(1, numIF);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    int identifiant = resultSet.getInt("identifiant");
+                    double montant = resultSet.getDouble("montant");
+                    String devise = resultSet.getString("devise");
+                    Date date = resultSet.getDate("date");
+                    boolean effectue = resultSet.getBoolean("effectue");
+                    String moyenPaiement = resultSet.getString("moyenPaiement");
+
+                    Paiement.MoyenPaiement moyenPaiementEnum = Paiement.MoyenPaiement.valueOf(moyenPaiement);
+
+                    Paiement paiement = new Paiement(identifiant, montant, devise, date, effectue, moyenPaiementEnum);
+                    paiements.add(paiement);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return paiements;
+    }
+
+
     private Paiement extractPaiementFromResultSet(ResultSet rs) throws SQLException {
-        String identifiant = rs.getString("identifiant");
+        int identifiant = rs.getInt("identifiant");
         double montant = rs.getDouble("montant");
         String devise = rs.getString("devise");
         Date date = rs.getDate("date");

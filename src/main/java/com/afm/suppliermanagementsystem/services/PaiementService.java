@@ -2,6 +2,7 @@ package com.afm.suppliermanagementsystem.services;
 
 import com.afm.suppliermanagementsystem.dao.PaiementDao;
 import com.afm.suppliermanagementsystem.dao.imp.PaiementDaoImp;
+import com.afm.suppliermanagementsystem.model.Fournisseur;
 import com.afm.suppliermanagementsystem.model.Paiement;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 public class PaiementService {
     private static PaiementDao paiementDao = new PaiementDaoImp();
 
-    public void save(Paiement paiement) {
+    public static void save(Paiement paiement) {
         paiementDao.insert(paiement);
     }
 
@@ -21,7 +22,12 @@ public class PaiementService {
         return paiementDao.findByIdentifiant(identifiant);
     }
 
-    public List<Paiement> findAll() {
+    public static List<Paiement> findAll() {
         return paiementDao.findAll();
     }
+
+    public static List<Paiement> findAllIF(int numIF) {
+        return paiementDao.findAllIF(numIF);
+    }
+
 }

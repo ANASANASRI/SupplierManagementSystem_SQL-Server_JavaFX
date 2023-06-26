@@ -9,9 +9,9 @@ public interface FournisseurDao {
 
     void update(Fournisseur fournisseur);
 
-    Fournisseur findBynumSIREN(int numSIREN);
+    Fournisseur findBynumIF(int numIF);
 
-    void deleteBynumSIREN(int numSIREN);
+    void deleteBynumIF(int numIF);
 
     List<Fournisseur> findAll();
 }

@@ -20,9 +20,9 @@ public class FournisseurDaoImp implements FournisseurDao {
         PreparedStatement ps = null;
 
         try {
-            ps = conn.prepareStatement("INSERT INTO fournisseur (numSIREN, nom, adresse, numeroTelephone, email, numeroCompteBancaire) VALUES (?, ?, ?, ?, ?, ?)");
+            ps = conn.prepareStatement("INSERT INTO fournisseur (numIF, nom, adresse, numeroTelephone, email, numeroCompteBancaire) VALUES (?, ?, ?, ?, ?, ?)");
 
-            ps.setInt(1, fournisseur.getNumSIREN());
+            ps.setInt(1, fournisseur.getNumIF());
             ps.setString(2, fournisseur.getNom());
             ps.setString(3, fournisseur.getAdresse());
             ps.setString(4, fournisseur.getNumeroTelephone());
@@ -42,14 +42,14 @@ public class FournisseurDaoImp implements FournisseurDao {
         PreparedStatement ps = null;
 
         try {
-            ps = conn.prepareStatement("UPDATE fournisseur SET nom = ?, adresse = ?, numeroTelephone = ?, email = ?, numeroCompteBancaire = ? WHERE numSIREN = ?");
+            ps = conn.prepareStatement("UPDATE fournisseur SET nom = ?, adresse = ?, numeroTelephone = ?, email = ?, numeroCompteBancaire = ? WHERE numIF = ?");
 
             ps.setString(1, fournisseur.getNom());
             ps.setString(2, fournisseur.getAdresse());
             ps.setString(3, fournisseur.getNumeroTelephone());
             ps.setString(4, fournisseur.getEmail());
             ps.setString(5, fournisseur.getNumeroCompteBancaire());
-            ps.setInt(6, fournisseur.getNumSIREN());
+            ps.setInt(6, fournisseur.getNumIF());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -60,13 +60,13 @@ public class FournisseurDaoImp implements FournisseurDao {
     }
 
     @Override
-    public void deleteBynumSIREN(int numSIREN) {
+    public void deleteBynumIF(int numIF) {
         PreparedStatement ps = null;
 
         try {
-            ps = conn.prepareStatement("DELETE FROM fournisseur WHERE numSIREN = ?");
+            ps = conn.prepareStatement("DELETE FROM fournisseur WHERE numIF = ?");
 
-            ps.setInt(1, numSIREN);
+            ps.setInt(1, numIF);
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -77,13 +77,13 @@ public class FournisseurDaoImp implements FournisseurDao {
     }
 
     @Override
-    public Fournisseur findBynumSIREN(int numSIREN) {
+    public Fournisseur findBynumIF(int numIF) {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
         try {
-            ps = conn.prepareStatement("SELECT * FROM fournisseur WHERE numSIREN = ?");
-            ps.setInt(1, numSIREN);
+            ps = conn.prepareStatement("SELECT * FROM fournisseur WHERE numIF = ?");
+            ps.setInt(1, numIF);
 
             rs = ps.executeQuery();
 
@@ -94,10 +94,10 @@ public class FournisseurDaoImp implements FournisseurDao {
                 String email = rs.getString("email");
                 String numeroCompteBancaire = rs.getString("numeroCompteBancaire");
 
-                return new Fournisseur(numSIREN, nom, adresse, numeroTelephone, email, numeroCompteBancaire);
+                return new Fournisseur(numIF, nom, adresse, numeroTelephone, email, numeroCompteBancaire);
             }
         } catch (SQLException e) {
-            System.err.println("Error finding fournisseur by numSIREN: " + e);
+            System.err.println("Error finding fournisseur by numIF: " + e);
         } finally {
             DB.closeResultSet(rs);
             DB.closeStatement(ps);
@@ -121,7 +121,7 @@ public class FournisseurDaoImp implements FournisseurDao {
 
                 Fournisseur fournisseur = new Fournisseur();
 
-                fournisseur.setNumSIREN(rs.getInt("numSIREN"));
+                fournisseur.setNumIF(rs.getInt("numIF"));
                 fournisseur.setNom(rs.getString("nom"));
                 fournisseur.setAdresse(rs.getString("adresse"));
                 fournisseur.setNumeroTelephone(rs.getString("numeroTelephone"));

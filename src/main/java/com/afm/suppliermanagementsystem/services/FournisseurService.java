@@ -19,11 +19,11 @@ public class FournisseurService {
 
 
     public static void remove(Fournisseur fournisseur) {
-        fournisseurDao.deleteBynumSIREN(fournisseur.getNumSIREN());
+        fournisseurDao.deleteBynumIF(fournisseur.getNumIF());
     }
 
-    public Fournisseur findBynumSIREN(int numSIREN) {
-        return fournisseurDao.findBynumSIREN(numSIREN);
+    public Fournisseur findBynumIF(int numIF) {
+        return fournisseurDao.findBynumIF(numIF);
     }
 
     public List<Fournisseur> findAll() {
