@@ -63,7 +63,7 @@ public class InscriptionEtAuthentification  {
     private void loadConnAdm(ActionEvent e) throws IOException {
         String nom = pseudoc.getText();
         String password = motpassc.getText();
-        boolean compteExists = CompteService.findCompte(nom, password);
+        boolean compteExists = CompteService.findCompte(nom,password);
 
         if (compteExists) {
             Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));

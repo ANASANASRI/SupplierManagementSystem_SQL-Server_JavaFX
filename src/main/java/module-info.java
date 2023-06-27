@@ -5,6 +5,8 @@ module com.afm.suppliermanagementsystem {
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
     requires com.jfoenix;
+    requires itextpdf;
+    requires javafx.web;
 
     opens com.afm.suppliermanagementsystem to javafx.fxml;
     exports com.afm.suppliermanagementsystem;
