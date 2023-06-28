@@ -51,10 +51,11 @@ The Supplier Management System is built using JavaFX, a Java library for buildin
 
 ## :rocket: Getting Started
 
-To run the Supplier Management System locally, follow these steps:
+To get started with the Supplier Management System, follow the steps below:
 
-1. Install JavaFX. You can download it from the [official website](https://openjfx.io/).
-2. Clone this repository
+### Prerequisites
+
+- JavaFX: Ensure that you have JavaFX installed on your system. You can download it from the [official website](https://openjfx.io/).
 
 [//]: # (Install)
 ## :compass: Install
