@@ -1,43 +1,29 @@
 package com.afm.suppliermanagementsystem.controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+
 public class GetPdfs {
-    @FXML
-    private Button printPDF1Button;
 
     @FXML
-    private Button printPDF2Button;
-
+    private WebView webView;
     @FXML
     private WebView webView1;
 
     @FXML
     private WebView webView2;
 
-    @FXML
     public void initialize() {
-        // Initialize the controller
+        WebEngine webEngine1 = webView1.getEngine();
+        String pdfPath1 = "/PDFs/OrdereVirement.pdf";
+        String fullPath1 = getClass().getResource(pdfPath1).toExternalForm();
+        webEngine1.load(fullPath1);
+
+        WebEngine webEngine2 = webView2.getEngine();
+        String pdfPath2 = "/PDFs/ReglementAssurance.pdf";
+        String fullPath2 = getClass().getResource(pdfPath2).toExternalForm();
+        webEngine2.load(fullPath2);
     }
 
-    @FXML
-    private void handlePrintPDF1() {
-        // Implement the logic to print PDF 1
-        // You can use the webView1 to get the content of PDF 1 and print it
-    }
-
-    @FXML
-    private void handlePrintPDF2() {
-        // Implement the logic to print PDF 2
-        // You can use the webView2 to get the content of PDF 2 and print it
-    }
-
-    public void loadPDF1(String path) {
-        webView1.getEngine().load(path);
-    }
-
-    public void loadPDF2(String path) {
-        webView2.getEngine().load(path);
-    }
 }

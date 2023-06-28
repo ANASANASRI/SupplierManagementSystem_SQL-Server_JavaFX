@@ -53,6 +53,13 @@
             </columns>
         </TableView>
         <TextField fx:id="txtSearch" layoutX="438.0" layoutY="26.0" prefHeight="32.0" prefWidth="354.0" promptText="Rechercher un fournisseur par numIF..." />
+        <!--<VBox layoutX="800.0" layoutY="26.0" prefHeight="32.0" prefWidth="354.0" alignment="CENTER">
+            <ImageView fitWidth="354.0" fitHeight="32.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../img/Frame 5.png" />
+                </image>
+            </ImageView>
+        </VBox>-->
     </children>
 
 </AnchorPane>

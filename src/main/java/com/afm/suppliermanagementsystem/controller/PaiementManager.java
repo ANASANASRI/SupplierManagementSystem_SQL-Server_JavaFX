@@ -287,7 +287,7 @@ public class PaiementManager {
 
         try {
             // Create a PDF writer
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("ReglementAssurance.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("src/main/resources/PDFs/ReglementAssurance.pdf"));
 
             // Open the document
             document.open();
@@ -320,8 +320,11 @@ public class PaiementManager {
             contentParagraph.add(Chunk.NEWLINE);
             contentParagraph.add(Chunk.NEWLINE);
             contentParagraph.add(Chunk.NEWLINE);
+            contentParagraph.add(Chunk.NEWLINE);
+            contentParagraph.add(Chunk.NEWLINE);
             contentParagraph.add(new Phrase("Objet : ", boldUnderlineFont));
             contentParagraph.add(new Phrase("Règlement DE (T4) 2022 DE L'ASSURANCE COMPLIMENTAIRE 2022.", boldFont));
+            contentParagraph.add(Chunk.NEWLINE);
             contentParagraph.add(Chunk.NEWLINE);
             contentParagraph.add(Chunk.NEWLINE);
             contentParagraph.add(Chunk.NEWLINE);
@@ -387,7 +390,7 @@ public class PaiementManager {
         try {
 
             // Create a PDF writer
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("OrdereVirement.pdf"));
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("src/main/resources/PDFs/OrdereVirement.pdf"));
 
             // Open the document
             document.open();
