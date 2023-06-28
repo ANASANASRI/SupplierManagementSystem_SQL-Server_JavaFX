@@ -1,6 +1,5 @@
 # ANAS ANASRI
 <div align="center">
-  <img src="static/img/logo.png" alt="GreaterWMS logo" width="200" height="auto" />
   <h1>SupplierManagementSystem</h1>
   <p>Supplier Management System with Payment and PDF Generation</p>
 
@@ -33,11 +32,10 @@
 #### Since V2.1.26，GreaterWMS switch license to AGPLv3, Personal learning is unlimited, and you need to purchase a commercial license for commercial use.
 
 [//]: # (About the Project)
-## :star2: About the Project
+## :star2:About the Project
 
-This Inventory management system is the currently Ford Asia Pacific after-sales logistics warehousing supply chain process.
-After I leave Ford, I start this project in order to help some who need it. 
-OneAPP Type. Support scanner PDA, mobile APP, desktop exe, website as well.
+This Supplier Management System is designed to streamline the after-sales logistics warehousing supply chain process in the Ford Asia Pacific region. The project aims to assist businesses in managing their suppliers efficiently. It supports various platforms including scanner PDA, mobile app, desktop executable, and website.
+
 
 [//]: # (Function)
 ## :dart: Function
@@ -60,38 +58,6 @@ OneAPP Type. Support scanner PDA, mobile APP, desktop exe, website as well.
 
 [//]: # (Install)
 ## :compass: Install
-Python install
-- [python 3.8.10](https://www.python.org/downloads/release/python-3810/)
-
-Nodejs install
-- [nodejs 14.19.3](https://nodejs.org/download/release/v14.19.3/)
-
-Twisted install
-- Please google how to install Twisted , if you have some problem on install it . 
-
-Clone Project
-~~~shell
-git clone https://github.com/GreaterWMS/GreaterWMS.git
-~~~
-
-### docker(Optional)
-~~~shell
-cd GreaterWMS/
-docker-compose up -d
-# Change Baseurl
-# baseurl GreaterWMS/templates/public/statics/baseurl.txt
-docker-compose restart
-~~~
-
-<h4>
-  <a href="https://www.56yhz.com/win_10.html">Windows X64</a>
-</h4>
-<h4>
-  <a href="https://www.56yhz.com/centos_7.html">Centos 7</a>
-</h4>
-<h4>
-  <a href="https://www.56yhz.com/ubuntu_20.html">Ubuntu 20</a>
-</h4>
 
 [//]: # (development)
 ## :hammer_and_wrench: How To Run Development Server:
