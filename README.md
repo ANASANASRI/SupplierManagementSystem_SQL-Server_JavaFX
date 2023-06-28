@@ -40,21 +40,21 @@ This Supplier Management System is designed to streamline the after-sales logist
 [//]: # (Function)
 ## :dart: Function
 
-* [x] Multiple Warehouses
-* [x] Supplier Management
-* [x] Customer Management
-* [x] Scanner PDA
-* [x] Cycle Count
-* [x] Order Management
-* [x] Stock Control
-* [x] Safety Stock Show
-* [x] API Documents
-* [x] IOS APP Support
-* [x] Android APP Support
-* [x] Electron APP Support
-* [x] Auto Update
-* [x] i18n Support
-* [x] API Documents
+* [x] Authentication: Allows users to securely log in to the system.
+* [x] Registration: Enables new users to create an account and join the system.
+* [x] Supplier Management: Provides functionality to manage suppliers, including adding, editing, and deleting supplier information.
+* [x] Payment Management: Facilitates payment management for suppliers, including recording payments, generating invoices, and tracking payment status.
+
+## :computer: Technologies Used
+
+The Supplier Management System is built using JavaFX, a Java library for building desktop applications with a modern user interface.
+
+## :rocket: Getting Started
+
+To run the Supplier Management System locally, follow these steps:
+
+1. Install JavaFX. You can download it from the [official website](https://openjfx.io/).
+2. Clone this repository
 
 [//]: # (Install)
 ## :compass: Install
