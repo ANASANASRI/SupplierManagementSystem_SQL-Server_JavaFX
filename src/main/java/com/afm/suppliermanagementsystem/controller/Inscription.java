@@ -2,8 +2,6 @@ package com.afm.suppliermanagementsystem.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.Random;
 
 import com.afm.suppliermanagementsystem.dao.imp.DB;
 import com.afm.suppliermanagementsystem.model.Compte;
@@ -21,6 +19,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
@@ -83,7 +86,6 @@ public class Inscription {
 
 	@FXML
 	public void inscrirenow(ActionEvent e) throws IOException {
-			// Get the values from the input fields
 			String nomValue = nom.getText();
 			String prenomValue = prenom.getText();
 			String telValue = tel.getText();
@@ -92,9 +94,7 @@ public class Inscription {
 			String motPassValue = mot_pass.getText();
 			String adresseValue = adresse.getText();
 
-			// Perform validation if needed
 
-			// Create a new Compte object
 			Compte compte = new Compte(nomValue, prenomValue, telValue, pseudoValue, identifiantValue, motPassValue, adresseValue , 1);
 
 			// Save the Compte object using the CompteService
@@ -114,7 +114,6 @@ public class Inscription {
 
 			fenetre.show();
 		} else {
-			// Show an alert for unsuccessful connection
 			Alert errorAlert = new Alert(Alert.AlertType.ERROR);
 			errorAlert.setTitle("Connection Error");
 			errorAlert.setHeaderText(null);
@@ -123,5 +122,61 @@ public class Inscription {
 		}
 
 		}
+
+	//////////////////////////////////
+
+	@FXML
+	private JFXTextField mot_pass_show;
+	@FXML
+	private ImageView lblclose;
+	@FXML
+	private ImageView lblopen;
+
+	String password;
+
+	public void openEye(MouseEvent mouseEvent) {
+		mot_pass_show.setVisible(false);
+		mot_pass.setVisible(true);
+		lblopen.setVisible(false);
+		lblclose.setVisible(true);
+	}
+
+	public void closeEye(MouseEvent mouseEvent) {
+		mot_pass_show.setVisible(true);
+		mot_pass.setVisible(false);
+		lblopen.setVisible(true);
+		lblclose.setVisible(false);
+	}
+
+	public void hide_passWord(KeyEvent keyEvent) {
+		password = mot_pass.getText();
+		mot_pass_show.setText(password);
+	}
+
+	public void showed_passWord(KeyEvent keyEvent) {
+		password = mot_pass_show.getText();
+		mot_pass.setText(password);
+	}
+
+	public void initialize(){
+		mot_pass_show.setVisible(false);
+		lblopen.setVisible(false);
+	}
+
+
+	//////////////////////////////////////
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
 

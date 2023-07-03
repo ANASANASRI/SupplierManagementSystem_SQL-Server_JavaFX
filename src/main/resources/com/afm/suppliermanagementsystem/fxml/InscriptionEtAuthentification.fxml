@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXPasswordField?>
-<?import com.jfoenix.controls.JFXTextField?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.afm.suppliermanagementsystem.controller.InscriptionEtAuthentification"
-            prefHeight="590.0" prefWidth="1070.0" style="-fx-background-color: #C4C4C4;">
+<AnchorPane prefHeight="590.0" prefWidth="1070.0" style="-fx-background-color: #C4C4C4;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.afm.suppliermanagementsystem.controller.InscriptionEtAuthentification">
     <children>
 
         <Pane layoutX="533.0" prefHeight="590.0" prefWidth="535.0">
@@ -23,28 +17,49 @@
                         <Font name="Century Gothic" size="14.0" />
                     </font>
                 </JFXTextField>
-                <JFXPasswordField fx:id="motpassc" focusColor="#FB3741" focusTraversable="false" labelFloat="true" layoutX="114.0" layoutY="294.0" maxWidth="356.0" minWidth="291.0" prefHeight="36.0" prefWidth="307.0" promptText="Mote de passe" style="-fx-text-inner-color: #2e3131;">
+
+                <!----><!---->
+                <JFXTextField fx:id="mot_pass_show" focusColor="#FB3741" labelFloat="true" layoutX="116.0" layoutY="297.0" maxWidth="307.0" minWidth="293.0" onKeyReleased="#showed_passWord" prefHeight="36.0" prefWidth="307.0" promptText="Mot de passe" style="-fx-text-inner-color: #2e3131;">
+                    <font>
+                        <Font name="Century Gothic" size="14.0" />
+                    </font>
+                </JFXTextField>
+
+                <ImageView fx:id="lblopen" fitHeight="25.0" fitWidth="25.0" layoutX="400.0" layoutY="304.0" onMouseClicked="#openEye" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/icons8-eye-48.png" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </ImageView>
+                <!---->
+                <JFXPasswordField fx:id="motpassc" focusColor="#FB3741" focusTraversable="false" labelFloat="true" layoutX="116.0" layoutY="297.0" maxWidth="356.0" minWidth="291.0" onKeyReleased="#hide_passWord" prefHeight="36.0" prefWidth="307.0" promptText="Mot de passe" style="-fx-text-inner-color: #2e3131;">
                     <font>
                         <Font name="Century Gothic" size="14.0" />
                     </font>
                 </JFXPasswordField>
 
+                <ImageView fx:id="lblclose" fitHeight="25.0" fitWidth="25.0" layoutX="400.0" layoutY="304.0" onMouseClicked="#closeEye" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/icons8-closed-eye-48.png" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor></ImageView>
+                <!----><!---->
+
 <!--                ////-->
-                <JFXButton onAction="#ConnectAdmin" layoutX="114.0" layoutY="464.0"  prefHeight="28.0" prefWidth="307.0" stylesheets="../css/connection.css" text="Connecter" textFill="#FB3741">
+                <JFXButton layoutX="114.0" layoutY="427.0" onAction="#ConnectAdmin" prefHeight="28.0" prefWidth="307.0" text="Connecter" textFill="#FB3741">
                     <font>
                         <Font name="Century Gothic" size="13.0" />
                     </font>
                 </JFXButton>
 <!--                ////-->
 
-                <Label layoutX="196.0" layoutY="146.0" prefHeight="17.0" prefWidth="239.0" text="Se connecter" textFill="#2e3131">
+                <Label layoutX="187.0" layoutY="145.0" prefHeight="31.0" prefWidth="163.0" text="Se connecter" textFill="#2e3131">
                     <font>
                         <Font name="Century Gothic" size="24.0" />
-                    </font>
-                </Label>
-                <Label fx:id="messagec" layoutX="86.0" layoutY="356.0" prefHeight="62.0" prefWidth="349.0" textAlignment="CENTER" textFill="#e83939" textOverrun="CLIP">
-                    <font>
-                        <Font name="Century Gothic" size="15.0" />
                     </font>
                 </Label>
             </children>
@@ -64,7 +79,7 @@
                         <Font name="Century Gothic" size="18.0" />
                     </font>
                 </Label>
-                <JFXButton fx:id="inscrirevous1" layoutX="103.0" onAction="#inscrire" layoutY="514.0" prefHeight="28.0" prefWidth="307.0" stylesheets="../css/slide.css" text="Inscrire" textFill="#FB3741">
+                <JFXButton fx:id="inscrirevous1" layoutX="103.0" layoutY="514.0" onAction="#inscrire" prefHeight="28.0" prefWidth="307.0" text="Inscrire" textFill="#FB3741">
                     <font>
                         <Font name="Century Gothic" size="13.0" />
                     </font>
@@ -73,8 +88,3 @@
         </Pane>
     </children>
 </AnchorPane>
-
-
-
-
-

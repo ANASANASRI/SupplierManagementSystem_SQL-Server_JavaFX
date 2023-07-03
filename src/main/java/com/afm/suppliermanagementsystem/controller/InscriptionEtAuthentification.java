@@ -11,6 +11,7 @@ import com.afm.suppliermanagementsystem.model.Compte;
 import com.afm.suppliermanagementsystem.services.CompteService;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXToggleButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +20,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
@@ -96,6 +100,51 @@ public class InscriptionEtAuthentification  {
 
 
     //////////////////////////////////////////////////////////////
+
+
+    //////////////////////////////////
+
+    @FXML
+    private JFXTextField mot_pass_show;
+    @FXML
+    private ImageView lblclose;
+    @FXML
+    private ImageView lblopen;
+
+    String password;
+
+    public void openEye(MouseEvent mouseEvent) {
+        mot_pass_show.setVisible(false);
+        motpassc.setVisible(true);
+        lblopen.setVisible(false);
+        lblclose.setVisible(true);
+    }
+
+    public void closeEye(MouseEvent mouseEvent) {
+        mot_pass_show.setVisible(true);
+        motpassc.setVisible(false);
+        lblopen.setVisible(true);
+        lblclose.setVisible(false);
+    }
+
+    public void hide_passWord(KeyEvent keyEvent) {
+        password = motpassc.getText();
+        mot_pass_show.setText(password);
+    }
+
+    public void showed_passWord(KeyEvent keyEvent) {
+        password = mot_pass_show.getText();
+        motpassc.setText(password);
+    }
+
+    public void initialize(){
+        mot_pass_show.setVisible(false);
+        lblopen.setVisible(false);
+    }
+
+
+    //////////////////////////////////////
+
 
     /*@FXML
     private JFXTextField pseudoc;

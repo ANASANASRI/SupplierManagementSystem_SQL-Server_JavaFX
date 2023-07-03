@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="564.0" prefWidth="1101.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.afm.suppliermanagementsystem.controller.MenuAdmins">
-
+<?import javafx.scene.Cursor?>
+<AnchorPane id="AnchorPane" prefHeight="576.0" prefWidth="1101.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.afm.suppliermanagementsystem.controller.MenuAdmins">
     <children>
         <Pane prefHeight="575.0" prefWidth="429.0" style="-fx-background-color: #B7B7B7;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <ImageView onMouseClicked="#handleImageClick" fitHeight="52.0" fitWidth="52.0" layoutX="83.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+
+                <ImageView fitHeight="52.0" fitWidth="52.0" layoutX="83.0" layoutY="36.0" onMouseClicked="#handleImageClick" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../img/Frame 2.png" />
                     </image>
@@ -34,25 +34,47 @@
                 <TextField fx:id="txtNumeroTelephone" layoutX="75.0" layoutY="276.0" prefHeight="32.0" prefWidth="278.0" promptText="Numéro de Téléphone" />
                 <TextField fx:id="txtEmail" layoutX="75.0" layoutY="334.0" prefHeight="32.0" prefWidth="278.0" promptText="Email" />
                 <TextField fx:id="txtNumeroCompteBancaire" layoutX="75.0" layoutY="390.0" prefHeight="32.0" prefWidth="278.0" promptText="Numéro de Compte Bancaire" />
-                <Button fx:id="btnSave" onAction="#handleSaveButtonAction" layoutX="76.0" layoutY="449.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Ajouter" />
-                <Button fx:id="btnUPdate" onAction="#handleUpdateButtonAction" layoutX="76.0" layoutY="508.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Modifier" />
+                <Button fx:id="btnSave" layoutX="76.0" layoutY="449.0" mnemonicParsing="false" onAction="#handleSaveButtonAction" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Ajouter" />
+                <Button fx:id="btnUPdate" layoutX="76.0" layoutY="508.0" mnemonicParsing="false" onAction="#handleUpdateButtonAction" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Modifier">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets></Button>
+
+                <MenuButton layoutY="1.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Menu">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleAction1" text="Action 1" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleAction2" text="Action 2" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleAction3" text="Action 3" />
+                    </items>
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </MenuButton>
 
             </children>
         </Pane>
 
         <TableView fx:id="tableViewFournisseur" layoutX="438.0" layoutY="71.0" prefHeight="488.0" prefWidth="651.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="438.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="71.0">
             <columns>
-                <TableColumn fx:id="tableColumnnumIF" prefWidth="75.0" text="numIF" style="-fx-text-fill: #09253B;" />
-                <TableColumn fx:id="tableColumnNom" prefWidth="75.0" text="Nom" style="-fx-text-fill: #09253B;" />
-                <TableColumn fx:id="tableColumnAdresse" prefWidth="75.0" text="Adresse" style="-fx-text-fill: #09253B;" />
-                <TableColumn fx:id="tableColumnNumeroTelephone" prefWidth="75.0" text="Numéro de Téléphone" style="-fx-text-fill: #09253B;" />
-                <TableColumn fx:id="tableColumnEmail" prefWidth="75.0" text="Email" style="-fx-text-fill: #09253B;" />
-                <TableColumn fx:id="tableColumnNumeroCompteBancaire" prefWidth="75.0" text="Numéro de Compte Bancaire" style="-fx-text-fill: #09253B;" />
-                <TableColumn fx:id="tableColumnPaiement" prefWidth="75.0" text="Paiement" style="-fx-text-fill: #09253B;" />
-                <TableColumn fx:id="tableColumnREMOVE" prefWidth="75.0" text="Supprimer" style="-fx-text-fill: #09253B;" />
+                <TableColumn fx:id="tableColumnnumIF" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="numIF" />
+                <TableColumn fx:id="tableColumnNom" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Nom" />
+                <TableColumn fx:id="tableColumnAdresse" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Adresse" />
+                <TableColumn fx:id="tableColumnNumeroTelephone" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Numéro de Téléphone" />
+                <TableColumn fx:id="tableColumnEmail" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Email" />
+                <TableColumn fx:id="tableColumnNumeroCompteBancaire" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Numéro de Compte Bancaire" />
+                <TableColumn fx:id="tableColumnPaiement" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Paiement" />
+                <TableColumn fx:id="tableColumnREMOVE" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Supprimer" />
             </columns>
         </TableView>
         <TextField fx:id="txtSearch" layoutX="438.0" layoutY="26.0" prefHeight="32.0" prefWidth="354.0" promptText="Rechercher un fournisseur par numIF..." />
+        <ImageView fx:id="lblsearch" fitHeight="25.0" fitWidth="25.0" layoutX="400.0" layoutY="304.0" onMouseClicked="#closeEye" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../img/icons8-search.gif" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
         <!--<VBox layoutX="800.0" layoutY="26.0" prefHeight="32.0" prefWidth="354.0" alignment="CENTER">
             <ImageView fitWidth="354.0" fitHeight="32.0" pickOnBounds="true" preserveRatio="true">
                 <image>

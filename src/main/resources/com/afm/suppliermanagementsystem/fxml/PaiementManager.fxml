@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.collections.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.collections.FXCollections?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.afm.suppliermanagementsystem.controller.PaiementManager"
-            prefHeight="500.0" prefWidth="1061.0" style="-fx-background-color: #FFF;">
+<AnchorPane prefHeight="500.0" prefWidth="1061.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.afm.suppliermanagementsystem.controller.PaiementManager">
 
     <children>
         <Pane onMouseClicked="#handleImageClick" prefHeight="500.0" prefWidth="429.0" style="-fx-background-color: #B7B7B7;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -38,7 +32,7 @@
                 <TextField fx:id="devise" layoutX="75.0" layoutY="159.0" prefHeight="32.0" prefWidth="278.0" promptText="devise" />
                 <TextField fx:id="date" layoutX="75.0" layoutY="217.0" prefHeight="32.0" prefWidth="278.0" promptText="date" />
                 <CheckBox fx:id="effectue" layoutX="75.0" layoutY="276.0" prefHeight="32.0" prefWidth="278.0" text="Effectué" textFill="white" />
-                <Label text="Mode Paiement" layoutX="75.0" layoutY="321.0" textFill="white"/>
+                <Label layoutX="75.0" layoutY="321.0" text="Mode Paiement" textFill="white" />
                 <ComboBox fx:id="moyenPaiement" layoutX="75.0" layoutY="340.0" prefHeight="32.0" prefWidth="278.0">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
@@ -47,20 +41,20 @@
                         </FXCollections>
                     </items>
                 </ComboBox>
-                <Button fx:id="btnSave" onAction="#handleSaveButtonAction" layoutX="76.0" layoutY="396.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Ajouter" />
+                <Button fx:id="btnSave" layoutX="76.0" layoutY="396.0" mnemonicParsing="false" onAction="#handleSaveButtonAction" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Ajouter" />
             </children>
         </Pane>
 
-        <TableView fx:id="tableViewPaiement" layoutX="438.0" layoutY="221.0" >
+        <TableView fx:id="tableViewPaiement" layoutX="438.0" layoutY="221.0" prefHeight="322.0" prefWidth="603.0">
             <columns>
-                <TableColumn fx:id="tableColumnIdentifiant" prefWidth="75.0" text="Identifiant" style="-fx-text-fill: #09253B;" />
-                <TableColumn fx:id="tableColumnMontant" prefWidth="75.0" text="Montant" style="-fx-text-fill: #09253B;" />
-                <TableColumn fx:id="tableColumnDevise" prefWidth="75.0" text="Devise" style="-fx-text-fill: #09253B;" />
-                <TableColumn fx:id="tableColumnDate" prefWidth="75.0" text="Date" style="-fx-text-fill: #09253B;" />
-                <TableColumn fx:id="tableColumnEffectue" prefWidth="75.0" text="Effectué" style="-fx-text-fill: #09253B;" />
-                <TableColumn fx:id="tableColumnMoyenPaiement" prefWidth="75.0" text="Moyen de Paiement" style="-fx-text-fill: #09253B;" />
-                <TableColumn fx:id="tableColumnPdf" prefWidth="75.0" text="GetPDFs" style="-fx-text-fill: #09253B;" />
-                <TableColumn fx:id="tableColumnREMOVE" prefWidth="75.0" text="Supprimer" style="-fx-text-fill: #09253B;" />
+                <TableColumn fx:id="tableColumnIdentifiant" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Identifiant" />
+                <TableColumn fx:id="tableColumnMontant" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Montant" />
+                <TableColumn fx:id="tableColumnDevise" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Devise" />
+                <TableColumn fx:id="tableColumnDate" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Date" />
+                <TableColumn fx:id="tableColumnEffectue" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Effectué" />
+                <TableColumn fx:id="tableColumnMoyenPaiement" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Moyen de Paiement" />
+                <TableColumn fx:id="tableColumnPdf" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="GetPDFs" />
+                <TableColumn fx:id="tableColumnREMOVE" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Supprimer" />
             </columns>
         </TableView>
 
@@ -76,8 +70,8 @@
             <Label fx:id="fournisseurNumeroCompteBancaireLabel" style="-fx-font-family: 'Century Gothic'; -fx-font-size: 14px; -fx-text-fill: #2e3131; -fx-padding: 5px;" />
         </VBox>
 
-        <VBox layoutX="800.0" layoutY="26.0" prefHeight="185.0" prefWidth="240.0" alignment="CENTER">
-            <ImageView fitWidth="240.0" fitHeight="185.0" pickOnBounds="true" preserveRatio="true">
+        <VBox alignment="CENTER" layoutX="800.0" layoutY="26.0" prefHeight="185.0" prefWidth="240.0">
+            <ImageView fitHeight="185.0" fitWidth="240.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="@../img/cost1.png" />
                 </image>

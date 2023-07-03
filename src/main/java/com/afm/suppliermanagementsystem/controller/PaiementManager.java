@@ -269,6 +269,7 @@ public class PaiementManager {
     }
 
     /////////////////////PDF1////////////////////////
+
     private void generateReglementAssurancePDF(Paiement paiement) {
         Document document = new Document();
 
@@ -304,7 +305,6 @@ public class PaiementManager {
             // Add the content to the paragraph
             Font boldFont = FontFactory.getFont(FontFactory.TIMES_ROMAN, 14, Font.BOLD);
             Font boldUnderlineFont = FontFactory.getFont(FontFactory.TIMES_ROMAN, 14, Font.BOLD | Font.UNDERLINE);
-
 
 
             // Add the content to the paragraph
@@ -356,10 +356,8 @@ public class PaiementManager {
             rightAlignedParagraph4.add(phrase4);
             contentParagraph.add(rightAlignedParagraph4);
 
-            // Add the content paragraph to the document
             document.add(contentParagraph);
 
-            // Close the document
             document.close();
 
             System.out.println("PDF generated successfully.");
@@ -371,7 +369,6 @@ public class PaiementManager {
     /////////////////////////////PDF2//////////////////////////////
 
     private void generateOrdereVirementPDF(Paiement paiement) {
-        // Create a PDF document
         Document document = new Document();
 
         String[] paiementData = getPaiementData(paiement);
@@ -396,16 +393,12 @@ public class PaiementManager {
             document.open();
 
 
-            // Add new paragraph
             Paragraph contentParagraph = new Paragraph();
             contentParagraph.setAlignment(Element.ALIGN_LEFT);
             contentParagraph.setSpacingBefore(10);
 
-            // Create a font for the content
             Font contentFont = FontFactory.getFont(FontFactory.TIMES_ROMAN, 12);
             Font contentFont1 = FontFactory.getFont(FontFactory.TIMES_ROMAN, 14);
-
-            // Add the content to the paragraph
             Font boldFont = FontFactory.getFont(FontFactory.TIMES_ROMAN, 12, Font.BOLD);
             Font boldUnderlineFont = FontFactory.getFont(FontFactory.TIMES_ROMAN, 12, Font.BOLD | Font.UNDERLINE);
 
@@ -420,7 +413,6 @@ public class PaiementManager {
 
             contentParagraph.add(Chunk.NEWLINE);
 ////////////
-// Create a new paragraph for the right-aligned phrases
             Paragraph rightAlignedParagraph1 = new Paragraph();
             rightAlignedParagraph1.setAlignment(Element.ALIGN_RIGHT);
             Paragraph rightAlignedParagraph2 = new Paragraph();
@@ -502,11 +494,13 @@ public class PaiementManager {
 
                 {
                     getPDFButton.setOnAction(event -> {
+
                         Paiement paiement = getTableView().getItems().get(getIndex());
                         generateReglementAssurancePDF(paiement);
                         generateOrdereVirementPDF(paiement);
 
                         loadGetPdfs(event);
+
                     });
                 }
 
@@ -527,17 +521,21 @@ public class PaiementManager {
 
     private void loadGetPdfs(ActionEvent event) {
         try {
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/GetPdfs.fxml"));
             Parent root = loader.load();
-            Scene scene = new Scene(root);
-            Stage fenetre = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            fenetre.setScene(scene);
-            fenetre.setResizable(false);
-            Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-            fenetre.setX((primScreenBounds.getWidth() - fenetre.getWidth()) / 2);
-            fenetre.setY((primScreenBounds.getHeight() - fenetre.getHeight()) / 4);
 
-            fenetre.show();
+            Scene scene = new Scene(root);
+            Stage newStage = new Stage();
+            newStage.setScene(scene);
+            newStage.setResizable(false);
+            Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+            newStage.setX((primScreenBounds.getWidth() - newStage.getWidth()) / 2);
+            newStage.setY((primScreenBounds.getHeight() - newStage.getHeight()) / 4);
+
+            newStage.show();
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }

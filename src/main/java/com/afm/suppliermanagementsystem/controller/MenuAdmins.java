@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class MenuAdmins {
     @FXML
     private TextField txtnumIF;
@@ -411,5 +412,20 @@ public class MenuAdmins {
     }
 
      */
+
+    ///////////////////////////
+
+    @FXML
+    private void handleAction1() {
+    }
+
+    @FXML
+    private void handleAction2() {
+    }
+
+    @FXML
+    private void handleAction3() {
+    }
+    ///////////////////////////
 
 }
