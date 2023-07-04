@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="576.0" prefWidth="1101.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.afm.suppliermanagementsystem.controller.PaiementsStatistiques">
+<children>
+        <Pane prefHeight="128.0" prefWidth="1101.0" style="-fx-background-color: #B7B7B7;" AnchorPane.bottomAnchor="448.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+
+                    <Label layoutX="98.0" layoutY="-22.0" prefHeight="118.0" prefWidth="244.0" text="Statistiques" textFill="WHITE">
+                        <font>
+                            <Font size="48.0" />
+                        </font>
+                    </Label>
+                    <Label layoutX="107.0" layoutY="58.0" prefHeight="19.0" prefWidth="110.0" text="Paiement manager" textFill="WHITE">
+                        <font>
+                            <Font size="13.0" />
+                        </font>
+                    </Label>
+
+                <MenuButton layoutY="1.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Menu">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleAction1" text="page d'accueil" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleAction2" text="notes" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleAction3" text="statistiques" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleAction4" text="déconnexion" />
+                    </items>
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </MenuButton>
+
+            </children>
+        </Pane>
+    <Pane layoutY="125.0" prefHeight="452.0" prefWidth="1101.0">
+         <children>
+            <StackedBarChart layoutX="58.0" layoutY="39.0" prefHeight="375.0" prefWidth="484.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </StackedBarChart>
+         </children>
+    </Pane>
+
+    </children>
+</AnchorPane>

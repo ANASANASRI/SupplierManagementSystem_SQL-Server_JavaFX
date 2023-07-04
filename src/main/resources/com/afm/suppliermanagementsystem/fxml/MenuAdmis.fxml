@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<?import javafx.scene.Cursor?>
 <AnchorPane id="AnchorPane" prefHeight="576.0" prefWidth="1101.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.afm.suppliermanagementsystem.controller.MenuAdmins">
     <children>
         <Pane prefHeight="575.0" prefWidth="429.0" style="-fx-background-color: #B7B7B7;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -42,9 +42,10 @@
 
                 <MenuButton layoutY="1.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Menu">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#handleAction1" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" onAction="#handleAction2" text="Action 2" />
-                        <MenuItem mnemonicParsing="false" onAction="#handleAction3" text="Action 3" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleAction1" text="page d'accueil" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleAction2" text="notes" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleAction3" text="statistiques" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleAction4" text="déconnexion" />
                     </items>
                     <font>
                         <Font name="System Bold" size="12.0" />
@@ -67,7 +68,7 @@
             </columns>
         </TableView>
         <TextField fx:id="txtSearch" layoutX="438.0" layoutY="26.0" prefHeight="32.0" prefWidth="354.0" promptText="Rechercher un fournisseur par numIF..." />
-        <ImageView fx:id="lblsearch" fitHeight="25.0" fitWidth="25.0" layoutX="400.0" layoutY="304.0" onMouseClicked="#closeEye" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="lblsearch" fitHeight="25.0" fitWidth="23.0" layoutX="798.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../img/icons8-search.gif" />
             </image>
