@@ -1,5 +1,6 @@
-# ANAS ANASRI
 <div align="center">
+<img src="main/resources/com/afm/suppliermanagementsystem/img/logo.png" alt="AFMM logo" width="200" height="auto" />
+  <h1>ANAS ANASRI</h1>
   <h1>SupplierManagementSystem</h1>
   <p>Supplier Management System with Payment and PDF Generation</p>
 
