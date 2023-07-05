@@ -51,6 +51,7 @@ public class Notes implements Initializable {
     public TextField searchField;
     @FXML
     public DatePicker datePicker;
+
     @FXML
     private Button setReminderButton;
 
@@ -70,7 +71,7 @@ public class Notes implements Initializable {
         notesList.setOnMouseClicked(event -> {
             String current = notesList.getSelectionModel().getSelectedItem();
             System.out.println("Current Item : " + current);
-            if (saveNoteWarning()) {
+            if (current!=null) {
                 clearFields();
                 for (Note note : notes) {
                     if (note.getTitle().equals(current)) {
@@ -98,29 +99,6 @@ public class Notes implements Initializable {
 
     }
 
-
-    private boolean saveNoteWarning() {
-        if (noteTitleBox.getText().isEmpty() && noteBox.getText().isEmpty()) {
-            return true;
-        }
-
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Unsaved Changes Will Be Lost");
-        alert.setHeaderText("Want to save current Note? Ignore if Already saved");
-        ButtonType yes = new ButtonType("Yes");
-        ButtonType no = new ButtonType("No");
-        ButtonType cancel = new ButtonType("Cancel");
-        alert.getButtonTypes().setAll(yes, no, cancel);
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == yes) {
-            saveNote();
-            return true;
-        } else if (result.get() == no) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 
     public void saveNote() {
         LocalDate selectedDate = datePicker.getValue();
@@ -193,8 +171,9 @@ public class Notes implements Initializable {
     private void setNoteAsReminder(ActionEvent event) {
         String selectedNote = notesList.getSelectionModel().getSelectedItem();
 
-        // Logic to add the selectedNote to the reminder tab
-        // You can access the reminder tab and add the note there
+        //
+
+        System.out.println("Selected Note: " + selectedNote);
     }
 
     ///////////////////////////
@@ -259,7 +238,7 @@ public class Notes implements Initializable {
 
     public void handleAction4(ActionEvent event) throws IOException {
         MenuItem menuItem = (MenuItem) event.getSource();
-        Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/InscriptionEtAuthentification.fxml"));
 
         // Further code for scene setup and stage configuration
 

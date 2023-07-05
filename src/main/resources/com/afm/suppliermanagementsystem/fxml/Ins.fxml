@@ -40,7 +40,7 @@
                 </JFXTextField>
 
 
-                <!----><!---->
+                <!----> <!--show and hide password--><!---->
                 <JFXTextField fx:id="mot_pass_show" focusColor="#FB3741" labelFloat="true" layoutX="400.0" layoutY="133.0" maxWidth="293.0" minWidth="293.0" onKeyReleased="#showed_passWord" prefHeight="31.0" prefWidth="293.0" promptText="Mot de passe" style="-fx-text-inner-color: #2e3131;">
                     <font>
                         <Font name="Century Gothic" size="14.0" />

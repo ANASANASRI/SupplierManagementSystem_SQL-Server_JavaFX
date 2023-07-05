@@ -11,7 +11,6 @@ import com.afm.suppliermanagementsystem.model.Compte;
 import com.afm.suppliermanagementsystem.services.CompteService;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
-import com.jfoenix.controls.JFXToggleButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -99,8 +98,7 @@ public class InscriptionEtAuthentification  {
     }
 
 
-    //////////////////////////////////////////////////////////////
-
+    ///////////////////////////////////
 
     //////////////////////////////////
 
@@ -142,66 +140,5 @@ public class InscriptionEtAuthentification  {
         lblopen.setVisible(false);
     }
 
-
     //////////////////////////////////////
-
-
-    /*@FXML
-    private JFXTextField pseudoc;
-
-    @FXML
-    private JFXPasswordField motpassc;
-
-    // ...
-
-    @FXML
-    public void connect(ActionEvent event) {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-
-        try {
-            conn = DB.getConnection();
-
-            String pseudo_nom = pseudoc.getText();
-            String mot_pass = motpassc.getText();
-
-            String sql = "SELECT * FROM table_compte WHERE pseudo_nom = ? AND mot_pass = ?";
-            stmt = conn.prepareStatement(sql);
-            stmt.setString(1, pseudo_nom);
-            stmt.setString(2, mot_pass);
-
-            rs = stmt.executeQuery();
-
-            if (rs.next()) {
-                // The account exists, perform the redirection to adminmenu.fxml
-
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
-                    Parent root = loader.load();
-                    MenuAdmins adminMenuController = loader.getController();
-                    adminMenuController.setAccountInfo(rs.getString("nom"), rs.getString("prenom"));
-
-                    Scene scene = new Scene(root);
-                    Stage stage = new Stage();
-                    stage.setScene(scene);
-                    stage.show();
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            } else {
-                System.out.println("The account does not exist or the credentials are incorrect.");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            DB.closeResultSet(rs);
-            DB.closeStatement(stmt);
-            DB.closeConnection();
-        }
-    }*/
-
-
-
 }

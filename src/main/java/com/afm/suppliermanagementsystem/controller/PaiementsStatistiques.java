@@ -75,7 +75,7 @@ public class PaiementsStatistiques {
 
     public void handleAction4(ActionEvent event) throws IOException {
         MenuItem menuItem = (MenuItem) event.getSource();
-        Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/InscriptionEtAuthentification.fxml"));
 
         // Further code for scene setup and stage configuration
 

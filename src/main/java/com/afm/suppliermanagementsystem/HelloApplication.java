@@ -6,6 +6,7 @@ import com.afm.suppliermanagementsystem.dao.imp.DB;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 
@@ -38,7 +39,8 @@ public class HelloApplication extends Application {
         InscriptionEtAuthentification authentification = loader.getController();
         authentification.setApplication(this);
 
-        primaryStage.setTitle("Authentification");
+        primaryStage.setTitle("Attijari Factoring Manager Maroc");
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/com/afm/suppliermanagementsystem/img/logo.png")));
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }

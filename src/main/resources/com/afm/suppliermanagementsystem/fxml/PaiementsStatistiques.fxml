@@ -2,6 +2,7 @@
 
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
@@ -10,12 +11,17 @@
         <Pane prefHeight="128.0" prefWidth="1101.0" style="-fx-background-color: #B7B7B7;" AnchorPane.bottomAnchor="448.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
 
-                    <Label layoutX="98.0" layoutY="-22.0" prefHeight="118.0" prefWidth="244.0" text="Statistiques" textFill="WHITE">
+                    <ImageView fitHeight="76.0" fitWidth="93.0" layoutX="395.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../img/Frame 2.png" />
+                        </image>
+                    </ImageView>
+                    <Label layoutX="495.0" prefHeight="118.0" prefWidth="244.0" text="Statistiques" textFill="WHITE">
                         <font>
                             <Font size="48.0" />
                         </font>
                     </Label>
-                    <Label layoutX="107.0" layoutY="58.0" prefHeight="19.0" prefWidth="110.0" text="Paiement manager" textFill="WHITE">
+                    <Label layoutX="507.0" layoutY="78.0" prefHeight="19.0" prefWidth="110.0" text="Paiement manager" textFill="WHITE">
                         <font>
                             <Font size="13.0" />
                         </font>

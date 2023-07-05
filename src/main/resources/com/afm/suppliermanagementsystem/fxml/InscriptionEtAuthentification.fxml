@@ -12,20 +12,20 @@
 
         <Pane layoutX="533.0" prefHeight="590.0" prefWidth="535.0">
             <children>
-                <JFXTextField fx:id="pseudoc" focusColor="#FB3741" focusTraversable="false" labelFloat="true" layoutX="115.0" layoutY="233.0" maxWidth="356.0" minWidth="279.0" prefHeight="36.0" prefWidth="307.0" promptText="Nom utilisateur" style="-fx-text-inner-color: #2e3131;">
+                <JFXTextField fx:id="pseudoc" focusColor="#FB3741" focusTraversable="false" labelFloat="true" layoutX="113.0" layoutY="271.0" maxWidth="356.0" minWidth="279.0" prefHeight="36.0" prefWidth="307.0" promptText="Nom utilisateur" style="-fx-text-inner-color: #2e3131;">
                     <font>
                         <Font name="Century Gothic" size="14.0" />
                     </font>
                 </JFXTextField>
 
-                <!----><!---->
-                <JFXTextField fx:id="mot_pass_show" focusColor="#FB3741" labelFloat="true" layoutX="116.0" layoutY="297.0" maxWidth="307.0" minWidth="293.0" onKeyReleased="#showed_passWord" prefHeight="36.0" prefWidth="307.0" promptText="Mot de passe" style="-fx-text-inner-color: #2e3131;">
+                <!----> <!--show and hide password--><!---->
+                <JFXTextField fx:id="mot_pass_show" focusColor="#FB3741" labelFloat="true" layoutX="114.0" layoutY="335.0" maxWidth="307.0" minWidth="293.0" onKeyReleased="#showed_passWord" prefHeight="36.0" prefWidth="307.0" promptText="Mot de passe" style="-fx-text-inner-color: #2e3131;">
                     <font>
                         <Font name="Century Gothic" size="14.0" />
                     </font>
                 </JFXTextField>
 
-                <ImageView fx:id="lblopen" fitHeight="25.0" fitWidth="25.0" layoutX="400.0" layoutY="304.0" onMouseClicked="#openEye" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="lblopen" fitHeight="25.0" fitWidth="25.0" layoutX="398.0" layoutY="342.0" onMouseClicked="#openEye" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../img/icons8-eye-48.png" />
                     </image>
@@ -34,13 +34,13 @@
                     </cursor>
                 </ImageView>
                 <!---->
-                <JFXPasswordField fx:id="motpassc" focusColor="#FB3741" focusTraversable="false" labelFloat="true" layoutX="116.0" layoutY="297.0" maxWidth="356.0" minWidth="291.0" onKeyReleased="#hide_passWord" prefHeight="36.0" prefWidth="307.0" promptText="Mot de passe" style="-fx-text-inner-color: #2e3131;">
+                <JFXPasswordField fx:id="motpassc" focusColor="#FB3741" focusTraversable="false" labelFloat="true" layoutX="114.0" layoutY="335.0" maxWidth="356.0" minWidth="291.0" onKeyReleased="#hide_passWord" prefHeight="36.0" prefWidth="307.0" promptText="Mot de passe" style="-fx-text-inner-color: #2e3131;">
                     <font>
                         <Font name="Century Gothic" size="14.0" />
                     </font>
                 </JFXPasswordField>
 
-                <ImageView fx:id="lblclose" fitHeight="25.0" fitWidth="25.0" layoutX="400.0" layoutY="304.0" onMouseClicked="#closeEye" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="lblclose" fitHeight="25.0" fitWidth="25.0" layoutX="398.0" layoutY="342.0" onMouseClicked="#closeEye" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../img/icons8-closed-eye-48.png" />
                     </image>
@@ -50,14 +50,19 @@
                 <!----><!---->
 
 <!--                ////-->
-                <JFXButton layoutX="114.0" layoutY="427.0" onAction="#ConnectAdmin" prefHeight="28.0" prefWidth="307.0" text="Connecter" textFill="#FB3741">
+                <JFXButton layoutX="112.0" layoutY="449.0" onAction="#ConnectAdmin" prefHeight="28.0" prefWidth="307.0" text="Connecter" textFill="#FB3741">
                     <font>
                         <Font name="Century Gothic" size="13.0" />
                     </font>
                 </JFXButton>
 <!--                ////-->
 
-                <Label layoutX="187.0" layoutY="145.0" prefHeight="31.0" prefWidth="163.0" text="Se connecter" textFill="#2e3131">
+                <ImageView fitHeight="76.0" fitWidth="93.0" layoutX="230.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/logo.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="187.0" layoutY="189.0" prefHeight="31.0" prefWidth="163.0" text="Se connecter" textFill="#2e3131">
                     <font>
                         <Font name="Century Gothic" size="24.0" />
                     </font>
