@@ -2,7 +2,7 @@
 <img src="src/main/resources/com/afm/suppliermanagementsystem/img/logo.png" alt="AFMM logo" width="200" height="auto" />
   <h1>ANAS ANASRI</h1>
   <h1>SupplierManagementSystem</h1>
-  <p>Supplier Management System with Payment and PDF Generation</p>
+  <p>Supplier Management System with Payment and PDF Generater</p>
 
 <!-- Badges -->
 ![License: AGPLv3](https://img.shields.io/github/license/GreaterWMS/GreaterWMS)
