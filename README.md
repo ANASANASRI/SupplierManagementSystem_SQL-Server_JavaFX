@@ -49,92 +49,17 @@ To get started with the Supplier Management System, follow the steps below:
 [//]: # (development)
 ## :hammer_and_wrench: How To Run Development Server:
 
-- Run Backend:
-~~~shell
-cd GreaterWMS
-daphne -p 8008 greaterwms.asgi:application
-or
-daphne -b 0.0.0.0 -p 8008 greaterwms.asgi:application # lan
-~~~
-
-- Run Frontend:
-~~~shell
-cd templates
-quasar d
-~~~
-
-- Change Request Baseurl
-~~~shell
-templates/public/statics/baseurl.txt
-~~~
-
-- API Documents
-
-~~~shell
-baseurl + '/docs/'
-~~~
-
-### Companion Mobile APP
-
-- App Source Code
-
-~~~shell
-npm install cordova -g
-
-cd app
-yarn install
-## Development
-quasar d -m cordova -T [android, ios]
-## Deploy
-quasar build -m [android, ios]
-~~~
-
-- You can directly use app if you don't want to build it 
-
-GreaterWMS is supported by a companion mobile app which allows users access to run the business well.
-It can scan the goods by your camera or your PDA scanner.
-
-[IOS](https://apps.apple.com/gb/app/intelligent-warehousing-gwms/id6444078526)
-
-[Android](https://production.56yhz.com/media/GWMS.apks)
-
-## Download Android installer tools
-
-!!! info "Android"
-    
-    App store search
-
-    Split APKs Installer 
 
 ## Directly download installer tools
 
-[Sai](https://po.56yhz.com/media/sai.apk)
+[Sai](https://po.56yhz.com/media/''''')
 
-- Open Sai APP, choose GWMS.apks then install
+
 
 [//]: # (publish)
 ## :trumpet: How To Publish Your APP:
 
 - Web Build:
-
-~~~shell
-cd templates
-quasar build
-~~~
-
-[//]: # (deploy)
-## :computer: How To Deploy Server:
-
-<h4>
-  <a href="https://www.56yhz.com/supervisor_process_guarded.html">Supervisor Process Guarded</a>
-</h4>
-<h4>
-  <a href="https://www.56yhz.com/nginx_config.html">Nginx Config</a>
-</h4>
-
-If the server has SSL enabled, please use HTTPS and WSS, if SSL is not enabled, use HTTP and WS
-
-The front-end code needs to be rebuilt after modification.
 
 ## Show
 <div align="left">
