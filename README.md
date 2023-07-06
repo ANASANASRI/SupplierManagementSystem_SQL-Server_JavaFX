@@ -5,28 +5,10 @@
   <p>Supplier Management System with Payment and PDF Generater</p>
 
 <!-- Badges -->
-![License: AGPLv3](https://img.shields.io/github/license/GreaterWMS/GreaterWMS)
 ![Release Version (latest Version)](https://img.shields.io/github/v/release/GreaterWMS/GreaterWMS?color=orange&include_prereleases)
 ![QR Code Support](https://img.shields.io/badge/QR--Code-Support-orange.svg)
 ![Docker Support](https://img.shields.io/badge/Docker-Support-orange.svg)
 ![i18n Support](https://img.shields.io/badge/i18n-Support-orange.svg)
-
-![repo size](https://img.shields.io/github/repo-size/GreaterWMS/GreaterWMS)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/GreaterWMS/GreaterWMS)
-![Contributors](https://img.shields.io/github/contributors/GreaterWMS/GreaterWMS?color=blue)
-
-![GitHub Org's stars](https://img.shields.io/github/stars/GreaterWMS?style=social)
-![GitHub Follows](https://img.shields.io/github/followers/Singosgu?style=social)
-![GitHub Forks](https://img.shields.io/github/forks/GreaterWMS/GreaterWMS?style=social)
-![GitHub Watch](https://img.shields.io/github/watchers/GreaterWMS/GreaterWMS?style=social)
-
-![Python](https://img.shields.io/badge/Python-3.8.10-yellowgreen)
-![Django](https://img.shields.io/badge/Django-4.1.2-yellowgreen)
-![Quasar Cli](https://img.shields.io/badge/Quasar/cli-1.2.1-yellowgreen)
-![Vue](https://img.shields.io/badge/Vue-2.6.0-yellowgreen)
-![NodeJS](https://img.shields.io/badge/NodeJS-14.19.3-yellowgreen)
-
-[![YouTube](https://img.shields.io/youtube/channel/subscribers/UCPW1wciGMIEh7CYOdLnsloA?color=red&label=YouTube&logo=youtube&style=for-the-badge)](https://www.youtube.com/channel/UCPW1wciGMIEh7CYOdLnsloA)
 
 </div>
 
