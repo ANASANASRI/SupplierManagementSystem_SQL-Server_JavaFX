@@ -1,32 +1,18 @@
 <div align="center">
-<img src="main/resources/com/afm/suppliermanagementsystem/img/logo.png" alt="AFMM logo" width="200" height="auto" />
-  <h1>ANAS ANASRI</h1>
+<img src="src/main/resources/com/afm/suppliermanagementsystem/img/logo.png" alt="AFMM logo" width="200" height="auto" />
+  
+![](https://img.shields.io/badge/ANAS-ANASRI-red)
+
   <h1>SupplierManagementSystem</h1>
-  <p>Supplier Management System with Payment and PDF Generation</p>
+  <p>Supplier Management System with Payment and PDF Generater</p>
 
 <!-- Badges -->
-![License: AGPLv3](https://img.shields.io/github/license/GreaterWMS/GreaterWMS)
 ![Release Version (latest Version)](https://img.shields.io/github/v/release/GreaterWMS/GreaterWMS?color=orange&include_prereleases)
 ![QR Code Support](https://img.shields.io/badge/QR--Code-Support-orange.svg)
 ![Docker Support](https://img.shields.io/badge/Docker-Support-orange.svg)
 ![i18n Support](https://img.shields.io/badge/i18n-Support-orange.svg)
 
-![repo size](https://img.shields.io/github/repo-size/GreaterWMS/GreaterWMS)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/GreaterWMS/GreaterWMS)
-![Contributors](https://img.shields.io/github/contributors/GreaterWMS/GreaterWMS?color=blue)
 
-![GitHub Org's stars](https://img.shields.io/github/stars/GreaterWMS?style=social)
-![GitHub Follows](https://img.shields.io/github/followers/Singosgu?style=social)
-![GitHub Forks](https://img.shields.io/github/forks/GreaterWMS/GreaterWMS?style=social)
-![GitHub Watch](https://img.shields.io/github/watchers/GreaterWMS/GreaterWMS?style=social)
-
-![Python](https://img.shields.io/badge/Python-3.8.10-yellowgreen)
-![Django](https://img.shields.io/badge/Django-4.1.2-yellowgreen)
-![Quasar Cli](https://img.shields.io/badge/Quasar/cli-1.2.1-yellowgreen)
-![Vue](https://img.shields.io/badge/Vue-2.6.0-yellowgreen)
-![NodeJS](https://img.shields.io/badge/NodeJS-14.19.3-yellowgreen)
-
-[![YouTube](https://img.shields.io/youtube/channel/subscribers/UCPW1wciGMIEh7CYOdLnsloA?color=red&label=YouTube&logo=youtube&style=for-the-badge)](https://www.youtube.com/channel/UCPW1wciGMIEh7CYOdLnsloA)
 
 </div>
 
@@ -63,92 +49,17 @@ To get started with the Supplier Management System, follow the steps below:
 [//]: # (development)
 ## :hammer_and_wrench: How To Run Development Server:
 
-- Run Backend:
-~~~shell
-cd GreaterWMS
-daphne -p 8008 greaterwms.asgi:application
-or
-daphne -b 0.0.0.0 -p 8008 greaterwms.asgi:application # lan
-~~~
-
-- Run Frontend:
-~~~shell
-cd templates
-quasar d
-~~~
-
-- Change Request Baseurl
-~~~shell
-templates/public/statics/baseurl.txt
-~~~
-
-- API Documents
-
-~~~shell
-baseurl + '/docs/'
-~~~
-
-### Companion Mobile APP
-
-- App Source Code
-
-~~~shell
-npm install cordova -g
-
-cd app
-yarn install
-## Development
-quasar d -m cordova -T [android, ios]
-## Deploy
-quasar build -m [android, ios]
-~~~
-
-- You can directly use app if you don't want to build it 
-
-GreaterWMS is supported by a companion mobile app which allows users access to run the business well.
-It can scan the goods by your camera or your PDA scanner.
-
-[IOS](https://apps.apple.com/gb/app/intelligent-warehousing-gwms/id6444078526)
-
-[Android](https://production.56yhz.com/media/GWMS.apks)
-
-## Download Android installer tools
-
-!!! info "Android"
-    
-    App store search
-
-    Split APKs Installer 
 
 ## Directly download installer tools
 
-[Sai](https://po.56yhz.com/media/sai.apk)
+[Sai](https://po.56yhz.com/media/''''')
 
-- Open Sai APP, choose GWMS.apks then install
+
 
 [//]: # (publish)
 ## :trumpet: How To Publish Your APP:
 
 - Web Build:
-
-~~~shell
-cd templates
-quasar build
-~~~
-
-[//]: # (deploy)
-## :computer: How To Deploy Server:
-
-<h4>
-  <a href="https://www.56yhz.com/supervisor_process_guarded.html">Supervisor Process Guarded</a>
-</h4>
-<h4>
-  <a href="https://www.56yhz.com/nginx_config.html">Nginx Config</a>
-</h4>
-
-If the server has SSL enabled, please use HTTPS and WSS, if SSL is not enabled, use HTTP and WS
-
-The front-end code needs to be rebuilt after modification.
 
 ## Show
 <div align="left">
