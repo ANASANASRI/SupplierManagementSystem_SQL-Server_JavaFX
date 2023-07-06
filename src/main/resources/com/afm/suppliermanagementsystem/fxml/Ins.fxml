@@ -6,6 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="590.0" prefWidth="1270.0" style="-fx-background-color: #C4C4C4;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.afm.suppliermanagementsystem.controller.Inscription">
@@ -78,10 +79,26 @@
                 </JFXTextField>
 
 <!--                ////-->
-                <JFXButton fx:id="insrirenow" layoutX="400.0" layoutY="263.0" maxWidth="293.0" minWidth="293.0" onAction="#inscrirenow" prefHeight="31.0" prefWidth="293.0" text="S'inscrire" textFill="#fa3744">
+                <JFXButton fx:id="insrirenow" layoutX="400.0" layoutY="263.0" maxWidth="293.0" minWidth="293.0" onAction="#inscrirenow" prefHeight="31.0" prefWidth="293.0" text="S'inscrire">
                     <font>
-                        <Font name="Century Gothic" size="14.0" />
+                        <Font name="Meiryo" size="14.0" />
                     </font>
+               <textFill>
+                  <RadialGradient centerX="0.10147602531742783" cycleMethod="REPEAT" radius="0.25190841150647825">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.9803921580314636" green="0.21568627655506134" blue="0.2666666805744171" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
                 </JFXButton>
 <!--                ////-->
 
@@ -100,10 +117,26 @@
                         <Font name="Century Gothic" size="18.0" />
                     </font>
                 </Label>
-                <JFXButton fx:id="inscrirevous1" layoutX="123.0" layoutY="514.0" onAction="#connecter" prefHeight="28.0" prefWidth="307.0" text="Se Connecter" textFill="#FB3741">
+                <JFXButton fx:id="inscrirevous1" layoutX="123.0" layoutY="514.0" onAction="#connecter" prefHeight="28.0" prefWidth="307.0" text="Se Connecter">
                     <font>
-                        <Font name="Century Gothic" size="13.0" />
+                        <Font name="Meiryo" size="14.0" />
                     </font>
+               <textFill>
+                  <RadialGradient cycleMethod="REPEAT" radius="0.28625954926468944">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.9803921580314636" green="0.21568627655506134" blue="0.2666666805744171" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
                 </JFXButton>
             </children>
         </Pane>

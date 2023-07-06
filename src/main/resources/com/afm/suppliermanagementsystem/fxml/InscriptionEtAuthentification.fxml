@@ -5,6 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="590.0" prefWidth="1070.0" style="-fx-background-color: #C4C4C4;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.afm.suppliermanagementsystem.controller.InscriptionEtAuthentification">
@@ -50,10 +51,26 @@
                 <!----><!---->
 
 <!--                ////-->
-                <JFXButton layoutX="112.0" layoutY="449.0" onAction="#ConnectAdmin" prefHeight="28.0" prefWidth="307.0" text="Connecter" textFill="#FB3741">
+                <JFXButton layoutX="112.0" layoutY="449.0" onAction="#ConnectAdmin" prefHeight="28.0" prefWidth="307.0" text="Connecter">
                     <font>
-                        <Font name="Century Gothic" size="13.0" />
+                        <Font name="Meiryo" size="14.0" />
                     </font>
+               <textFill>
+                  <RadialGradient cycleMethod="REPEAT" radius="0.366412213740458">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.9843137264251709" green="0.21568627655506134" blue="0.2549019753932953" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
                 </JFXButton>
 <!--                ////-->
 
@@ -62,10 +79,26 @@
                         <Image url="@../img/logo.png" />
                     </image>
                 </ImageView>
-                <Label layoutX="187.0" layoutY="189.0" prefHeight="31.0" prefWidth="163.0" text="Se connecter" textFill="#2e3131">
+                <Label layoutX="187.0" layoutY="189.0" prefHeight="31.0" prefWidth="163.0" text="Se connecter">
                     <font>
                         <Font name="Century Gothic" size="24.0" />
                     </font>
+               <textFill>
+                  <LinearGradient endX="1.0" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.9843137264251709" green="0.21568627655506134" blue="0.2549019753932953" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
                 </Label>
             </children>
         </Pane>
@@ -84,10 +117,26 @@
                         <Font name="Century Gothic" size="18.0" />
                     </font>
                 </Label>
-                <JFXButton fx:id="inscrirevous1" layoutX="103.0" layoutY="514.0" onAction="#inscrire" prefHeight="28.0" prefWidth="307.0" text="Inscrire" textFill="#FB3741">
+                <JFXButton fx:id="inscrirevous1" layoutX="103.0" layoutY="514.0" onAction="#inscrire" prefHeight="28.0" prefWidth="307.0" text="Inscrire">
                     <font>
-                        <Font name="Century Gothic" size="13.0" />
+                        <Font name="Meiryo" size="14.0" />
                     </font>
+               <textFill>
+                  <RadialGradient centerX="0.01107011597974714" cycleMethod="REPEAT" radius="0.29389310793112255">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.9843137264251709" green="0.21568627655506134" blue="0.2549019753932953" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
                 </JFXButton>
             </children>
         </Pane>

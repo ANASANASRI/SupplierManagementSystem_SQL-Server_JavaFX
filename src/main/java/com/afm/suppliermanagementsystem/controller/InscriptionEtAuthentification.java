@@ -7,8 +7,8 @@ import com.afm.suppliermanagementsystem.HelloApplication;
 import com.afm.suppliermanagementsystem.dao.imp.DB;
 import com.afm.suppliermanagementsystem.model.Compte;
 
-
 import com.afm.suppliermanagementsystem.services.CompteService;
+import com.afm.suppliermanagementsystem.services.PasswordHasher;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
@@ -25,7 +25,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-public class InscriptionEtAuthentification  {
+public class InscriptionEtAuthentification {
 
     @FXML
     private JFXTextField pseudoc;
@@ -38,7 +38,8 @@ public class InscriptionEtAuthentification  {
     public void setApplication(HelloApplication application) {
         this.application = application;
     }
-    //Les variables interface graphique
+
+    // Les variables interface graphique
     public int type;
     public static Compte profile;
 
@@ -55,7 +56,6 @@ public class InscriptionEtAuthentification  {
         fenetre.show();
     }
 
-
     public void inscrire(ActionEvent e) throws IOException, SQLException {
         DB.getConnection();
         loadInsc(e);
@@ -66,7 +66,8 @@ public class InscriptionEtAuthentification  {
     private void loadConnAdm(ActionEvent e) throws IOException {
         String nom = pseudoc.getText();
         String password = motpassc.getText();
-        boolean compteExists = CompteService.findCompte(nom,password);
+        String hashedPassword = PasswordHasher.hashPassword(password);
+        boolean compteExists = CompteService.findCompte(nom, hashedPassword);
 
         if (compteExists) {
             Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
@@ -97,15 +98,16 @@ public class InscriptionEtAuthentification  {
         alert.showAndWait();
     }
 
-
     ///////////////////////////////////
 
     //////////////////////////////////
 
     @FXML
     private JFXTextField mot_pass_show;
+
     @FXML
     private ImageView lblclose;
+
     @FXML
     private ImageView lblopen;
 
@@ -135,7 +137,7 @@ public class InscriptionEtAuthentification  {
         motpassc.setText(password);
     }
 
-    public void initialize(){
+    public void initialize() {
         mot_pass_show.setVisible(false);
         lblopen.setVisible(false);
     }

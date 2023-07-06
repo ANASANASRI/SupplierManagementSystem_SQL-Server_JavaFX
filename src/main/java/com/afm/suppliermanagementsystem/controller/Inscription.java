@@ -1,5 +1,6 @@
 package com.afm.suppliermanagementsystem.controller;
 
+import com.afm.suppliermanagementsystem.services.PasswordHasher;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -86,42 +87,63 @@ public class Inscription {
 
 	@FXML
 	public void inscrirenow(ActionEvent e) throws IOException {
-			String nomValue = nom.getText();
-			String prenomValue = prenom.getText();
-			String telValue = tel.getText();
-			String pseudoValue = pseudo.getText();
-			String identifiantValue = identifiant.getText();
-			String motPassValue = mot_pass.getText();
-			String adresseValue = adresse.getText();
+		String nomValue = nom.getText();
+		String prenomValue = prenom.getText();
+		String telValue = tel.getText();
+		String pseudoValue = pseudo.getText();
+		String identifiantValue = identifiant.getText();
+		String motPassValue = mot_pass.getText();
+		String adresseValue = adresse.getText();
 
-
-			Compte compte = new Compte(nomValue, prenomValue, telValue, pseudoValue, identifiantValue, motPassValue, adresseValue , 1);
-
-			// Save the Compte object using the CompteService
-			CompteService compteService = new CompteService();
-			compteService.save(compte);
-
-		if (compteService.findCompte(nomValue, motPassValue)) {
-
-			Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
-			Scene s = new Scene(root);
-			Stage fenetre = (Stage) ((Node) e.getSource()).getScene().getWindow();
-			fenetre.setScene(s);
-			fenetre.setResizable(false);
-			Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-			fenetre.setX((primScreenBounds.getWidth() - fenetre.getWidth()) / 2);
-			fenetre.setY((primScreenBounds.getHeight() - fenetre.getHeight()) / 4);
-
-			fenetre.show();
-		} else {
+		// Check if any of the fields are empty
+		if (nomValue.isEmpty() || prenomValue.isEmpty() || telValue.isEmpty() ||
+				pseudoValue.isEmpty() || identifiantValue.isEmpty() ||
+				motPassValue.isEmpty() || adresseValue.isEmpty()) {
 			Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-			errorAlert.setTitle("Connection Error");
+			errorAlert.setTitle("Erreur");
 			errorAlert.setHeaderText(null);
-			errorAlert.setContentText("Failed to connect! Invalid username or password.");
+			errorAlert.setContentText("Veuillez remplir tous les champs.");
 			errorAlert.showAndWait();
-		}
+		} else {
+			String hashedPassword = PasswordHasher.hashPassword(motPassValue);
+			if (hashedPassword != null) {
+				Compte compte = new Compte(nomValue, prenomValue, telValue, pseudoValue, identifiantValue, hashedPassword, adresseValue, 1);
 
+				// Save the Compte object using the CompteService
+				CompteService compteService = new CompteService();
+				compteService.save(compte);
+
+				if (compteService.findCompte(nomValue, hashedPassword)) {
+					Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
+					Scene s = new Scene(root);
+					Stage fenetre = (Stage) ((Node) e.getSource()).getScene().getWindow();
+					fenetre.setScene(s);
+					fenetre.setResizable(false);
+					Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+					fenetre.setX((primScreenBounds.getWidth() - fenetre.getWidth()) / 2);
+					fenetre.setY((primScreenBounds.getHeight() - fenetre.getHeight()) / 4);
+
+					fenetre.show();
+				} else {
+					Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+					errorAlert.setTitle("Connection Error");
+					errorAlert.setHeaderText(null);
+					errorAlert.setContentText("Failed to connect! Invalid username or password.");
+					errorAlert.showAndWait();
+				}
+			} else {
+				Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+				errorAlert.setTitle("Erreur");
+				errorAlert.setHeaderText(null);
+				errorAlert.setContentText("Erreur lors du hachage du mot de passe.");
+				errorAlert.showAndWait();
+			}
 		}
+	}
+
+
+
+
 
 	//////////////////////////////////
 
