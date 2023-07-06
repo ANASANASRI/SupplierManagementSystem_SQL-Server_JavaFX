@@ -1,6 +1,8 @@
 <div align="center">
 <img src="src/main/resources/com/afm/suppliermanagementsystem/img/logo.png" alt="AFMM logo" width="200" height="auto" />
-  <h1>ANAS ANASRI</h1>
+  
+![](https://img.shields.io/badge/ANAS-ANASRI-red)
+
   <h1>SupplierManagementSystem</h1>
   <p>Supplier Management System with Payment and PDF Generater</p>
 
@@ -9,6 +11,8 @@
 ![QR Code Support](https://img.shields.io/badge/QR--Code-Support-orange.svg)
 ![Docker Support](https://img.shields.io/badge/Docker-Support-orange.svg)
 ![i18n Support](https://img.shields.io/badge/i18n-Support-orange.svg)
+
+
 
 </div>
 
