@@ -56,11 +56,36 @@
                         <Font name="Meiryo" size="14.0" />
                     </font>
                <textFill>
-                  <RadialGradient cycleMethod="REPEAT" radius="0.366412213740458">
+                  <LinearGradient cycleMethod="REPEAT" endX="1.0" endY="1.0" startX="1.0">
                      <stops>
                         <Stop>
                            <color>
+                              <Color red="0.9882352948188782" green="0.7490196228027344" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.007633587786259542">
+                           <color>
                               <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.628463871170135">
+                           <color>
+                              <Color red="0.9800000190734863" green="0.21559999883174896" blue="0.26655998826026917" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.8812785388127853">
+                           <color>
+                              <Color red="0.9800000190734863" green="0.21559999883174896" blue="0.26655998826026917" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.9452054794520548">
+                           <color>
+                              <Color red="0.9800000190734863" green="0.21559999883174896" blue="0.26655998826026917" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.9495102652584614">
+                           <color>
+                              <Color red="0.9800000190734863" green="0.21559999883174896" blue="0.26655998826026917" />
                            </color>
                         </Stop>
                         <Stop offset="1.0">
@@ -69,7 +94,7 @@
                            </color>
                         </Stop>
                      </stops>
-                  </RadialGradient>
+                  </LinearGradient>
                </textFill>
                 </JFXButton>
 <!--                ////-->
@@ -122,11 +147,21 @@
                         <Font name="Meiryo" size="14.0" />
                     </font>
                <textFill>
-                  <RadialGradient centerX="0.01107011597974714" cycleMethod="REPEAT" radius="0.29389310793112255">
+                  <LinearGradient cycleMethod="REPEAT" endX="1.0" endY="1.0" startX="1.0">
                      <stops>
                         <Stop>
                            <color>
                               <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.007633587786259542">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.633587786259542">
+                           <color>
+                              <Color red="0.9843137264251709" green="0.21568627655506134" blue="0.2549019753932953" />
                            </color>
                         </Stop>
                         <Stop offset="1.0">
@@ -135,7 +170,7 @@
                            </color>
                         </Stop>
                      </stops>
-                  </RadialGradient>
+                  </LinearGradient>
                </textFill>
                 </JFXButton>
             </children>
