@@ -18,4 +18,6 @@ public interface CompteDao {
     void deleteById(Integer id);
 
     boolean findCompte(String nom, String password);
+
+    boolean findAdmCompte(String nom, String password);
 }

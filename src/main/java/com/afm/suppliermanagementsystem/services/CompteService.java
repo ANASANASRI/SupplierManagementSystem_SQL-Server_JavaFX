@@ -14,6 +14,10 @@ public class CompteService {
         return compteDao.findCompte(nom, password);
     }
 
+    public static boolean findAdmCompte(String nom, String password) {
+        return compteDao.findAdmCompte(nom, password);
+    }
+
     public void save(Compte compte) {
         compteDao.insert(compte);
     }

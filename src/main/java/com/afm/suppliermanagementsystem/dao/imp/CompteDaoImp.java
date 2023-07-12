@@ -98,7 +98,7 @@ public class CompteDaoImp implements CompteDao {
     @Override
     public boolean findCompte(String nom, String password) {
         boolean compteExists = false;
-        String query = "SELECT COUNT(*) AS count FROM compte WHERE pseudo_nom = ? AND mot_pass = ?";
+        String query = "SELECT COUNT(*) AS count FROM compte WHERE pseudo_nom = ? AND mot_pass = ? AND IsAdmin = 0";
 
         try (PreparedStatement statement = conn.prepareStatement(query)) {
             statement.setString(1, nom);
@@ -119,6 +119,27 @@ public class CompteDaoImp implements CompteDao {
 
 
 
+    @Override
+    public boolean findAdmCompte(String nom, String password) {
+        boolean compteExists = false;
+        String query = "SELECT COUNT(*) AS count FROM compte WHERE pseudo_nom = ? AND mot_pass = ? AND IsAdmin = 1";
+
+        try (PreparedStatement statement = conn.prepareStatement(query)) {
+            statement.setString(1, nom);
+            statement.setString(2, password);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    int count = resultSet.getInt("count");
+                    compteExists = count > 0;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return compteExists;
+    }
 
     private void closeResultSet(ResultSet rs) {
         if (rs != null) {

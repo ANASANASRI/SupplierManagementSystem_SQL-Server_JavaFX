@@ -24,12 +24,10 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.*;
 import javafx.util.Duration;
 
@@ -40,7 +38,6 @@ import java.util.Locale;
 import com.itextpdf.text.pdf.PdfWriter;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 
@@ -640,8 +637,8 @@ public class PaiementManager {
         // Show the Stage
         stage.show();
 
-        // Auto-hide the Stage after 1.5 seconds
-        Duration duration = Duration.seconds(4);
+        // Auto-hide the Stage after 2 seconds
+        Duration duration = Duration.seconds(2);
         PauseTransition delay = new PauseTransition(duration);
         delay.setOnFinished(event -> stage.close());
         delay.play();
@@ -650,7 +647,6 @@ public class PaiementManager {
 
 
     ////////////////////////////////////////////////////////
-
 
     private void loadGetPdfs(ActionEvent event) {
         try {

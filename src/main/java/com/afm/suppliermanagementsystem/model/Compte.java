@@ -7,11 +7,45 @@ public class Compte {
     private String pseudo_nom;
     private String cin;
     private String mot_pass;
-
-
-
     private String adresse;
     private int etat = 1;
+    private int IsAdmin = 0;
+
+    public Compte(String nom, String prenom, String telephone, String pseudo_nom, String cin, String mot_pass, String adresse, int etat, int isAdmin) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.telephone = telephone;
+        this.pseudo_nom = pseudo_nom;
+        this.cin = cin;
+        this.mot_pass = mot_pass;
+        this.adresse = adresse;
+        this.etat = etat;
+        IsAdmin = isAdmin;
+    }
+
+    public String getPseudo_nom() {
+        return pseudo_nom;
+    }
+
+    public void setPseudo_nom(String pseudo_nom) {
+        this.pseudo_nom = pseudo_nom;
+    }
+
+    public String getMot_pass() {
+        return mot_pass;
+    }
+
+    public void setMot_pass(String mot_pass) {
+        this.mot_pass = mot_pass;
+    }
+
+    public int getIsAdmin() {
+        return IsAdmin;
+    }
+
+    public void setIsAdmin(int isAdmin) {
+        IsAdmin = isAdmin;
+    }
 
     public Compte(String nom, String prenom, String telephone, String pseudo_nom, String cin, String mot_pass, String adresse, int etat) {
         this.nom = nom;

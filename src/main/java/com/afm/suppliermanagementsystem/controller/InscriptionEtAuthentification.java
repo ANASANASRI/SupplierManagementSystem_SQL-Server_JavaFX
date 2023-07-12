@@ -68,6 +68,8 @@ public class InscriptionEtAuthentification {
         String password = motpassc.getText();
         String hashedPassword = PasswordHasher.hashPassword(password);
         boolean compteExists = CompteService.findCompte(nom, hashedPassword);
+        boolean compteAdmExists = CompteService.findAdmCompte(nom, hashedPassword);
+
 
         if (compteExists) {
             Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
@@ -80,7 +82,19 @@ public class InscriptionEtAuthentification {
             fenetre.setY((primScreenBounds.getHeight() - fenetre.getHeight()) / 4);
 
             fenetre.show();
-        } else {
+        } else if (compteAdmExists) {
+            Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/Dashboard.fxml"));
+            Scene s = new Scene(root);
+            Stage fenetre = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            fenetre.setScene(s);
+            fenetre.setResizable(false);
+            Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+            fenetre.setX((primScreenBounds.getWidth() - fenetre.getWidth()) / 2);
+            fenetre.setY((primScreenBounds.getHeight() - fenetre.getHeight()) / 4);
+
+            fenetre.show();
+        }
+        else{
             showAlert("Compte non existant", "Le compte spécifié n'existe pas.");
         }
     }
