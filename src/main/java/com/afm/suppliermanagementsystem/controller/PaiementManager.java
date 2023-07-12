@@ -4,6 +4,7 @@ import com.afm.suppliermanagementsystem.model.Fournisseur;
 import com.afm.suppliermanagementsystem.model.Paiement;
 import com.afm.suppliermanagementsystem.services.PaiementService;
 import com.itextpdf.text.*;
+import javafx.animation.PauseTransition;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -22,6 +23,16 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.*;
+import javafx.util.Duration;
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -30,8 +41,6 @@ import com.itextpdf.text.pdf.PdfWriter;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 
@@ -510,7 +519,8 @@ public class PaiementManager {
                             generateReglementAssurancePDF(paiement,numeroCheque);
                             generateOrdereVirementPDF(paiement, banqueNom, libelle);
 
-                            loadGetPdfs(event);
+                            showImagePopup(new Stage());
+                            //loadGetPdfs(event);
                         }
                     });
                 }
@@ -598,6 +608,45 @@ public class PaiementManager {
         // Return the form data from the SimpleObjectProperty
         return formDataProperty.get();
     }
+
+
+    ///////////////////////////////////////////////////////
+
+    private void showImagePopup(Stage primaryStage) {
+        Stage stage = new Stage();
+
+        // Remove the default decorations from the Stage
+        stage.initStyle(StageStyle.UNDECORATED);
+
+        // Create an ImageView to display the image
+        ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("/com/afm/suppliermanagementsystem/img/icons8-done.gif")));
+        imageView.setPreserveRatio(true);
+        imageView.fitWidthProperty().bind(primaryStage.widthProperty());
+        imageView.fitHeightProperty().bind(primaryStage.heightProperty());
+
+        // Create a VBox to hold the image and adjust its layout
+        Pane vbox = new VBox(15);
+        //vbox.getChildren().add(new Text("Vérifier le dossier PDFs"));
+        vbox.getChildren().add(imageView);
+        vbox.setPrefWidth(imageView.getImage().getWidth());
+        vbox.setPrefHeight(imageView.getImage().getHeight());
+
+        // Create a new Scene with the VBox as the root node
+        Scene scene = new Scene(vbox);
+
+        // Set the Scene to the Stage
+        stage.setScene(scene);
+
+        // Show the Stage
+        stage.show();
+
+        // Auto-hide the Stage after 1.5 seconds
+        Duration duration = Duration.seconds(4);
+        PauseTransition delay = new PauseTransition(duration);
+        delay.setOnFinished(event -> stage.close());
+        delay.play();
+    }
+
 
 
     ////////////////////////////////////////////////////////

@@ -14,7 +14,6 @@ public class FournisseurDaoImp implements FournisseurDao {
 
     private final Connection conn=DB.getConnection();
 
-
     @Override
     public void insert(Fournisseur fournisseur) {
         PreparedStatement ps = null;
@@ -140,5 +139,4 @@ public class FournisseurDaoImp implements FournisseurDao {
             DB.closeStatement(ps);
         }
     }
-
 }

@@ -93,8 +93,6 @@ public class MenuAdmins {
                 filterTable(newValue);
             }
         });
-
-
     }
 
         /*/////////////////*/
@@ -187,6 +185,7 @@ public class MenuAdmins {
     public void handleUpdateButtonAction(ActionEvent event) {
         Fournisseur selectedFournisseur = tableViewFournisseur.getSelectionModel().getSelectedItem();
         if (selectedFournisseur != null) {
+            
             // Update the selected row's data
             selectedFournisseur.setNumIF(Integer.parseInt(txtnumIF.getText()));
             selectedFournisseur.setNom(txtNom.getText());
