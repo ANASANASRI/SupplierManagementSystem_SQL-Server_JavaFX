@@ -43,8 +43,6 @@ public class MenuAdmins {
     @FXML
     private Button btnSave;
     @FXML
-    private Button btnUpadte;
-    @FXML
     private TableColumn<Fournisseur, Integer> tableColumnnumIF;
     @FXML
     private TableColumn<Fournisseur, String> tableColumnNom;
@@ -61,11 +59,8 @@ public class MenuAdmins {
     @FXML
     private TableColumn<Fournisseur, Button> tableColumnREMOVE;
     @FXML
-    private Label lblStatus;
-    @FXML
     private TextField txtSearch;
 
-    private ObservableList<Fournisseur> suppliersList;
     private ObservableList<Fournisseur> filteredList;
     private FournisseurService fournisseurService;
 
@@ -215,16 +210,11 @@ public class MenuAdmins {
 
     ////////////////////////////////////
 
-
     private HelloApplication application;
 
     public void setApplication(HelloApplication application) {
         this.application = application;
     }
-
-
-    /////////////////////////////////////////
-
 
     ///////////////////////////////////
 
@@ -410,7 +400,6 @@ public class MenuAdmins {
         MenuItem menuItem = (MenuItem) event.getSource();
         Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
 
-        // Further code for scene setup and stage configuration
 
         Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
         Scene scene = new Scene(root);
@@ -428,7 +417,6 @@ public class MenuAdmins {
         MenuItem menuItem = (MenuItem) event.getSource();
         Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/Notes.fxml"));
 
-        // Further code for scene setup and stage configuration
 
         Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
         Scene scene = new Scene(root);
@@ -450,7 +438,6 @@ public class MenuAdmins {
         MenuItem menuItem = (MenuItem) event.getSource();
         Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/PaiementsStatistiques.fxml"));
 
-        // Further code for scene setup and stage configuration
 
         Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
         Scene scene = new Scene(root);
@@ -467,7 +454,6 @@ public class MenuAdmins {
         MenuItem menuItem = (MenuItem) event.getSource();
         Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/InscriptionEtAuthentification.fxml"));
 
-        // Further code for scene setup and stage configuration
 
         Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
         Scene scene = new Scene(root);
@@ -479,6 +465,6 @@ public class MenuAdmins {
 
         stage.show();
     }
-    ///////////////////////////
+
 
 }

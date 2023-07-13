@@ -24,47 +24,25 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class Inscription {
-	public int type;
-	public static Compte profile;
-
 	@FXML
 	private JFXTextField prenom;
-
 	@FXML
 	private JFXTextField nom;
-
 	@FXML
 	private JFXTextField adresse;
-
 	@FXML
 	private JFXTextField identifiant;
 	@FXML
 	private PasswordField mot_pass;
 	@FXML
-	private JFXTextField id;
-
-	@FXML
 	private JFXTextField pseudo;
-
 	@FXML
 	private JFXTextField tel;
 
-	@FXML
-	private Label message;
-
-	@FXML
-	private Label message1;
-
-	@FXML
-	private Label message11;
-
-	@FXML
-	private JFXButton inscrireB;
 
 	private void loadCon(ActionEvent e) throws IOException {
 		Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/InscriptionEtAuthentification.fxml"));
@@ -153,7 +131,6 @@ public class Inscription {
 	private ImageView lblclose;
 	@FXML
 	private ImageView lblopen;
-
 	String password;
 
 	public void openEye(MouseEvent mouseEvent) {

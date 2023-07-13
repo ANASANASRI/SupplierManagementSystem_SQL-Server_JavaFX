@@ -26,10 +26,8 @@ import java.util.ResourceBundle;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Callback;
-import org.w3c.dom.events.MouseEvent;
-
 import java.io.IOException;
-import java.util.Optional;
+
 public class Notes implements Initializable {
     @FXML
     public ListView<String> notesList;

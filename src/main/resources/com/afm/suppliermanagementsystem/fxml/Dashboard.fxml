@@ -30,17 +30,17 @@
 
                 <TextField fx:id="txtNom" layoutX="75.0" layoutY="121.0" prefHeight="32.0" prefWidth="139.0" promptText="Nom" />
                 <TextField fx:id="txtPrenom" layoutX="214.0" layoutY="121.0" prefHeight="32.0" prefWidth="139.0" promptText="Prénom" />
-                <TextField fx:id="txtTelephone" layoutX="75.0" layoutY="166.0" prefHeight="32.0" prefWidth="278.0" promptText="Téléphone" />
-                <TextField fx:id="txtPseudoNom" layoutX="75.0" layoutY="215.0" prefHeight="32.0" prefWidth="278.0" promptText="Pseudo Nom" />
-                <TextField fx:id="txtCIN" layoutX="75.0" layoutY="263.0" prefHeight="32.0" prefWidth="278.0" promptText="CIN" />
-                <TextField fx:id="txtMotPass" layoutX="75.0" layoutY="313.0" prefHeight="32.0" prefWidth="278.0" promptText="Mot de passe" />
-                <TextField fx:id="txtAdresse" layoutX="76.0" layoutY="363.0" prefHeight="32.0" prefWidth="278.0" promptText="Adresse" />
-                <CheckBox fx:id="Etat" layoutX="75.0" layoutY="402.0" prefHeight="32.0" prefWidth="139.0" text="Etat" textFill="white" />
-                <CheckBox fx:id="IsAdmin" layoutX="214.0" layoutY="402.0" prefHeight="32.0" prefWidth="139.0" text="IsAdmin" textFill="white" />
+                <TextField fx:id="txtTelephone" layoutX="75.0" layoutY="171.0" prefHeight="32.0" prefWidth="278.0" promptText="Téléphone" />
+                <TextField fx:id="txtPseudoNom" layoutX="75.0" layoutY="220.0" prefHeight="32.0" prefWidth="278.0" promptText="Pseudo Nom" />
+                <TextField fx:id="txtCIN" layoutX="75.0" layoutY="268.0" prefHeight="32.0" prefWidth="278.0" promptText="CIN" />
+                <TextField fx:id="txtMotPass" layoutX="75.0" layoutY="318.0" prefHeight="32.0" prefWidth="278.0" promptText="Mot de passe" />
+                <TextField fx:id="txtAdresse" layoutX="76.0" layoutY="368.0" prefHeight="32.0" prefWidth="278.0" promptText="Adresse" />
+                <CheckBox fx:id="Etat" layoutX="75.0" layoutY="407.0" prefHeight="32.0" prefWidth="139.0" text="Etat" textFill="white" />
+                <CheckBox fx:id="IsAdmin" layoutX="214.0" layoutY="407.0" prefHeight="32.0" prefWidth="139.0" text="IsAdmin" textFill="white" />
 
 
-                <Button fx:id="btnSave" layoutX="75.0" layoutY="450.0" mnemonicParsing="false" onAction="#handleSaveButtonAction" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Ajouter" />
-                <Button fx:id="btnUpdate" layoutX="75.0" layoutY="498.0" mnemonicParsing="false" onAction="#handleUpdateButtonAction" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Modifier">
+                <Button fx:id="btnSave" layoutX="75.0" layoutY="455.0" mnemonicParsing="false" onAction="#handleSaveButtonAction" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Ajouter" />
+                <Button fx:id="btnUpdate" layoutX="75.0" layoutY="503.0" mnemonicParsing="false" onAction="#handleUpdateButtonAction" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Modifier">
                     <opaqueInsets>
                         <Insets />
                     </opaqueInsets>
@@ -71,7 +71,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </ImageView>
-        <Button fx:id="goToButton" layoutX="826.0" layoutY="26.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="261.0" text="Go to your admin interface" onAction="#handleGoToButton" />
+        <Button fx:id="goToButton" layoutX="826.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleGoToButton" prefHeight="32.0" prefWidth="261.0" text="Accédez à votre interface de gestion" />
     </children>
 
 </AnchorPane>

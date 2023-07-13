@@ -20,7 +20,6 @@ public class PaiementsStatistiques {
         MenuItem menuItem = (MenuItem) event.getSource();
         Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
 
-        // Further code for scene setup and stage configuration
 
         Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
         Scene scene = new Scene(root);
@@ -38,7 +37,6 @@ public class PaiementsStatistiques {
         MenuItem menuItem = (MenuItem) event.getSource();
         Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/Notes.fxml"));
 
-        // Further code for scene setup and stage configuration
 
         Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
         Scene scene = new Scene(root);
@@ -60,7 +58,6 @@ public class PaiementsStatistiques {
         MenuItem menuItem = (MenuItem) event.getSource();
         Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/PaiementsStatistiques.fxml"));
 
-        // Further code for scene setup and stage configuration
 
         Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
         Scene scene = new Scene(root);
@@ -77,7 +74,6 @@ public class PaiementsStatistiques {
         MenuItem menuItem = (MenuItem) event.getSource();
         Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/InscriptionEtAuthentification.fxml"));
 
-        // Further code for scene setup and stage configuration
 
         Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
         Scene scene = new Scene(root);
