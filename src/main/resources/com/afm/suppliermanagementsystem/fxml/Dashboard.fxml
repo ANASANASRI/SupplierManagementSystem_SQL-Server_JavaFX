@@ -28,47 +28,42 @@
                     </font>
                 </Label>
 
-                <TextField fx:id="txtnumIF" layoutX="75.0" layoutY="105.0" prefHeight="32.0" prefWidth="278.0" promptText="numIF" />
-                <TextField fx:id="txtNom" layoutX="75.0" layoutY="159.0" prefHeight="32.0" prefWidth="278.0" promptText="Nom" />
-                <TextField fx:id="txtAdresse" layoutX="75.0" layoutY="217.0" prefHeight="32.0" prefWidth="278.0" promptText="Adresse" />
-                <TextField fx:id="txtNumeroTelephone" layoutX="75.0" layoutY="276.0" prefHeight="32.0" prefWidth="278.0" promptText="Numéro de Téléphone" />
-                <TextField fx:id="txtEmail" layoutX="75.0" layoutY="334.0" prefHeight="32.0" prefWidth="278.0" promptText="Email" />
-                <TextField fx:id="txtNumeroCompteBancaire" layoutX="75.0" layoutY="390.0" prefHeight="32.0" prefWidth="278.0" promptText="Numéro de Compte Bancaire" />
-                <Button fx:id="btnSave" layoutX="76.0" layoutY="449.0" mnemonicParsing="false" onAction="#handleSaveButtonAction" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Ajouter" />
-                <Button fx:id="btnUPdate" layoutX="76.0" layoutY="508.0" mnemonicParsing="false" onAction="#handleUpdateButtonAction" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Modifier">
+                <TextField fx:id="txtNom" layoutX="75.0" layoutY="121.0" prefHeight="32.0" prefWidth="139.0" promptText="Nom" />
+                <TextField fx:id="txtPrenom" layoutX="214.0" layoutY="121.0" prefHeight="32.0" prefWidth="139.0" promptText="Prénom" />
+                <TextField fx:id="txtTelephone" layoutX="75.0" layoutY="166.0" prefHeight="32.0" prefWidth="278.0" promptText="Téléphone" />
+                <TextField fx:id="txtPseudoNom" layoutX="75.0" layoutY="215.0" prefHeight="32.0" prefWidth="278.0" promptText="Pseudo Nom" />
+                <TextField fx:id="txtCIN" layoutX="75.0" layoutY="263.0" prefHeight="32.0" prefWidth="278.0" promptText="CIN" />
+                <TextField fx:id="txtMotPass" layoutX="75.0" layoutY="313.0" prefHeight="32.0" prefWidth="278.0" promptText="Mot de passe" />
+                <TextField fx:id="txtAdresse" layoutX="76.0" layoutY="363.0" prefHeight="32.0" prefWidth="278.0" promptText="Adresse" />
+                <CheckBox fx:id="Etat" layoutX="75.0" layoutY="402.0" prefHeight="32.0" prefWidth="139.0" text="Etat" textFill="white" />
+                <CheckBox fx:id="IsAdmin" layoutX="214.0" layoutY="402.0" prefHeight="32.0" prefWidth="139.0" text="IsAdmin" textFill="white" />
+
+
+                <Button fx:id="btnSave" layoutX="75.0" layoutY="450.0" mnemonicParsing="false" onAction="#handleSaveButtonAction" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Ajouter" />
+                <Button fx:id="btnUpdate" layoutX="75.0" layoutY="498.0" mnemonicParsing="false" onAction="#handleUpdateButtonAction" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Modifier">
                     <opaqueInsets>
                         <Insets />
-                    </opaqueInsets></Button>
-
-                <MenuButton layoutY="1.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Menu">
-                    <items>
-                        <MenuItem mnemonicParsing="false" onAction="#handleAction1" text="page d'accueil" />
-                        <MenuItem mnemonicParsing="false" onAction="#handleAction2" text="notes" />
-                        <MenuItem mnemonicParsing="false" onAction="#handleAction3" text="statistiques" />
-                        <MenuItem mnemonicParsing="false" onAction="#handleAction4" text="déconnexion" />
-                    </items>
-                    <font>
-                        <Font name="System Bold" size="12.0" />
-                    </font>
-                </MenuButton>
+                    </opaqueInsets>
+                </Button>
 
             </children>
         </Pane>
 
-        <TableView fx:id="tableViewFournisseur" layoutX="438.0" layoutY="71.0" prefHeight="488.0" prefWidth="651.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="438.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="71.0">
+        <TableView fx:id="tableViewCompte" layoutX="438.0" layoutY="71.0" prefHeight="488.0" prefWidth="651.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="438.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="71.0">
             <columns>
-                <TableColumn fx:id="tableColumnnumIF" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="numIF" />
+                <TableColumn fx:id="tableColumnCIN" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="CIN" />
                 <TableColumn fx:id="tableColumnNom" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Nom" />
+                <TableColumn fx:id="tableColumnPrenom" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Prénom" />
+                <TableColumn fx:id="tableColumnTelephone" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Téléphone" />
+                <TableColumn fx:id="tableColumnPseudoNom" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="PseudoNom" />
                 <TableColumn fx:id="tableColumnAdresse" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Adresse" />
-                <TableColumn fx:id="tableColumnNumeroTelephone" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Numéro de Téléphone" />
-                <TableColumn fx:id="tableColumnEmail" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Email" />
-                <TableColumn fx:id="tableColumnNumeroCompteBancaire" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Numéro de Compte Bancaire" />
-                <TableColumn fx:id="tableColumnPaiement" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Paiement" />
+                <TableColumn fx:id="tableColumnEtat" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="État" />
+                <TableColumn fx:id="tableColumnIsAdmin" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="IsAdmin" />
                 <TableColumn fx:id="tableColumnREMOVE" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Supprimer" />
             </columns>
         </TableView>
-        <TextField fx:id="txtSearch" layoutX="438.0" layoutY="26.0" prefHeight="32.0" prefWidth="354.0" promptText="Rechercher un fournisseur par numIF..." />
-        <ImageView fx:id="lblsearch" fitHeight="25.0" fitWidth="23.0" layoutX="798.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+        <TextField fx:id="txtSearch" layoutX="438.0" layoutY="26.0" prefHeight="32.0" prefWidth="354.0" promptText="Rechercher un compte par CIN..." />
+        <ImageView fx:id="lblSearch" fitHeight="25.0" fitWidth="23.0" layoutX="798.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../img/icons8-search.gif" />
             </image>
@@ -76,6 +71,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </ImageView>
+        <Button fx:id="goToButton" layoutX="826.0" layoutY="26.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="261.0" text="Go to your admin interface" onAction="#handleGoToButton" />
     </children>
 
 </AnchorPane>

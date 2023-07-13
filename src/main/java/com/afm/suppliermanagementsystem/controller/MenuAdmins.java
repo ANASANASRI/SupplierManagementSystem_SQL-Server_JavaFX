@@ -143,16 +143,12 @@ public class MenuAdmins {
             return;
         }
 
-
-        // Call the save method in FournisseurService to insert the fournisseur
         fournisseurService.save(fournisseur);
 
-        // Clear the input fields after saving
         clearInputFields();
 
         showAlert("Fournisseur ajouté", "Le Fournisseur a été ajouté avec succès.");
 
-        // Refresh the table view to reflect the updated data
         refreshTableView();
     }
 
@@ -166,16 +162,12 @@ public class MenuAdmins {
 
 
     private void refreshTableView() {
-        // Get the current data model of the table view
         ObservableList<Fournisseur> fournisseurs = tableViewFournisseur.getItems();
 
-        // Clear the existing data
         fournisseurs.clear();
 
-        // Fetch the updated data from the FournisseurService
         fournisseurs.addAll(fournisseurService.findAll());
 
-        // Reapply the data model to the table view
         tableViewFournisseur.setItems(fournisseurs);
     }
 

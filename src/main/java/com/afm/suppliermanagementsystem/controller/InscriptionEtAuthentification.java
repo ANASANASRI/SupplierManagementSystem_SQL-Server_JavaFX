@@ -39,7 +39,6 @@ public class InscriptionEtAuthentification {
         this.application = application;
     }
 
-    // Les variables interface graphique
     public int type;
     public static Compte profile;
 

@@ -20,4 +20,6 @@ public interface CompteDao {
     boolean findCompte(String nom, String password);
 
     boolean findAdmCompte(String nom, String password);
+
+    void deleteByCin(String cin);
 }

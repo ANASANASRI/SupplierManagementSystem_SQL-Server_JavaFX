@@ -1,8 +1,10 @@
 package com.afm.suppliermanagementsystem.controller;
 
 import com.afm.suppliermanagementsystem.HelloApplication;
+import com.afm.suppliermanagementsystem.model.Compte;
 import com.afm.suppliermanagementsystem.model.Fournisseur;
-import com.afm.suppliermanagementsystem.services.FournisseurService;
+import com.afm.suppliermanagementsystem.services.CompteService;
+import com.afm.suppliermanagementsystem.services.PasswordHasher;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -19,74 +21,82 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Dashboard {
-    @FXML
-    private TextField txtnumIF;
     @FXML
     private TextField txtNom;
     @FXML
+    private TextField txtPrenom;
+    @FXML
+    private TextField txtTelephone;
+    @FXML
+    private TextField txtPseudoNom;
+    @FXML
+    private TextField txtCIN;
+    @FXML
+    private TextField txtMotPass;
+    @FXML
     private TextField txtAdresse;
     @FXML
-    private TextField txtNumeroTelephone;
+    private CheckBox Etat;
     @FXML
-    private TextField txtEmail;
+    private CheckBox IsAdmin;
     @FXML
-    private TextField txtNumeroCompteBancaire;
-    @FXML
-    private TableView<Fournisseur> tableViewFournisseur;
+    private TableView<Compte> tableViewCompte;
     @FXML
     private Button btnSave;
     @FXML
-    private Button btnUpadte;
+    private Button btnUpdate;
     @FXML
-    private TableColumn<Fournisseur, Integer> tableColumnnumIF;
+    private TableColumn<Compte, String> tableColumnCIN;
     @FXML
-    private TableColumn<Fournisseur, String> tableColumnNom;
+    private TableColumn<Compte, String> tableColumnNom;
     @FXML
-    private TableColumn<Fournisseur, String> tableColumnAdresse;
+    private TableColumn<Compte, String> tableColumnPrenom;
     @FXML
-    private TableColumn<Fournisseur, String> tableColumnNumeroTelephone;
+    private TableColumn<Compte, String> tableColumnTelephone;
     @FXML
-    private TableColumn<Fournisseur, String> tableColumnEmail;
+    private TableColumn<Compte, String> tableColumnPseudoNom;
     @FXML
-    private TableColumn<Fournisseur, String> tableColumnNumeroCompteBancaire;
+    private TableColumn<Compte, String> tableColumnAdresse;
     @FXML
-    private TableColumn<Fournisseur, Button> tableColumnPaiement;
+    private TableColumn<Compte, Integer> tableColumnEtat;
     @FXML
-    private TableColumn<Fournisseur, Button> tableColumnREMOVE;
+    private TableColumn<Compte, Integer> tableColumnIsAdmin;
+    @FXML
+    private TableColumn<Compte, Button> tableColumnREMOVE;
     @FXML
     private Label lblStatus;
     @FXML
+    private Button goToButton;
+    @FXML
     private TextField txtSearch;
 
-    private ObservableList<Fournisseur> suppliersList;
-    private ObservableList<Fournisseur> filteredList;
-    private FournisseurService fournisseurService;
+    private ObservableList<Compte> compteList;
+    private ObservableList<Compte> filteredList;
+    private CompteService compteService;
 
     public Dashboard() {
-        fournisseurService = new FournisseurService();
+        compteService = new CompteService();
     }
-
 
     @FXML
     private void initialize() {
-        populateFournisseurTable();
-        //
-        tableViewFournisseur.setOnMouseClicked(event -> {
+
+        populateCompteTable();
+
+        tableViewCompte.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 1) {
                 handleRowClick();
             }
         });
-        //
-        filteredList = FXCollections.observableArrayList(fournisseurService.findAll());
 
-        // Add a text change listener to the search text field
+
         txtSearch.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -95,64 +105,71 @@ public class Dashboard {
         });
     }
 
-    /*/////////////////*/
+    //////////////////////////////////////
 
-    public void populateFournisseurTable() {
-        List<Fournisseur> fournisseurs = fournisseurService.findAll();
+    private void filterTable(String searchText) {
+        List<Compte> comptes = CompteService.findAll();
+        List<Compte> searchResults = new ArrayList<>();
 
-        if (fournisseurs != null) {
-            fournisseurs.forEach(System.out::println);
-            System.out.println("Fournisseur!");
-
-            //
-            tableColumnnumIF.setCellValueFactory(new PropertyValueFactory<>("numIF"));
-            tableColumnNom.setCellValueFactory(new PropertyValueFactory<>("nom"));
-            tableColumnAdresse.setCellValueFactory(new PropertyValueFactory<>("adresse"));
-            tableColumnNumeroTelephone.setCellValueFactory(new PropertyValueFactory<>("numeroTelephone"));
-            tableColumnEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-            tableColumnNumeroCompteBancaire.setCellValueFactory(new PropertyValueFactory<>("numeroCompteBancaire"));
-
-            setupPaiementColumn();
-            setupRemoveColumn();
-
-            tableViewFournisseur.getItems().addAll(fournisseurs);
-
-        } else {
-            System.out.println("No found.");
+        // Iterate over the filteredList and add matching suppliers to the searchResults list
+        for (Compte compte : comptes) {
+            String Cin = compte.getCin();
+            if (Cin.contains(searchText)) {
+                searchResults.add(compte);
+            }
         }
 
+        // Clear the table view
+        tableViewCompte.getItems().clear();
+
+        // Add the search results to the table view
+        tableViewCompte.getItems().addAll(searchResults);
     }
 
 
+    public void populateCompteTable() {
+        List<Compte> comptes = compteService.findAll();
 
-    ////////////////AJOUTER////////////////////
+        if (comptes != null) {
+            tableColumnCIN.setCellValueFactory(new PropertyValueFactory<>("cin"));
+            tableColumnNom.setCellValueFactory(new PropertyValueFactory<>("nom"));
+            tableColumnPrenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
+            tableColumnTelephone.setCellValueFactory(new PropertyValueFactory<>("telephone"));
+            tableColumnPseudoNom.setCellValueFactory(new PropertyValueFactory<>("pseudo_nom"));
+            tableColumnAdresse.setCellValueFactory(new PropertyValueFactory<>("adresse"));
+            tableColumnEtat.setCellValueFactory(new PropertyValueFactory<>("Etat"));
+            tableColumnIsAdmin.setCellValueFactory(new PropertyValueFactory<>("IsAdmin"));
+
+            setupRemoveColumn();
+
+            compteList = FXCollections.observableArrayList(comptes);
+            tableViewCompte.setItems(compteList);
+        } else {
+            System.out.println("No data found.");
+        }
+    }
+
+
     @FXML
     private void handleSaveButtonAction() {
-        // Create a new Fournisseur object and set its properties using the text fields
-        Fournisseur fournisseur = new Fournisseur();
-        fournisseur.setNumIF(Integer.parseInt(txtnumIF.getText()));
-        fournisseur.setNom(txtNom.getText());
-        fournisseur.setAdresse(txtAdresse.getText());
-        fournisseur.setNumeroTelephone(txtNumeroTelephone.getText());
-        fournisseur.setEmail(txtEmail.getText());
-        fournisseur.setNumeroCompteBancaire(txtNumeroCompteBancaire.getText());
-
-        // Check if the fournisseur already exists
-        if (fournisseurService.findBynumIF(fournisseur.getNumIF()) != null) {
-            showAlert("Fournisseur déjà existant", "Un fournisseur avec le même numéro IF existe déjà.");
-            return;
-        }
+        Compte compte = new Compte();
+        compte.setNom(txtNom.getText());
+        compte.setPrenom(txtPrenom.getText());
+        compte.setTelephone(txtTelephone.getText());
+        compte.setPseudoNom(txtPseudoNom.getText());
+        compte.setCin(txtCIN.getText());
+        compte.setMotPass(PasswordHasher.hashPassword(txtMotPass.getText()));
+        compte.setAdresse(txtAdresse.getText());
+        compte.setEtat(Etat.isSelected() ? 1 : 0);
+        compte.setIsAdmin(IsAdmin.isSelected() ? 1 : 0);
 
 
-        // Call the save method in FournisseurService to insert the fournisseur
-        fournisseurService.save(fournisseur);
+        compteService.save(compte);
 
-        // Clear the input fields after saving
         clearInputFields();
 
-        showAlert("Fournisseur ajouté", "Le Fournisseur a été ajouté avec succès.");
+        showAlert("Compte ajouté", "Le compte a été ajouté avec succès.");
 
-        // Refresh the table view to reflect the updated data
         refreshTableView();
     }
 
@@ -164,135 +181,59 @@ public class Dashboard {
         alert.showAndWait();
     }
 
-
     private void refreshTableView() {
-        // Get the current data model of the table view
-        ObservableList<Fournisseur> fournisseurs = tableViewFournisseur.getItems();
-
-        // Clear the existing data
-        fournisseurs.clear();
-
-        // Fetch the updated data from the FournisseurService
-        fournisseurs.addAll(fournisseurService.findAll());
-
-        // Reapply the data model to the table view
-        tableViewFournisseur.setItems(fournisseurs);
+        ObservableList<Compte> comptes = tableViewCompte.getItems();
+        comptes.clear();
+        comptes.addAll(compteService.findAll());
+        tableViewCompte.setItems(comptes);
     }
-
-    /////////////////MODIFIER//////////////////
 
     @FXML
     public void handleUpdateButtonAction(ActionEvent event) {
-        Fournisseur selectedFournisseur = tableViewFournisseur.getSelectionModel().getSelectedItem();
-        if (selectedFournisseur != null) {
+        Compte selectedCompte = tableViewCompte.getSelectionModel().getSelectedItem();
+        if (selectedCompte != null) {
+            selectedCompte.setNom(txtNom.getText());
+            selectedCompte.setPrenom(txtPrenom.getText());
+            selectedCompte.setTelephone(txtTelephone.getText());
+            selectedCompte.setPseudoNom(txtPseudoNom.getText());
+            selectedCompte.setCin(txtCIN.getText());
+            selectedCompte.setMotPass(PasswordHasher.hashPassword(txtMotPass.getText()));
+            selectedCompte.setAdresse(txtAdresse.getText());
+            selectedCompte.setEtat(Etat.isSelected() ? 1 : 0);
+            selectedCompte.setIsAdmin(IsAdmin.isSelected() ? 1 : 0);
 
-            // Update the selected row's data
-            selectedFournisseur.setNumIF(Integer.parseInt(txtnumIF.getText()));
-            selectedFournisseur.setNom(txtNom.getText());
-            selectedFournisseur.setAdresse(txtAdresse.getText());
-            selectedFournisseur.setNumeroTelephone(txtNumeroTelephone.getText());
-            selectedFournisseur.setEmail(txtEmail.getText());
-            selectedFournisseur.setNumeroCompteBancaire(txtNumeroCompteBancaire.getText());
+            compteService.update(selectedCompte);
 
-            // Call the update method in FournisseurService
-            FournisseurService fournisseurService = new FournisseurService();
-            fournisseurService.update(selectedFournisseur);
-
-            // Refresh the table view to reflect the updated data
-            tableViewFournisseur.refresh();
+            tableViewCompte.refresh();
 
             clearInputFields();
         }
     }
 
-
-    /////////////////REMOVE//////////////////
-
-
-
-    ///////////////CLEARE///////////////////
-
     private void clearInputFields() {
-        txtnumIF.clear();
         txtNom.clear();
+        txtPrenom.clear();
+        txtTelephone.clear();
+        txtPseudoNom.clear();
+        txtCIN.clear();
+        txtMotPass.clear();
         txtAdresse.clear();
-        txtNumeroTelephone.clear();
-        txtEmail.clear();
-        txtNumeroCompteBancaire.clear();
-    }
-
-    ////////////////////////////////////
-
-
-    private HelloApplication application;
-
-    public void setApplication(HelloApplication application) {
-        this.application = application;
-    }
-
-
-    /////////////////////////////////////////
-
-
-    ///////////////////////////////////
-
-    private void handleRowClick() {
-        Fournisseur selectedRow = tableViewFournisseur.getSelectionModel().getSelectedItem();
-        if (selectedRow != null) {
-            txtnumIF.setText(String.valueOf(selectedRow.getNumIF()));
-            txtNom.setText(selectedRow.getNom());
-            txtAdresse.setText(selectedRow.getAdresse());
-            txtNumeroTelephone.setText(selectedRow.getNumeroTelephone());
-            txtEmail.setText(selectedRow.getEmail());
-            txtNumeroCompteBancaire.setText(selectedRow.getNumeroCompteBancaire());
-
-            // Perform other actions or updates based on the selected row
-        }
-    }
-
-    //////////////////////////////////////
-
-    private void filterTable(String searchText) {
-        List<Fournisseur> fournisseurs = fournisseurService.findAll();
-        List<Fournisseur> searchResults = new ArrayList<>();
-
-        // Iterate over the filteredList and add matching suppliers to the searchResults list
-        for (Fournisseur supplier : fournisseurs) {
-            String numIF = Integer.toString(supplier.getNumIF());
-            if (numIF.contains(searchText)) {
-                searchResults.add(supplier);
-            }
-        }
-
-        // Clear the table view
-        tableViewFournisseur.getItems().clear();
-
-        // Add the search results to the table view
-        tableViewFournisseur.getItems().addAll(searchResults);
-    }
-
-    ///////////////Cleare////////////////
-    @FXML
-    public void handleImageClick(MouseEvent mouseEvent) {
-        clearInputFields();
-    }
-
-    ////////////////REMOVE///////////////
-
-    private void setupButtonActions() {
+        Etat.setSelected(true);
+        IsAdmin.setSelected(false);
     }
 
     private void setupRemoveColumn() {
         tableColumnREMOVE.setCellFactory(column -> {
-            TableCell<Fournisseur, Button> remove = new TableCell<>() {
+            TableCell<Compte, Button> remove = new TableCell<>() {
                 final Button removeButton = new Button("Supprimer");
 
                 {
                     removeButton.setOnAction(event -> {
-                        Fournisseur fournisseur = getTableView().getItems().get(getIndex());
-                        fournisseurService.remove(fournisseur);
-                        refreshTableView();
-                        System.out.println("Removing fournisseur: " + fournisseur.getNumIF());
+                        Compte compte = getTableView().getItems().get(getIndex());
+                        compteService.deleteCin(compte);
+                        compteList.remove(compte);
+                        tableViewCompte.refresh();
+                        System.out.println("Removing compte: " + compte.getCin());
                     });
                 }
 
@@ -312,133 +253,48 @@ public class Dashboard {
     }
 
 
-
-    ////////////Paiement/////////////
-
-    private void setupPaiementColumn() {
-        tableColumnPaiement.setCellFactory(column -> {
-            TableCell<Fournisseur, Button> paiement = new TableCell<>() {
-                final Button paiementButton = new Button("Paiement");
-
-                {
-                    paiementButton.setOnAction(event -> {
-                        try {
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/PaiementManager.fxml"));
-                            Parent root = loader.load();
-
-                            PaiementManager paiementManagerController = loader.getController();
-
-                            /*{*/
-                            // Get the selected fournisseur object from the table
-                            Fournisseur fournisseur = getTableView().getItems().get(getIndex());
-
-                            // Pass the fournisseur object to the PaiementManager controller
-                            paiementManagerController.setFournisseur(fournisseur);
-                            /*}*/
-
-                            Stage stage = new Stage();
-                            stage.setScene(new Scene(root));
-                            stage.show();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    });
-                }
-
-                @Override
-                protected void updateItem(Button item, boolean empty) {
-                    super.updateItem(item, empty);
-
-                    if (empty) {
-                        setGraphic(null);
-                    } else {
-                        setGraphic(paiementButton);
-                    }
-                }
-            };
-            return paiement;
-        });
-    }
-
-
-
-
-    /*?*?*?*??/
-
-     private void setupPaiementColumn() {
-        tableColumnPaiement.setCellFactory(column -> {
-            TableCell<Fournisseur, Button> paiement = new TableCell<>() {
-                final Button paiementButton = new Button("Paiement");
-
-                {
-                    paiementButton.setOnAction(event -> {
-                        Fournisseur fournisseur = getTableView().getItems().get(getIndex());
-                        openADDFournisseurWindow(fournisseur);
-                    });
-                }
-
-                @Override
-                protected void updateItem(Button item, boolean empty) {
-                    super.updateItem(item, empty);
-
-                    if (empty) {
-                        setGraphic(null);
-                    } else {
-                        setGraphic(paiementButton);
-                    }
-                }
-            };
-            return paiement;
-        });
-    }
-
-    private void openADDFournisseurWindow(Fournisseur fournisseur) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ADDFournisseur.fxml"));
-            Parent root = loader.load();
-
-            // Access the controller of ADDFournisseur.fxml and set the fournisseur values
-            Ins controller = loader.getController();
-            controller.setFournisseur(fournisseur);
-
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
+    @FXML
+    private void handleRowClick() {
+        Compte selectedCompte = tableViewCompte.getSelectionModel().getSelectedItem();
+        if (selectedCompte != null) {
+            txtNom.setText(selectedCompte.getNom());
+            txtPrenom.setText(selectedCompte.getPrenom());
+            txtTelephone.setText(selectedCompte.getTelephone());
+            txtPseudoNom.setText(selectedCompte.getPseudoNom());
+            txtCIN.setText(selectedCompte.getCin());
+            txtMotPass.setText(selectedCompte.getMotPass());
+            txtAdresse.setText(selectedCompte.getAdresse());
+            Etat.setSelected(selectedCompte.getEtat() == 1);
+            IsAdmin.setSelected(selectedCompte.getIsAdmin() == 1);
         }
     }
 
-     */
-
-    ///////////////////////////
+    @FXML
+    public void handleImageClick(MouseEvent mouseEvent) {
+        clearInputFields();
+    }
 
     @FXML
-    private void handleAction1(ActionEvent event) throws IOException {
-        MenuItem menuItem = (MenuItem) event.getSource();
+    private void handleSearchButtonAction() {
+        String searchQuery = txtSearch.getText().trim();
+        if (!searchQuery.isEmpty()) {
+            filteredList = compteList.filtered(compte ->
+                    compte.getCin().contains(searchQuery)
+            );
+            tableViewCompte.setItems(filteredList);
+        } else {
+            tableViewCompte.setItems(compteList);
+        }
+    }
+
+    /////////////////////////
+
+    @FXML
+    private void handleGoToButton(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
 
-        // Further code for scene setup and stage configuration
 
-        Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setResizable(false);
-        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
-        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 4);
-
-        stage.show();
-    }
-
-    @FXML
-    private void handleAction2(ActionEvent event) throws IOException {
-        MenuItem menuItem = (MenuItem) event.getSource();
-        Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/Notes.fxml"));
-
-        // Further code for scene setup and stage configuration
-
-        Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
+        Stage stage = (Stage) goToButton.getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setResizable(false);
@@ -450,44 +306,5 @@ public class Dashboard {
     }
 
 
-
-
-
-    @FXML
-    private void handleAction3(ActionEvent event) throws IOException {
-        MenuItem menuItem = (MenuItem) event.getSource();
-        Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/PaiementsStatistiques.fxml"));
-
-        // Further code for scene setup and stage configuration
-
-        Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setResizable(false);
-        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
-        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 4);
-
-        stage.show();
-    }
-
-    public void handleAction4(ActionEvent event) throws IOException {
-        MenuItem menuItem = (MenuItem) event.getSource();
-        Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/InscriptionEtAuthentification.fxml"));
-
-        // Further code for scene setup and stage configuration
-
-        Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setResizable(false);
-        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
-        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 4);
-
-        stage.show();
-    }
-    ///////////////////////////
 
 }
-

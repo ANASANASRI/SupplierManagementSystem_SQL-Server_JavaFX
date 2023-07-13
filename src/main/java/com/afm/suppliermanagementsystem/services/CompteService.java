@@ -5,6 +5,8 @@ import com.afm.suppliermanagementsystem.dao.imp.CompteDaoImp;
 import com.afm.suppliermanagementsystem.model.Compte;
 import com.afm.suppliermanagementsystem.model.Fournisseur;
 
+import java.util.List;
+
 public class CompteService {
     private static CompteDao compteDao = new CompteDaoImp();
 
@@ -23,4 +25,15 @@ public class CompteService {
     }
 
 
+    public void deleteCin(Compte compte) {
+        compteDao.deleteByCin(compte.getCin());
+    }
+
+    public void update(Compte selectedCompte) {
+        compteDao.update(selectedCompte);
+    }
+
+    public static List<Compte> findAll() {
+        return compteDao.findAll();
+    }
 }

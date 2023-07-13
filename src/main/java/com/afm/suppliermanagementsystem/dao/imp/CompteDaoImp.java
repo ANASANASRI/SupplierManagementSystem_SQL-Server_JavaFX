@@ -2,11 +2,13 @@ package com.afm.suppliermanagementsystem.dao.imp;
 
 import com.afm.suppliermanagementsystem.dao.CompteDao;
 import com.afm.suppliermanagementsystem.model.Compte;
+import com.afm.suppliermanagementsystem.model.Fournisseur;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CompteDaoImp implements CompteDao {
@@ -20,7 +22,7 @@ public class CompteDaoImp implements CompteDao {
         PreparedStatement ps = null;
 
         try {
-            ps = conn.prepareStatement("INSERT INTO compte (nom, prenom, telephone, pseudo_nom, cin, mot_pass, adresse, etat) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            ps = conn.prepareStatement("INSERT INTO compte (nom, prenom, telephone, pseudo_nom, cin, mot_pass, adresse, etat,isAdmin) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)");
 
             ps.setString(1, compte.getNom());
             ps.setString(2, compte.getPrenom());
@@ -30,6 +32,7 @@ public class CompteDaoImp implements CompteDao {
             ps.setString(6, compte.getMotPass());
             ps.setString(7, compte.getAdresse());
             ps.setInt(8, compte.getEtat());
+            ps.setInt(9, compte.getIsAdmin());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -44,7 +47,7 @@ public class CompteDaoImp implements CompteDao {
         PreparedStatement ps = null;
 
         try {
-            ps = conn.prepareStatement("UPDATE compte SET nom = ?, prenom = ?, telephone = ?, pseudo_nom = ?, cin = ?, mot_pass = ?, adresse = ?, etat = ? WHERE id = ?");
+            ps = conn.prepareStatement("UPDATE compte SET nom = ?, prenom = ?, telephone = ?, pseudo_nom = ?, cin = ?, mot_pass = ?, adresse = ?, etat = ?, isAdmin = ? WHERE cin = ?");
 
             ps.setString(1, compte.getNom());
             ps.setString(2, compte.getPrenom());
@@ -54,6 +57,8 @@ public class CompteDaoImp implements CompteDao {
             ps.setString(6, compte.getMotPass());
             ps.setString(7, compte.getAdresse());
             ps.setInt(8, compte.getEtat());
+            ps.setInt(9, compte.getIsAdmin());
+            ps.setString(10, compte.getCin());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -62,6 +67,7 @@ public class CompteDaoImp implements CompteDao {
             closePreparedStatement(ps);
         }
     }
+
 
     @Override
     public void deleteById(String id) {
@@ -75,8 +81,40 @@ public class CompteDaoImp implements CompteDao {
 
     @Override
     public List<Compte> findAll() {
-        return null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            ps = conn.prepareStatement("SELECT * FROM compte");
+            rs = ps.executeQuery();
+
+            List<Compte> compteList = new ArrayList<>();
+
+            while (rs.next()) {
+                Compte compte = new Compte();
+                compte.setCin(rs.getString("CIN"));
+                compte.setNom(rs.getString("Nom"));
+                compte.setPrenom(rs.getString("Prenom"));
+                compte.setTelephone(rs.getString("Telephone"));
+                compte.setPseudoNom(rs.getString("Pseudo_nom"));
+                compte.setAdresse(rs.getString("Adresse"));
+                compte.setEtat(rs.getInt("Etat"));
+                compte.setIsAdmin(rs.getInt("IsAdmin"));
+
+                compteList.add(compte);
+            }
+
+            return compteList;
+        } catch (SQLException e) {
+            System.err.println("Error retrieving compte: " + e);
+            return null;
+        } finally {
+            DB.closeResultSet(rs);
+            DB.closeStatement(ps);
+        }
     }
+
+
 
     @Override
     public void deleteById(Integer id) {
@@ -160,4 +198,22 @@ public class CompteDaoImp implements CompteDao {
             }
         }
     }
+
+    @Override
+    public void deleteByCin(String cin) {
+        PreparedStatement ps = null;
+
+        try {
+            ps = conn.prepareStatement("DELETE FROM compte WHERE CIN = ?");
+
+            ps.setString(1, cin);
+
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            System.err.println("Error deleting compte: " + e);
+        } finally {
+            DB.closeStatement(ps);
+        }
+    }
+
 }
