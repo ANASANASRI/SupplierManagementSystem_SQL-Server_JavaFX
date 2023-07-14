@@ -7,6 +7,8 @@ module com.afm.suppliermanagementsystem {
     requires com.jfoenix;
     requires itextpdf;
     requires javafx.web;
+    requires org.apache.pdfbox;
+    requires java.desktop;
 
     opens com.afm.suppliermanagementsystem to javafx.fxml;
     exports com.afm.suppliermanagementsystem;

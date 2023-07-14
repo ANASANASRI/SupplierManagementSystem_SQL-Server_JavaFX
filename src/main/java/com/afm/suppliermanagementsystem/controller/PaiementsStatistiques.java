@@ -13,8 +13,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class PaiementsStatistiques {
-    ///////////////////////////
 
+    ///////////////////////////
     @FXML
     private void handleAction1(ActionEvent event) throws IOException {
         MenuItem menuItem = (MenuItem) event.getSource();
@@ -48,9 +48,6 @@ public class PaiementsStatistiques {
 
         stage.show();
     }
-
-
-
 
 
     @FXML

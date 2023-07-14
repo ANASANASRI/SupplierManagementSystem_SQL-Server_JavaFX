@@ -517,7 +517,7 @@ public class PaiementManager {
                             generateOrdereVirementPDF(paiement, banqueNom, libelle);
 
                             showImagePopup(new Stage());
-                            //loadGetPdfs(event);
+                            loadGetPdfs(event);
                         }
                     });
                 }
