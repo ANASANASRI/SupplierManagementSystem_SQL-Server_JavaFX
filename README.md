@@ -3,7 +3,8 @@
   
 ![](https://img.shields.io/badge/ANAS-ANASRI-red)
 
-  <h1>SupplierManagementSystem</h1>
+  <h1>AFMM</h1>
+  <h1>(SupplierManagementSystem)</h1>
   <p>Supplier Management System with Payment and PDF Generater</p>
 
 <!-- Badges -->
