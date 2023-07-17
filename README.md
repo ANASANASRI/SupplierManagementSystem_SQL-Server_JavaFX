@@ -50,18 +50,6 @@ To get started with the Supplier Management System, follow the steps below:
 [//]: # (development)
 ## :hammer_and_wrench: How To Run Development Server:
 
-
-## Directly download installer tools
-
-[Sai](https://po.56yhz.com/media/''''')
-
-
-
-[//]: # (publish)
-## :trumpet: How To Publish Your APP:
-
-- Web Build:
-
 ## Show
 <div align="left">
     <img src="static/img/GreaterWMS_en.png" alt="" width="" height="400" />
