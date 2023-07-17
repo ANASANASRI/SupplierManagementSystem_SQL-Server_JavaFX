@@ -69,9 +69,6 @@ public class PaiementManager {
     private Button btnSave;
 
     @FXML
-    private Button btnUpdate;
-
-    @FXML
     private TextField txtSearch;
 
     private ObservableList<Paiement> filteredList;
@@ -238,17 +235,12 @@ public class PaiementManager {
         //
         paiement.setMoyenPaiement(Paiement.MoyenPaiement.valueOf(moyenPaiement.getValue()));
 
-
-        // Call the save method in PaiementService to insert the paiement
         PaiementService.save(paiement);
 
-        // Refresh the table view to reflect the updated data
         refreshTableView();
 
-        // Clear the input fields after saving
         clearInputFields();
 
-        // Show a success message
         showAlert("Paiement ajouté", "Le paiement a été ajouté avec succès.");
     }
 
@@ -516,7 +508,7 @@ public class PaiementManager {
                             generateReglementAssurancePDF(paiement,numeroCheque);
                             generateOrdereVirementPDF(paiement, banqueNom, libelle);
 
-                            showImagePopup(new Stage());
+                            //showImagePopup(new Stage());
                             loadGetPdfs(event);
                         }
                     });
@@ -568,24 +560,19 @@ public class PaiementManager {
             String libelle = libelleField.getText();
             String numeroCheque = numeroChequeField.getText();
 
-            // Check if any of the fields are empty
             if (banqueNom.isEmpty() || libelle.isEmpty() || numeroCheque.isEmpty()) {
-                // Display an alert message in French
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Erreur");
                 alert.setHeaderText("Champs obligatoires vides");
                 alert.setContentText("Veuillez remplir tous les champs obligatoires.");
                 alert.showAndWait();
-                return; // Return to exit the event handler
+                return;
             }
 
             // Create a String array with the retrieved data
             String[] formData = { banqueNom, libelle, numeroCheque };
 
-            // Set the form data to the SimpleObjectProperty
             formDataProperty.set(formData);
-
-            // Close the popup
             popupStage.close();
         });
 

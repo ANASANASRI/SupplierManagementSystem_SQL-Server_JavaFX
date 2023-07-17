@@ -1,7 +1,6 @@
 package com.afm.suppliermanagementsystem;
 
 import com.afm.suppliermanagementsystem.controller.InscriptionEtAuthentification;
-import com.afm.suppliermanagementsystem.controller.MenuAdmins;
 import com.afm.suppliermanagementsystem.dao.imp.DB;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -27,7 +26,6 @@ public class HelloApplication extends Application {
             e.printStackTrace();
         }
     }
-
 
     public static void main(String[] args) {
         launch();

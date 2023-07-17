@@ -18,18 +18,6 @@ public String getCin() {
     return cin;
 }
 
-public void setCin(String cin) {
-    this.cin = cin;
-}
-
-public String getIdentifiantA() {
-    return cin;
-}
-
-public void setIdentifiantA(String identifiantA) {
-    this.cin = identifiantA;
-}
-
 public String getNom() {
     return nom;
 }

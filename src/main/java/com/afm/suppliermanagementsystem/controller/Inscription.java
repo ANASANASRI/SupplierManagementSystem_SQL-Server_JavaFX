@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import com.afm.suppliermanagementsystem.dao.imp.DB;
 import com.afm.suppliermanagementsystem.model.Compte;
 import com.afm.suppliermanagementsystem.services.CompteService;
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
 import javafx.event.ActionEvent;
@@ -18,9 +17,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;

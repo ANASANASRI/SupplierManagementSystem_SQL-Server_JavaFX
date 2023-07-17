@@ -2,7 +2,6 @@ package com.afm.suppliermanagementsystem.services;
 
 import com.afm.suppliermanagementsystem.dao.PaiementDao;
 import com.afm.suppliermanagementsystem.dao.imp.PaiementDaoImp;
-import com.afm.suppliermanagementsystem.model.Fournisseur;
 import com.afm.suppliermanagementsystem.model.Paiement;
 
 import java.util.List;

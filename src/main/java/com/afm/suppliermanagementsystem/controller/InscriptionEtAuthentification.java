@@ -39,8 +39,6 @@ public class InscriptionEtAuthentification {
         this.application = application;
     }
 
-    public int type;
-    public static Compte profile;
 
     private void loadInsc(ActionEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/Ins.fxml"));

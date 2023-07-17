@@ -8,7 +8,6 @@ public class Note {
     private String note;
     private String dateTime;
     private String id;
-
     private LocalDate date;
 
     public Note(String title, String note, String id, LocalDate date) {
@@ -58,7 +57,5 @@ public class Note {
     public void setId(String id) {
         this.id = id;
     }
-
-
 
 }

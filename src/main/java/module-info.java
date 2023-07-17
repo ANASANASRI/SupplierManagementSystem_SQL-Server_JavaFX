@@ -18,5 +18,4 @@ module com.afm.suppliermanagementsystem {
     exports com.afm.suppliermanagementsystem.model;
     exports com.afm.suppliermanagementsystem.services;
     exports com.afm.suppliermanagementsystem.dao;
-
 }

@@ -38,7 +38,6 @@
                 <CheckBox fx:id="Etat" layoutX="75.0" layoutY="407.0" prefHeight="32.0" prefWidth="139.0" text="Etat" textFill="white" />
                 <CheckBox fx:id="IsAdmin" layoutX="214.0" layoutY="407.0" prefHeight="32.0" prefWidth="139.0" text="IsAdmin" textFill="white" />
 
-
                 <Button fx:id="btnSave" layoutX="75.0" layoutY="455.0" mnemonicParsing="false" onAction="#handleSaveButtonAction" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Ajouter" />
                 <Button fx:id="btnUpdate" layoutX="75.0" layoutY="503.0" mnemonicParsing="false" onAction="#handleUpdateButtonAction" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Modifier">
                     <opaqueInsets>

@@ -15,7 +15,6 @@ public class PasswordHasher {
                 String hex = String.format("%02x", b);
                 hexString.append(hex);
             }
-
             return hexString.toString();
         } catch (NoSuchAlgorithmException e) {
             // Handle exception

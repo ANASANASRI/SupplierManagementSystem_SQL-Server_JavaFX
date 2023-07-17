@@ -1,8 +1,6 @@
 package com.afm.suppliermanagementsystem.controller;
 
-import com.afm.suppliermanagementsystem.HelloApplication;
 import com.afm.suppliermanagementsystem.model.Compte;
-import com.afm.suppliermanagementsystem.model.Fournisseur;
 import com.afm.suppliermanagementsystem.services.CompteService;
 import com.afm.suppliermanagementsystem.services.PasswordHasher;
 import javafx.beans.value.ChangeListener;
