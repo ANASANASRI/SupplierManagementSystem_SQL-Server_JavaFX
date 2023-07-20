@@ -10,7 +10,6 @@
 <children>
         <Pane prefHeight="128.0" prefWidth="1101.0" style="-fx-background-color: #B7B7B7;" AnchorPane.bottomAnchor="448.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-
                     <ImageView fitHeight="76.0" fitWidth="93.0" layoutX="395.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                         <image>
                             <Image url="@../img/Frame 2.png" />
@@ -38,12 +37,11 @@
                         <Font name="System Bold" size="12.0" />
                     </font>
                 </MenuButton>
-
             </children>
         </Pane>
     <Pane layoutY="125.0" prefHeight="452.0" prefWidth="1101.0">
          <children>
-            <StackedBarChart layoutX="58.0" layoutY="39.0" prefHeight="375.0" prefWidth="484.0">
+            <StackedBarChart layoutX="47.0" layoutY="40.0" prefHeight="375.0" prefWidth="484.0">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
@@ -51,8 +49,8 @@
                 <NumberAxis side="LEFT" />
               </yAxis>
             </StackedBarChart>
+            <PieChart layoutX="587.0" layoutY="27.0" />
          </children>
     </Pane>
-
     </children>
 </AnchorPane>

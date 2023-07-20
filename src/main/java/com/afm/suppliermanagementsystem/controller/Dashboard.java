@@ -19,7 +19,6 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -74,7 +73,6 @@ public class Dashboard {
     private Button goToButton;
     @FXML
     private TextField txtSearch;
-
     private ObservableList<Compte> compteList;
     private ObservableList<Compte> filteredList;
     private CompteService compteService;
