@@ -55,7 +55,10 @@ To get started with the Supplier Management System, follow the steps below:
     <img src="static/img/GreaterWMS_en.png" alt="" width="" height="400" />
 </div>
 <div align="left">
-    <img src="static/img/mobile_splash.jpg" alt="" width="200" height="400" />
-    <img src="static/img/" alt="" width="200" height="400" />
-    <img src="static/img/" alt="" width="200" height="400" />
+    <img src="screens/1.jpg" alt="" />
+    <img src="screens/2.jpg" alt="" />
+    <img src="screens/3.jpg" alt="" />
+    <img src="screens/4.jpg" alt="" />
+    <img src="screens/5.jpg" alt="" />
+    <img src="screens/6.jpg" alt="" />
 </div>
