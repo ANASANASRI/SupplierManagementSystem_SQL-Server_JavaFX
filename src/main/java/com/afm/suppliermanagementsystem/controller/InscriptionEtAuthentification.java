@@ -39,7 +39,6 @@ public class InscriptionEtAuthentification {
         this.application = application;
     }
 
-
     private void loadInsc(ActionEvent e) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/Ins.fxml"));
         Scene s = new Scene(root);

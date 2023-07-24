@@ -6,9 +6,6 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<!--
-//tâches insted of notes
--->
 
 <AnchorPane prefHeight="576.0" prefWidth="1101.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.afm.suppliermanagementsystem.controller.Notes">
         <children>
@@ -46,12 +43,11 @@
                 </children>
             </Pane>
 
-
             <BorderPane layoutY="136.0" prefHeight="441.0" prefWidth="1101.0">
                 <center>
                     <TabPane prefHeight="441.0" prefWidth="841.0" BorderPane.alignment="CENTER">
                         <tabs>
-                            <Tab style="-fx-font-color: #f04ab9;" text="Notes">
+                            <Tab closable="false" style="-fx-font-color: #f04ab9;" text="Notes">
                                 <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="412.0" prefWidth="815.0">
                                         <children>
@@ -61,7 +57,7 @@
                                                 </padding>
                                             </TextArea>
 
-                                            <TextArea fx:id="noteTitleBox" maxHeight="50.0" minHeight="50.0" prefHeight="50.0" prefWidth="847.0" promptText="titre de note" snapToPixel="false" style="-fx-background-color: #ededed;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
+                                            <TextArea fx:id="noteTitleBox" maxHeight="50.0" minHeight="50.0" prefHeight="50.0" prefWidth="650.0" promptText="titre de note" snapToPixel="false" style="-fx-background-color: #ededed;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="196.0" AnchorPane.topAnchor="0.0">
                                                 <padding>
                                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                                 </padding>
@@ -72,7 +68,7 @@
                                     </AnchorPane>
                                 </content>
                             </Tab>
-                            <Tab text="Rappels">
+                            <Tab closable="false" text="Rappels">
                                 <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="412.0" prefWidth="790.0" />
                                 </content>
@@ -119,7 +115,6 @@
                     </AnchorPane>
                 </left>
             </BorderPane>
-
 
         </children>
 </AnchorPane>

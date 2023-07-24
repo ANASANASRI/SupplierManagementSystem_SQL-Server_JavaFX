@@ -166,9 +166,6 @@ public class Notes implements Initializable {
     @FXML
     private void setNoteAsReminder(ActionEvent event) {
         String selectedNote = notesList.getSelectionModel().getSelectedItem();
-
-        //
-
         System.out.println("Selected Note: " + selectedNote);
     }
 
@@ -180,7 +177,6 @@ public class Notes implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
 
         // Further code for scene setup and stage configuration
-
         Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -198,7 +194,6 @@ public class Notes implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/Notes.fxml"));
 
         // Further code for scene setup and stage configuration
-
         Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -220,7 +215,6 @@ public class Notes implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/PaiementsStatistiques.fxml"));
 
         // Further code for scene setup and stage configuration
-
         Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -237,7 +231,6 @@ public class Notes implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/InscriptionEtAuthentification.fxml"));
 
         // Further code for scene setup and stage configuration
-
         Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);

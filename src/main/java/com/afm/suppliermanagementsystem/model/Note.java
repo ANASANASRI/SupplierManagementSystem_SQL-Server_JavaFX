@@ -1,7 +1,6 @@
 package com.afm.suppliermanagementsystem.model;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Note {
     private String title;

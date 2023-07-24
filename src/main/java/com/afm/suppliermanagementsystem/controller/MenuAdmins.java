@@ -293,8 +293,6 @@ public class MenuAdmins {
         });
     }
 
-
-
     ////////////Paiement/////////////
 
     private void setupPaiementColumn() {
@@ -400,7 +398,6 @@ public class MenuAdmins {
         MenuItem menuItem = (MenuItem) event.getSource();
         Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
 
-
         Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -417,7 +414,6 @@ public class MenuAdmins {
         MenuItem menuItem = (MenuItem) event.getSource();
         Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/Notes.fxml"));
 
-
         Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -429,15 +425,10 @@ public class MenuAdmins {
         stage.show();
     }
 
-
-
-
-
     @FXML
     private void handleAction3(ActionEvent event) throws IOException {
         MenuItem menuItem = (MenuItem) event.getSource();
         Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/PaiementsStatistiques.fxml"));
-
 
         Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
         Scene scene = new Scene(root);
@@ -454,7 +445,6 @@ public class MenuAdmins {
         MenuItem menuItem = (MenuItem) event.getSource();
         Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/InscriptionEtAuthentification.fxml"));
 
-
         Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -465,6 +455,5 @@ public class MenuAdmins {
 
         stage.show();
     }
-
 
 }

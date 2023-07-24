@@ -15,7 +15,7 @@
                             <Image url="@../img/Frame 2.png" />
                         </image>
                     </ImageView>
-                    <Label layoutX="495.0" prefHeight="118.0" prefWidth="244.0" text="Statistiques" textFill="WHITE">
+                    <Label layoutX="495.0" layoutY="-3.0" prefHeight="118.0" prefWidth="244.0" text="Statistiques" textFill="WHITE">
                         <font>
                             <Font size="48.0" />
                         </font>
@@ -41,7 +41,7 @@
         </Pane>
     <Pane layoutY="125.0" prefHeight="452.0" prefWidth="1101.0">
          <children>
-            <StackedBarChart layoutX="47.0" layoutY="40.0" prefHeight="375.0" prefWidth="484.0">
+            <StackedBarChart layoutX="56.0" layoutY="59.0" prefHeight="336.0" prefWidth="434.0">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
@@ -50,6 +50,14 @@
               </yAxis>
             </StackedBarChart>
             <PieChart layoutX="587.0" layoutY="27.0" />
+            <StackedAreaChart layoutX="536.0" layoutY="59.0" prefHeight="343.0" prefWidth="493.0">
+              <xAxis>
+                <NumberAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </StackedAreaChart>
          </children>
     </Pane>
     </children>
