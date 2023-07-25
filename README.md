@@ -59,7 +59,7 @@ To get started with the Supplier Management System, follow the steps below:
     <img src="screens/2.jpg" alt="" />
     <img src="screens/3.jpg" alt="" />
     <img src="screens/4.jpg" alt="" />
-    <img src="screens/7.jpg" alt="" />
+    <img src="screens/7.JPG" alt="" />
     <img src="screens/5.jpg" alt="" />
     <img src="screens/6.jpg" alt="" />
 </div>
