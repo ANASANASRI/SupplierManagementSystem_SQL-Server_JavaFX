@@ -7,7 +7,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.rendering.PDFRenderer;
 
@@ -21,10 +20,7 @@ import java.util.ResourceBundle;
 public class GetPdfs implements Initializable {
 
     @FXML
-    private VBox rootPane;
-    @FXML
     private ImageView pdfImageView;
-
     @FXML
     private ImageView pdfImageView1;
 
@@ -89,8 +85,6 @@ public class GetPdfs implements Initializable {
             showPDFLoadErrorAlert();
         }
     }
-
-
 
     private void showPDFLoadErrorAlert() {
         Alert alert = new Alert(AlertType.ERROR);

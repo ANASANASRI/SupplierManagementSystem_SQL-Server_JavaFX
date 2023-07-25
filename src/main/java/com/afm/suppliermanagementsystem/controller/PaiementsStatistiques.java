@@ -1,18 +1,130 @@
 package com.afm.suppliermanagementsystem.controller;
 
+import com.afm.suppliermanagementsystem.dao.imp.DB;
+import com.afm.suppliermanagementsystem.model.Paiement;
+import com.afm.suppliermanagementsystem.services.PaiementService;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
+import javafx.scene.chart.StackedBarChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class PaiementsStatistiques {
+public class PaiementsStatistiques implements Initializable {
+
+    @FXML
+    private StackedBarChart<String, Number> stackedBarChart;
+
+    @FXML
+    private PieChart pieChart;
+
+    @FXML
+    private PieChart pieChart1;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        // Call the method to populate the charts with data
+        initializeCharts();
+    }
+
+    // Method to populate the charts with data
+    private void initializeCharts() {
+
+
+
+        // Get real data from the database using DB.getConnection()
+        List<Paiement> paiements = PaiementService.findAll();
+
+
+        // Pour le StackedBarChart
+        int nombreCheques = 0;
+        double sommeTotaleCheques = 0;
+        double montantMoyenCheques = 0;
+
+        int nombreVirements = 0;
+        double sommeTotaleVirements = 0;
+        double montantMoyenVirements = 0;
+
+        for (Paiement paiement : paiements) {
+            if (paiement.getMoyenPaiement() == Paiement.MoyenPaiement.CHEQUE) {
+                nombreCheques++;
+                sommeTotaleCheques += paiement.getMontant();
+            } else if (paiement.getMoyenPaiement() == Paiement.MoyenPaiement.VIREMENT) {
+                nombreVirements++;
+                sommeTotaleVirements += paiement.getMontant();
+            }
+        }
+
+        montantMoyenCheques = nombreCheques == 0 ? 0 : sommeTotaleCheques / nombreCheques;
+        montantMoyenVirements = nombreVirements == 0 ? 0 : sommeTotaleVirements / nombreVirements;
+
+        XYChart.Series<String, Number> barSeries = new XYChart.Series<>();
+        barSeries.setName("CHEQUE");
+        barSeries.getData().add(new XYChart.Data<>("Somme Totale", sommeTotaleCheques));
+        barSeries.getData().add(new XYChart.Data<>("Montant Moyen", montantMoyenCheques));
+
+        XYChart.Series<String, Number> barSeries2 = new XYChart.Series<>();
+        barSeries2.setName("VIREMENT");
+        barSeries2.getData().add(new XYChart.Data<>("Somme Totale", sommeTotaleVirements));
+        barSeries2.getData().add(new XYChart.Data<>("Montant Moyen", montantMoyenVirements));
+
+        stackedBarChart.getData().addAll(barSeries, barSeries2);
+
+
+        // Sample data for the PieChart
+        int totalCheque = 0;
+        int totalVirement = 0;
+        for (Paiement paiement : paiements) {
+            if (paiement.getMoyenPaiement() == Paiement.MoyenPaiement.CHEQUE) {
+                totalCheque++;
+            } else if (paiement.getMoyenPaiement() == Paiement.MoyenPaiement.VIREMENT) {
+                totalVirement++;
+            }
+        }
+
+        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
+                new PieChart.Data("CHEQUE", totalCheque),
+                new PieChart.Data("VIREMENT", totalVirement)
+        );
+
+        pieChart.setData(pieChartData);
+        //pieChart.setTitle("Paiement par chèque ou virement");
+
+
+        // Sample data for the PieChart1
+        int totalEffectue = 0;
+        int totalNonEffectue = 0;
+        for (Paiement paiement : paiements) {
+            if (paiement.isEffectue()) {
+                totalEffectue++;
+            } else {
+                totalNonEffectue++;
+            }
+        }
+
+        ObservableList<PieChart.Data> pieChart1Data = FXCollections.observableArrayList(
+                new PieChart.Data("Effectué", totalEffectue),
+                new PieChart.Data("Non Effectué", totalNonEffectue)
+        );
+
+        pieChart1.setData(pieChart1Data);
+        //pieChart1.setTitle("Paiement effectué ou non");
+    }
+
 
     ///////////////////////////
     @FXML
