@@ -1,6 +1,7 @@
 package com.afm.suppliermanagementsystem.controller;
 
 import com.afm.suppliermanagementsystem.model.Note;
+import com.afm.suppliermanagementsystem.model.NoteDataModel;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ObservableValue;
@@ -53,26 +54,27 @@ public class Notes implements Initializable {
 
 
     // Global variables
-    private List<Note> notes = new ArrayList<>();
+    private List<Note> notes;
     private String title;
     private String note;
     private String id;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        notes = NoteDataModel.getInstance().getNotes();
         for (Note note : notes) {
             notesList.getItems().add(note.getTitle());
         }
 
         notesList.setOnMouseClicked(event -> {
             String current = notesList.getSelectionModel().getSelectedItem();
-            System.out.println("Current Item : " + current);
-            if (current!=null) {
+            if (current != null) {
                 clearFields();
                 for (Note note : notes) {
                     if (note.getTitle().equals(current)) {
                         noteTitleBox.setText(current);
                         noteBox.setText(note.getNote());
+                        datePicker.setValue(note.getDate()); // Set the selected date in the DatePicker
                     }
                 }
             }
@@ -102,17 +104,25 @@ public class Notes implements Initializable {
         this.note = noteBox.getText();
         this.id = String.valueOf(notes.size() + 100001);
 
-        Note note = new Note(this.title, this.note, this.id, selectedDate);
+        Note note = new Note();
+        note.setTitle(this.title);
+        note.setNote(this.note);
+        note.setId(this.id);
+        note.setDate(selectedDate); // Set the selected date
+
         notes.add(note);
         updateNotesList(notes);
         clearFields();
     }
 
 
+
+
     @FXML
     private void clearFields() {
         noteTitleBox.setText("");
         noteBox.setText("");
+        datePicker.setValue(null);
     }
 
     private void updateNotesList(List<Note> notes) {

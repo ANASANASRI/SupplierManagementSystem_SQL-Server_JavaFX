@@ -9,6 +9,9 @@ public class Note {
     private String id;
     private LocalDate date;
 
+    public Note() {
+    }
+
     public Note(String title, String note, String id, LocalDate date) {
         this.title = title;
         this.note = note;
