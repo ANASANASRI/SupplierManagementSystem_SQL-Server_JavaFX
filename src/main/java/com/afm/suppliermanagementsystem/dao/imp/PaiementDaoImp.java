@@ -24,14 +24,17 @@ public class PaiementDaoImp implements PaiementDao {
         PreparedStatement ps = null;
 
         try {
-            ps = connection.prepareStatement("INSERT INTO paiement (montant, devise, date, effectue, moyenPaiement,numIF) VALUES (?, ?, ?, ?, ? ,?)");
+            ps = connection.prepareStatement("INSERT INTO paiement (montant, devise, date, effectue, moyenPaiement, numIF, agence, libelle, numCheque) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             ps.setDouble(1, paiement.getMontant());
             ps.setString(2, paiement.getDevise());
             ps.setDate(3, new java.sql.Date(paiement.getDate().getTime()));
             ps.setBoolean(4, paiement.isEffectue());
             ps.setString(5, paiement.getMoyenPaiement().name());
-            ps.setString(6, String.valueOf(paiement.getNumIF()));
+            ps.setInt(6, paiement.getNumIF());
+            ps.setString(7, paiement.getAgence());
+            ps.setString(8, paiement.getLibelle());
+            ps.setString(9, paiement.getNumCheque());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -46,14 +49,17 @@ public class PaiementDaoImp implements PaiementDao {
         PreparedStatement ps = null;
 
         try {
-            ps = connection.prepareStatement("UPDATE paiement SET montant = ?, devise = ?, date = ?, effectue = ?, moyenPaiement = ? WHERE identifiant = ?");
+            ps = connection.prepareStatement("UPDATE paiement SET montant = ?, devise = ?, date = ?, effectue = ?, moyenPaiement = ?, agence = ?, libelle = ?, numCheque = ? WHERE identifiant = ?");
 
             ps.setDouble(1, paiement.getMontant());
             ps.setString(2, paiement.getDevise());
             ps.setDate(3, new java.sql.Date(paiement.getDate().getTime()));
             ps.setBoolean(4, paiement.isEffectue());
             ps.setString(5, paiement.getMoyenPaiement().name());
-            ps.setInt(6, paiement.getIdentifiant());
+            ps.setString(6, paiement.getAgence());
+            ps.setString(7, paiement.getLibelle());
+            ps.setString(8, paiement.getNumCheque());
+            ps.setInt(9, paiement.getIdentifiant());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -62,6 +68,7 @@ public class PaiementDaoImp implements PaiementDao {
             closePreparedStatement(ps);
         }
     }
+
 
 
     @Override
@@ -151,10 +158,18 @@ public class PaiementDaoImp implements PaiementDao {
                     Date date = resultSet.getDate("date");
                     boolean effectue = resultSet.getBoolean("effectue");
                     String moyenPaiement = resultSet.getString("moyenPaiement");
+                    String agence = resultSet.getString("agence");
+                    String libelle = resultSet.getString("libelle");
+                    String numCheque = resultSet.getString("numCheque");
 
                     Paiement.MoyenPaiement moyenPaiementEnum = Paiement.MoyenPaiement.valueOf(moyenPaiement);
 
+                    // Create a new Paiement object with all the fields
                     Paiement paiement = new Paiement(identifiant, montant, devise, date, effectue, moyenPaiementEnum);
+                    paiement.setAgence(agence);
+                    paiement.setLibelle(libelle);
+                    paiement.setNumCheque(numCheque);
+
                     paiements.add(paiement);
                 }
             }
@@ -164,6 +179,7 @@ public class PaiementDaoImp implements PaiementDao {
 
         return paiements;
     }
+
 
 
     private Paiement extractPaiementFromResultSet(ResultSet rs) throws SQLException {

@@ -3,20 +3,39 @@ package com.afm.suppliermanagementsystem.model;
 import java.util.Date;
 
 public class Paiement {
-    private int identifiant; // L'identifiant unique du paiement
-    private double montant; // Le montant du paiement
-    private String devise; // La devise dans laquelle le paiement est effectué
-    private Date date; // La date du paiement
-    private boolean effectue; // Indique si le paiement a été effectué ou non
-    private MoyenPaiement moyenPaiement; // Updated to use the MoyenPaiement enum
-    private int numIF; // Foreign key referencing the numIF of the associated Fournisseur
+    private int identifiant;
+    private double montant;
+    private String devise;
+    private Date date;
+    private boolean effectue;
+    private MoyenPaiement moyenPaiement;
+    private int numIF;
 
     public enum MoyenPaiement {
         CHEQUE,
         VIREMENT
     }
 
+    private String agence;
+    private String libelle;
+    private String numCheque;
+
+
+
     public Paiement() {}
+
+    public Paiement(int identifiant, double montant, String devise, Date date, boolean effectue, MoyenPaiement moyenPaiement, int numIF, String agence, String libelle, String numCheque) {
+        this.identifiant = identifiant;
+        this.montant = montant;
+        this.devise = devise;
+        this.date = date;
+        this.effectue = effectue;
+        this.moyenPaiement = moyenPaiement;
+        this.numIF = numIF;
+        this.agence = agence;
+        this.libelle = libelle;
+        this.numCheque = numCheque;
+    }
 
     public Paiement(int identifiant, double montant, String devise, Date date, boolean effectue, MoyenPaiement moyenPaiement) {
         this.identifiant = identifiant;
@@ -35,6 +54,30 @@ public class Paiement {
         this.effectue = effectue;
         this.moyenPaiement = moyenPaiement;
         this.numIF = numIF;
+    }
+
+    public String getAgence() {
+        return agence;
+    }
+
+    public void setAgence(String agence) {
+        this.agence = agence;
+    }
+
+    public String getLibelle() {
+        return libelle;
+    }
+
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
+    }
+
+    public String getNumCheque() {
+        return numCheque;
+    }
+
+    public void setNumCheque(String numCheque) {
+        this.numCheque = numCheque;
     }
 
     public int getIdentifiant() {

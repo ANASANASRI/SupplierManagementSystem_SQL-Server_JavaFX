@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="500.0" prefWidth="436.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.afm.suppliermanagementsystem.controller.GetChequePdf">
+
+    <children>
+
+        <Label layoutX="111.0" layoutY="14.0" prefHeight="30.0" prefWidth="207.0" style="-fx-font-size: 20px;" text="Reglement d'Assurance" underline="true">
+        </Label>
+        <ImageView fx:id="pdfImageView" fitHeight="395.0" fitWidth="269.0" layoutX="83.0" layoutY="54.0" preserveRatio="true" />
+        <Button layoutX="83.0" layoutY="459.0" mnemonicParsing="false" onAction="#displayVirementPDF" prefHeight="25.0" prefWidth="269.0" text="Afficher PDF" />
+
+    </children>
+</AnchorPane>

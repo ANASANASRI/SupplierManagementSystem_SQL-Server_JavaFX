@@ -1,12 +1,15 @@
 package com.afm.suppliermanagementsystem.model;
 
-public class Agences {
+public class Agence {
 
     private String agence;
     private String address;
     private String telephone;
 
-    public Agences(String agence, String address, String telephone) {
+    public Agence() {
+    }
+
+    public Agence(String agence, String address, String telephone) {
         this.agence = agence;
         this.address = address;
         this.telephone = telephone;
