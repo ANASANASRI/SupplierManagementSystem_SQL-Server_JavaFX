@@ -7,7 +7,7 @@ import java.util.List;
 public interface FournisseurDao {
     void insert(Fournisseur fournisseur);
 
-    void update(Fournisseur fournisseur);
+    void modif(Fournisseur fournisseur, int oldNumIF);
 
     Fournisseur findBynumIF(int numIF);
 

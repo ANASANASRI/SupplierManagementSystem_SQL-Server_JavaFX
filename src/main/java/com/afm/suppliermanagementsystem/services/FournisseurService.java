@@ -13,13 +13,12 @@ public class FournisseurService {
         fournisseurDao.insert(fournisseur);
     }
 
-    public void update(Fournisseur fournisseur) {
-        fournisseurDao.update(fournisseur);
-    }
-
-
     public static void remove(Fournisseur fournisseur) {
         fournisseurDao.deleteBynumIF(fournisseur.getNumIF());
+    }
+
+    public void modif(Fournisseur fournisseur,int oldNumIF) {
+        fournisseurDao.modif(fournisseur,oldNumIF);
     }
 
     public Fournisseur findBynumIF(int numIF) {

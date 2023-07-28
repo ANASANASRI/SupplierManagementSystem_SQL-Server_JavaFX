@@ -4,6 +4,7 @@ import com.afm.suppliermanagementsystem.model.Agence;
 import com.afm.suppliermanagementsystem.model.Fournisseur;
 import com.afm.suppliermanagementsystem.model.Paiement;
 import com.afm.suppliermanagementsystem.services.AgenceService;
+import com.afm.suppliermanagementsystem.services.FournisseurService;
 import com.afm.suppliermanagementsystem.services.PaiementService;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.BarcodePDF417;
@@ -115,6 +116,9 @@ public class PaiementManager {
     private TableColumn<Paiement, Button> tableColumnPdf;
 
     @FXML
+    private TableColumn<Paiement, Button> tableColumnREMOVE;
+
+    @FXML
     private ComboBox<String> agences;
 
     private Fournisseur fournisseur;
@@ -122,6 +126,20 @@ public class PaiementManager {
     private TextField libelle;
     @FXML
     private TextField numCheque;
+
+    private boolean isAdmin;
+
+    private boolean isAdminP;
+
+    // Getter method to retrieve the value of isAdminP
+    public boolean getIsAdminP() {
+        return isAdminP;
+    }
+
+    // Setter method to set the value of isAdminP
+    public void setIsAdminP(boolean isAdminP) {
+        this.isAdminP = isAdminP;
+    }
 
     public void setFournisseur(Fournisseur fournisseur) {
         List<Paiement> paiements = PaiementService.findAll();
@@ -180,6 +198,11 @@ public class PaiementManager {
             tableColumnLibelle.setCellValueFactory(new PropertyValueFactory<>("libelle"));
             tableColumnNumCheque.setCellValueFactory(new PropertyValueFactory<>("numCheque"));
             setupPDFColumn();
+            System.out.println("jsagdjhagsdj"+getIsAdminP());
+            if(getIsAdminP()){
+                tableColumnREMOVE.setVisible(true);
+                setupRemoveColumn();
+            }
 
             tableViewPaiement.getItems().addAll(paiements);
         } else {
@@ -663,5 +686,47 @@ public class PaiementManager {
 
         return new String[]{montantRow, deviseRow, dateRow, effectueRow, moyenPaiementRow,agenceRow,libelleRow,numchequeRow};
     }
+
+
+
+    private void setupRemoveColumn() {
+        tableColumnREMOVE.setCellFactory(column -> {
+            TableCell<Paiement, Button> remove = new TableCell<>() {
+                final Button removeButton = new Button("Supprimer");
+
+                {
+                    removeButton.setOnAction(event -> {
+                        Paiement paiement = getTableView().getItems().get(getIndex());
+
+                        // Show a confirmation dialog before deleting
+                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                        alert.setTitle("Confirmation");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Êtes-vous sûr de vouloir supprimer ce paiement ?");
+                        alert.showAndWait()
+                                .filter(response -> response == ButtonType.OK)
+                                .ifPresent(response -> {
+                                    PaiementService.remove(paiement.getIdentifiant());
+                                    refreshTableView();
+                                    System.out.println("Removing paiement: " + fournisseur.getNumIF());
+                                });
+                    });
+                }
+
+                @Override
+                protected void updateItem(Button item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    if (empty) {
+                        setGraphic(null);
+                    } else {
+                        setGraphic(removeButton);
+                    }
+                }
+            };
+            return remove;
+        });
+    }
+
 
 }

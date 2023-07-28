@@ -13,6 +13,10 @@ public class PaiementService {
         paiementDao.insert(paiement);
     }
 
+    public static Paiement remove(int Id) {
+        return paiementDao.deleteById(Id);
+    }
+
     public void update(Paiement paiement) {
         paiementDao.update(paiement);
     }

@@ -37,11 +37,11 @@ public class FournisseurDaoImp implements FournisseurDao {
     }
 
     @Override
-    public void update(Fournisseur fournisseur) {
+    public void modif(Fournisseur fournisseur,int oldNumIF) {
         PreparedStatement ps = null;
 
         try {
-            ps = conn.prepareStatement("UPDATE fournisseur SET nom = ?, adresse = ?, numeroTelephone = ?, email = ?, numeroCompteBancaire = ? WHERE numIF = ?");
+            ps = conn.prepareStatement("UPDATE fournisseur SET nom = ?, adresse = ?, numeroTelephone = ?, email = ?, numeroCompteBancaire = ?, numIF = ? WHERE numIF = ?");
 
             ps.setString(1, fournisseur.getNom());
             ps.setString(2, fournisseur.getAdresse());
@@ -49,7 +49,7 @@ public class FournisseurDaoImp implements FournisseurDao {
             ps.setString(4, fournisseur.getEmail());
             ps.setString(5, fournisseur.getNumeroCompteBancaire());
             ps.setInt(6, fournisseur.getNumIF());
-
+            ps.setInt(7, oldNumIF);
             ps.executeUpdate();
         } catch (SQLException e) {
             System.err.println("Error updating fournisseur: " + e);

@@ -9,7 +9,7 @@ public interface PaiementDao {
 
     void update(Paiement paiement);
 
-    void deleteById(String id);
+    Paiement deleteById(int id);
 
     Paiement findById(String id);
 

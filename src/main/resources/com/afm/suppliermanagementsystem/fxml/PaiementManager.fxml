@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="1061.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.afm.suppliermanagementsystem.controller.PaiementManager">
+<AnchorPane prefHeight="543.0" prefWidth="1277.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.afm.suppliermanagementsystem.controller.PaiementManager">
 
     <children>
         <Pane onMouseClicked="#handleImageClick" prefHeight="500.0" prefWidth="429.0" style="-fx-background-color: #B7B7B7;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -47,7 +47,7 @@
 <!--
                 <TextField fx:id="agenceSearch" layoutX="438.0" layoutY="190.0" prefHeight="32.0" prefWidth="354.0" promptText="iugiuguhui" />
 -->
-                <ComboBox fx:id="agences" layoutX="75.0" layoutY="350.0" prefHeight="32.0" prefWidth="278.0" >
+                <ComboBox fx:id="agences" layoutX="75.0" layoutY="350.0" prefHeight="32.0" prefWidth="278.0">
                     <items>
                     </items>
                 </ComboBox>
@@ -58,7 +58,7 @@
             </children>
         </Pane>
 
-        <TableView fx:id="tableViewPaiement" layoutX="438.0" layoutY="221.0" prefHeight="322.0" prefWidth="903.0">
+        <TableView fx:id="tableViewPaiement" layoutX="438.0" layoutY="221.0" prefHeight="322.0" prefWidth="831.0">
             <columns>
                 <TableColumn fx:id="tableColumnIdentifiant" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Identifiant" />
                 <TableColumn fx:id="tableColumnMontant" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Montant" />
@@ -70,7 +70,7 @@
                 <TableColumn fx:id="tableColumnLibelle" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Libellé" />
                 <TableColumn fx:id="tableColumnNumCheque" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Numéro de Chèque" />
                 <TableColumn fx:id="tableColumnPdf" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="GetPDF" />
-                <TableColumn fx:id="tableColumnREMOVE" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Supprimer" />
+                <TableColumn fx:id="tableColumnREMOVE" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Supprimer" visible="false" />
             </columns>
         </TableView>
 

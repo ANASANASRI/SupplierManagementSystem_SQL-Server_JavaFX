@@ -7,6 +7,7 @@ import com.afm.suppliermanagementsystem.HelloApplication;
 import com.afm.suppliermanagementsystem.dao.imp.DB;
 import com.afm.suppliermanagementsystem.model.Compte;
 
+import com.afm.suppliermanagementsystem.model.Fournisseur;
 import com.afm.suppliermanagementsystem.services.CompteService;
 import com.afm.suppliermanagementsystem.services.PasswordHasher;
 import com.jfoenix.controls.JFXPasswordField;
@@ -66,19 +67,27 @@ public class InscriptionEtAuthentification {
         boolean compteExists = CompteService.findCompte(nom, hashedPassword);
         boolean compteAdmExists = CompteService.findAdmCompte(nom, hashedPassword);
 
-
         if (compteExists) {
-            Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
-            Scene s = new Scene(root);
-            Stage fenetre = (Stage) ((Node) e.getSource()).getScene().getWindow();
-            fenetre.setScene(s);
-            fenetre.setResizable(false);
-            Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-            fenetre.setX((primScreenBounds.getWidth() - fenetre.getWidth()) / 2);
-            fenetre.setY((primScreenBounds.getHeight() - fenetre.getHeight()) / 4);
+            // Get the reference to the current window
+            Stage currentStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            currentStage.close(); // Close the current window
 
-            fenetre.show();
+            // Load the MenuAdmins.fxml and set the isAdmin value
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
+            Parent root = loader.load();
+            MenuAdmins menuAdminsController = loader.getController();
+            menuAdminsController.setIsAdmin(false); // Set the value as required
+
+            Stage newStage = new Stage();
+            newStage.setScene(new Scene(root));
+            newStage.setResizable(false);
+            newStage.show();
+
         } else if (compteAdmExists) {
+            // Get the reference to the current window
+            Stage currentStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            currentStage.close(); // Close the current window
+
             Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/Dashboard.fxml"));
             Scene s = new Scene(root);
             Stage fenetre = (Stage) ((Node) e.getSource()).getScene().getWindow();

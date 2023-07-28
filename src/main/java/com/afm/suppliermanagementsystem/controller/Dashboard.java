@@ -10,7 +10,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -80,6 +79,9 @@ public class Dashboard {
 
     public Dashboard() {
         compteService = new CompteService();
+    }
+
+    public static void setCompte(boolean compteAdmExists) {
     }
 
     @FXML
@@ -194,7 +196,11 @@ public class Dashboard {
             selectedCompte.setTelephone(txtTelephone.getText());
             selectedCompte.setPseudoNom(txtPseudoNom.getText());
             selectedCompte.setCin(txtCIN.getText());
-            selectedCompte.setMotPass(PasswordHasher.hashPassword(txtMotPass.getText()));
+            if(txtMotPass.getText()==null) {
+                selectedCompte.setMotPass(null);
+            }else{
+                selectedCompte.setMotPass(PasswordHasher.hashPassword(txtMotPass.getText()));
+            }
             selectedCompte.setAdresse(txtAdresse.getText());
             selectedCompte.setEtat(Etat.isSelected() ? 1 : 0);
             selectedCompte.setIsAdmin(IsAdmin.isSelected() ? 1 : 0);
@@ -287,20 +293,31 @@ public class Dashboard {
     /////////////////////////
 
     @FXML
-    private void handleGoToButton(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
+    private void handleGoToButton() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
+        Parent root = loader.load();
 
-        Stage stage = (Stage) goToButton.getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
+        // Get the controller instance
+        MenuAdmins menuAdminsController = loader.getController();
+
+        // Set the isAdmin value before calling the constructor
+        menuAdminsController.setIsAdmin(true); // Set the value as required
+
+        // Print the isAdmin value after setting it
+        System.out.println("Before initialize: " + menuAdminsController.isAdmin());
+
+        // Call the constructor
+        menuAdminsController.initialize();
+
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
         stage.setResizable(false);
-        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
-        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 4);
-
         stage.show();
+
+        // Print the isAdmin value again after the view is loaded
+        System.out.println("After setIsAdmin: " + menuAdminsController.isAdmin());
     }
 
 
-
 }
+

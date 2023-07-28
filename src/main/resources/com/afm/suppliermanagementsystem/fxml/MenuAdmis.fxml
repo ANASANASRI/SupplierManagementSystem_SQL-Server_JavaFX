@@ -64,7 +64,7 @@
                 <TableColumn fx:id="tableColumnEmail" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Email" />
                 <TableColumn fx:id="tableColumnNumeroCompteBancaire" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Numéro de Compte Bancaire" />
                 <TableColumn fx:id="tableColumnPaiement" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Paiement" />
-                <TableColumn fx:id="tableColumnREMOVE" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Supprimer" />
+                <TableColumn fx:id="tableColumnREMOVE" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Supprimer" visible="false"/>
             </columns>
         </TableView>
         <TextField fx:id="txtSearch" layoutX="438.0" layoutY="26.0" prefHeight="32.0" prefWidth="354.0" promptText="Rechercher un fournisseur par numIF..." />

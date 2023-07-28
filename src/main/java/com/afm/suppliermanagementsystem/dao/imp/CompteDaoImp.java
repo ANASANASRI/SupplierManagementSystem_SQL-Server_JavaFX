@@ -47,18 +47,37 @@ public class CompteDaoImp implements CompteDao {
         PreparedStatement ps = null;
 
         try {
-            ps = conn.prepareStatement("UPDATE compte SET nom = ?, prenom = ?, telephone = ?, pseudo_nom = ?, cin = ?, mot_pass = ?, adresse = ?, etat = ?, isAdmin = ? WHERE cin = ?");
+            StringBuilder queryBuilder = new StringBuilder("UPDATE compte SET nom = ?, prenom = ?, telephone = ?, pseudo_nom = ?, cin = ?, adresse = ?, etat = ?, isAdmin = ?");
+            List<Object> params = new ArrayList<>();
+
+            // Append password update only if it's not null and not empty
+            if (compte.getMotPass() != null && !compte.getMotPass().isEmpty()) {
+                queryBuilder.append(", mot_pass = ?");
+                params.add(compte.getMotPass());
+            }
+
+            queryBuilder.append(" WHERE cin = ?");
+            params.add(compte.getCin());
+
+            ps = conn.prepareStatement(queryBuilder.toString());
 
             ps.setString(1, compte.getNom());
             ps.setString(2, compte.getPrenom());
             ps.setString(3, compte.getTelephone());
             ps.setString(4, compte.getPseudoNom());
             ps.setString(5, compte.getCin());
-            ps.setString(6, compte.getMotPass());
-            ps.setString(7, compte.getAdresse());
-            ps.setInt(8, compte.getEtat());
-            ps.setInt(9, compte.getIsAdmin());
-            ps.setString(10, compte.getCin());
+            ps.setString(6, compte.getAdresse());
+            ps.setInt(7, compte.getEtat());
+            ps.setInt(8, compte.getIsAdmin());
+
+            // Set password only if it's not null and not empty
+            int paramIndex = 9;
+            if (compte.getMotPass() != null && !compte.getMotPass().isEmpty()) {
+                ps.setObject(paramIndex, compte.getMotPass());
+                paramIndex++;
+            }
+
+            ps.setString(paramIndex, compte.getCin());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -67,6 +86,8 @@ public class CompteDaoImp implements CompteDao {
             closePreparedStatement(ps);
         }
     }
+
+
 
 
     @Override

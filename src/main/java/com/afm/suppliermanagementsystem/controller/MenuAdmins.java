@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -26,6 +27,9 @@ import java.util.List;
 
 
 public class MenuAdmins {
+
+
+    private boolean isAdmin;
     @FXML
     private TextField txtnumIF;
     @FXML
@@ -64,13 +68,26 @@ public class MenuAdmins {
     private ObservableList<Fournisseur> filteredList;
     private FournisseurService fournisseurService;
 
+    //sql express 2014
+    //APRCT & BDRCT
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
     public MenuAdmins() {
         fournisseurService = new FournisseurService();
+        System.out.println("Constructor: " + isAdmin);
+    }
+
+    public void setIsAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
     }
 
 
     @FXML
-    private void initialize() {
+    void initialize() {
+        System.out.println("first :  "+ isAdmin);
         populateFournisseurTable();
         //
         tableViewFournisseur.setOnMouseClicked(event -> {
@@ -108,7 +125,11 @@ public class MenuAdmins {
             tableColumnNumeroCompteBancaire.setCellValueFactory(new PropertyValueFactory<>("numeroCompteBancaire"));
 
             setupPaiementColumn();
-            setupRemoveColumn();
+            System.out.println("setupRemove  "+isAdmin());
+            if(isAdmin()){
+                tableColumnREMOVE.setVisible(true);
+                setupRemoveColumn();
+            }
 
             tableViewFournisseur.getItems().addAll(fournisseurs);
 
@@ -171,9 +192,10 @@ public class MenuAdmins {
     @FXML
     public void handleUpdateButtonAction(ActionEvent event) {
         Fournisseur selectedFournisseur = tableViewFournisseur.getSelectionModel().getSelectedItem();
+        Fournisseur selectedRow = tableViewFournisseur.getSelectionModel().getSelectedItem();
+
         if (selectedFournisseur != null) {
-            
-            // Update the selected row's data
+            if (isAdmin()) {
             selectedFournisseur.setNumIF(Integer.parseInt(txtnumIF.getText()));
             selectedFournisseur.setNom(txtNom.getText());
             selectedFournisseur.setAdresse(txtAdresse.getText());
@@ -181,14 +203,18 @@ public class MenuAdmins {
             selectedFournisseur.setEmail(txtEmail.getText());
             selectedFournisseur.setNumeroCompteBancaire(txtNumeroCompteBancaire.getText());
 
-            // Call the update method in FournisseurService
-            FournisseurService fournisseurService = new FournisseurService();
-            fournisseurService.update(selectedFournisseur);
+            System.out.println(selectedFournisseur);
+            fournisseurService.modif(selectedFournisseur,selectedRow.getNumIF());
 
-            // Refresh the table view to reflect the updated data
-            tableViewFournisseur.refresh();
-
+            refreshTableView();
             clearInputFields();
+            }else {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Privilèges d'administrateur requis");
+                alert.setHeaderText(null);
+                alert.setContentText("Seuls les administrateurs peuvent effectuer la mise à jour.");
+                alert.showAndWait();
+            }
         }
     }
 
@@ -272,9 +298,19 @@ public class MenuAdmins {
                 {
                     removeButton.setOnAction(event -> {
                         Fournisseur fournisseur = getTableView().getItems().get(getIndex());
-                        fournisseurService.remove(fournisseur);
-                        refreshTableView();
-                        System.out.println("Removing fournisseur: " + fournisseur.getNumIF());
+
+                        // Show a confirmation dialog before deleting
+                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                        alert.setTitle("Confirmation");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Êtes-vous sûr de vouloir supprimer ce fournisseur ?");
+                        alert.showAndWait()
+                                .filter(response -> response == ButtonType.OK)
+                                .ifPresent(response -> {
+                                    fournisseurService.remove(fournisseur);
+                                    refreshTableView();
+                                    System.out.println("Removing fournisseur: " + fournisseur.getNumIF());
+                                });
                     });
                 }
 
@@ -305,20 +341,25 @@ public class MenuAdmins {
                         try {
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/PaiementManager.fxml"));
                             Parent root = loader.load();
-
+                            //
+                            PaiementManager PaiementManagerController = loader.getController();
+                            System.out.println("befor go to the  paiement"+ isAdmin());
+                            PaiementManagerController.setIsAdminP(isAdmin()); // Set the value as required
+                            //
                             PaiementManager paiementManagerController = loader.getController();
 
                             /*{*/
                                 // Get the selected fournisseur object from the table
                                 Fournisseur fournisseur = getTableView().getItems().get(getIndex());
-
                                 // Pass the fournisseur object to the PaiementManager controller
                                 paiementManagerController.setFournisseur(fournisseur);
                             /*}*/
 
-                            Stage stage = new Stage();
-                            stage.setScene(new Scene(root));
-                            stage.show();
+                            Stage newStage = new Stage();
+                            newStage.setScene(new Scene(root));
+                            newStage.setResizable(false);
+                            newStage.show();
+
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

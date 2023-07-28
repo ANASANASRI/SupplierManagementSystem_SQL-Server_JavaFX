@@ -72,13 +72,13 @@ public class PaiementDaoImp implements PaiementDao {
 
 
     @Override
-    public void deleteById(String identifiant) {
+    public Paiement deleteById(int identifiant) {
         PreparedStatement ps = null;
 
         try {
             ps = connection.prepareStatement("DELETE FROM paiement WHERE identifiant = ?");
 
-            ps.setString(1, identifiant);
+            ps.setString(1, String.valueOf(identifiant));
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -86,6 +86,7 @@ public class PaiementDaoImp implements PaiementDao {
         } finally {
             closePreparedStatement(ps);
         }
+        return null;
     }
 
     @Override
