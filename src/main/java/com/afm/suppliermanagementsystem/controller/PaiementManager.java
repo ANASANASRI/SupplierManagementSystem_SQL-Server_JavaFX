@@ -127,9 +127,9 @@ public class PaiementManager {
     @FXML
     private TextField numCheque;
 
-    private boolean isAdmin;
-
     private boolean isAdminP;
+
+
 
     // Getter method to retrieve the value of isAdminP
     public boolean getIsAdminP() {
@@ -142,6 +142,9 @@ public class PaiementManager {
     }
 
     public void setFournisseur(Fournisseur fournisseur) {
+        btnSave.setStyle("-fx-background-color: #5881F5;-fx-text-fill: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-width: 0.5px; -fx-border-radius: 5px;");
+
+
         List<Paiement> paiements = PaiementService.findAll();
 
         this.fournisseur = fournisseur;
@@ -198,11 +201,9 @@ public class PaiementManager {
             tableColumnLibelle.setCellValueFactory(new PropertyValueFactory<>("libelle"));
             tableColumnNumCheque.setCellValueFactory(new PropertyValueFactory<>("numCheque"));
             setupPDFColumn();
-            System.out.println("jsagdjhagsdj"+getIsAdminP());
-            if(getIsAdminP()){
-                tableColumnREMOVE.setVisible(true);
-                setupRemoveColumn();
-            }
+
+            setupRemoveColumn();
+
 
             tableViewPaiement.getItems().addAll(paiements);
         } else {
@@ -556,6 +557,7 @@ public class PaiementManager {
                 final Button getPDFButton = new Button("getPDF");
 
                 {
+                    getPDFButton.setStyle("-fx-background-color: #43BC70; -fx-text-fill: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-width: 0.5px; -fx-border-radius: 5px;");
                     getPDFButton.setOnAction(event -> {
                         Paiement paiement = getTableView().getItems().get(getIndex());
                         if (paiement != null) {
@@ -695,9 +697,17 @@ public class PaiementManager {
                 final Button removeButton = new Button("Supprimer");
 
                 {
+                    if(!getIsAdminP()) {
+                        tableColumnREMOVE.setStyle("-fx-background-color: #F8F8F8");
+                        removeButton.setStyle("-fx-background-color: #FFF1F1;");
+                    } else {
+                        removeButton.setStyle("-fx-background-color: #EF4444; -fx-text-fill: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-width: 0.5px; -fx-border-radius: 5px;");
+
+                    }
                     removeButton.setOnAction(event -> {
                         Paiement paiement = getTableView().getItems().get(getIndex());
 
+                        if(getIsAdminP()){
                         // Show a confirmation dialog before deleting
                         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                         alert.setTitle("Confirmation");
@@ -710,6 +720,13 @@ public class PaiementManager {
                                     refreshTableView();
                                     System.out.println("Removing paiement: " + fournisseur.getNumIF());
                                 });
+                        }else {
+                            Alert alert = new Alert(Alert.AlertType.WARNING);
+                            alert.setTitle("Privilèges d'administrateur requis");
+                            alert.setHeaderText(null);
+                            alert.setContentText("Seuls les administrateurs peuvent effectuer la suppression.");
+                            alert.showAndWait();
+                        }
                     });
                 }
 

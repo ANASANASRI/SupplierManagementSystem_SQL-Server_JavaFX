@@ -4,6 +4,7 @@ package com.afm.suppliermanagementsystem.controller;
         import javafx.fxml.FXML;
         import javafx.fxml.Initializable;
         import javafx.scene.control.Alert;
+        import javafx.scene.control.Button;
         import javafx.scene.image.Image;
         import javafx.scene.image.ImageView;
         import org.apache.pdfbox.pdmodel.PDDocument;
@@ -20,11 +21,14 @@ public class GetVirementPdf implements Initializable {
 
     @FXML
     private ImageView pdfImageView;
+    @FXML
+    private Button btnPdf;
 
     private String virementPdfFilePath = "/PDFs/OrdereVirement.pdf";
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        btnPdf.setStyle("-fx-background-color: #B481E3; -fx-text-fill: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-width: 0.5px; -fx-border-radius: 5px;");
         displayPDF();
     }
 

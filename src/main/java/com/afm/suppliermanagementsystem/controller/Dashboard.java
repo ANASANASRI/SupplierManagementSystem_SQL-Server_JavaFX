@@ -87,6 +87,11 @@ public class Dashboard {
     @FXML
     private void initialize() {
 
+        btnSave.setStyle("-fx-background-color: #14B8A6; -fx-text-fill: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-width: 0.5px; -fx-border-radius: 5px;");
+        btnUpdate.setStyle("-fx-background-color: #5881F5; -fx-text-fill: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-width: 0.5px; -fx-border-radius: 5px;");
+        goToButton.setStyle("-fx-background-color: #B481E3; -fx-text-fill: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-width: 0.5px; -fx-border-radius: 5px;");
+
+
         populateCompteTable();
 
         tableViewCompte.setOnMouseClicked(event -> {
@@ -231,6 +236,7 @@ public class Dashboard {
                 final Button removeButton = new Button("Supprimer");
 
                 {
+                    removeButton.setStyle("-fx-background-color: #EF4444; -fx-text-fill: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-width: 0.5px; -fx-border-radius: 5px;");
                     removeButton.setOnAction(event -> {
                         Compte compte = getTableView().getItems().get(getIndex());
                         compteService.deleteCin(compte);

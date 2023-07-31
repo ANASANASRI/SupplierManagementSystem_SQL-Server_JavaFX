@@ -70,7 +70,7 @@
                 <TableColumn fx:id="tableColumnLibelle" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Libellé" />
                 <TableColumn fx:id="tableColumnNumCheque" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Numéro de Chèque" />
                 <TableColumn fx:id="tableColumnPdf" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="GetPDF" />
-                <TableColumn fx:id="tableColumnREMOVE" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Supprimer" visible="false" />
+                <TableColumn fx:id="tableColumnREMOVE" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Supprimer" />
             </columns>
         </TableView>
 

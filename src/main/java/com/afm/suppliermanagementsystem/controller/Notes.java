@@ -59,6 +59,17 @@ public class Notes implements Initializable {
     private String note;
     private String id;
 
+    private boolean isAdmin;
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         notes = NoteDataModel.getInstance().getNotes();
@@ -183,8 +194,15 @@ public class Notes implements Initializable {
 
     @FXML
     private void handleAction1(ActionEvent event) throws IOException {
+        System.out.println("note : " + isAdmin());
         MenuItem menuItem = (MenuItem) event.getSource();
-        Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
+
+        // Load the MenuAdmis.fxml and get the controller instance
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
+        Parent root = loader.load();
+
+        MenuAdmins menuAdminsController = loader.getController();
+        menuAdminsController.setIsAdmin(isAdmin());
 
         // Further code for scene setup and stage configuration
         Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="576.0" prefWidth="1101.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.afm.suppliermanagementsystem.controller.MenuAdmins">
+<AnchorPane id="AnchorPane" prefHeight="561.0" prefWidth="1101.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.afm.suppliermanagementsystem.controller.MenuAdmins">
     <children>
         <Pane prefHeight="575.0" prefWidth="429.0" style="-fx-background-color: #B7B7B7;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -35,7 +35,7 @@
                 <TextField fx:id="txtEmail" layoutX="75.0" layoutY="334.0" prefHeight="32.0" prefWidth="278.0" promptText="Email" />
                 <TextField fx:id="txtNumeroCompteBancaire" layoutX="75.0" layoutY="390.0" prefHeight="32.0" prefWidth="278.0" promptText="Numéro de Compte Bancaire" />
                 <Button fx:id="btnSave" layoutX="76.0" layoutY="449.0" mnemonicParsing="false" onAction="#handleSaveButtonAction" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Ajouter" />
-                <Button fx:id="btnUPdate" layoutX="76.0" layoutY="508.0" mnemonicParsing="false" onAction="#handleUpdateButtonAction" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Modifier">
+                <Button fx:id="btnUpdate" layoutX="76.0" layoutY="496.0" mnemonicParsing="false" onAction="#handleUpdateButtonAction" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Modifier">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets></Button>
@@ -64,7 +64,7 @@
                 <TableColumn fx:id="tableColumnEmail" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Email" />
                 <TableColumn fx:id="tableColumnNumeroCompteBancaire" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Numéro de Compte Bancaire" />
                 <TableColumn fx:id="tableColumnPaiement" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Paiement" />
-                <TableColumn fx:id="tableColumnREMOVE" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Supprimer" visible="false"/>
+                <TableColumn fx:id="tableColumnREMOVE" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Supprimer" />
             </columns>
         </TableView>
         <TextField fx:id="txtSearch" layoutX="438.0" layoutY="26.0" prefHeight="32.0" prefWidth="354.0" promptText="Rechercher un fournisseur par numIF..." />

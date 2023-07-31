@@ -35,6 +35,16 @@ public class PaiementsStatistiques implements Initializable {
     @FXML
     private PieChart pieChart1;
 
+    private boolean isAdmin;
+
+    public boolean getisAdmin() {
+        return this.isAdmin;
+    }
+
+    public void setIsAdminPs(boolean admin) {
+        this.isAdmin=admin;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Call the method to populate the charts with data
@@ -129,10 +139,18 @@ public class PaiementsStatistiques implements Initializable {
     ///////////////////////////
     @FXML
     private void handleAction1(ActionEvent event) throws IOException {
+        System.out.println("statiques initialize  :"+getisAdmin());
+
         MenuItem menuItem = (MenuItem) event.getSource();
-        Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
 
+        // Load the MenuAdmis.fxml and get the controller instance
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
+        Parent root = loader.load();
 
+        MenuAdmins menuAdminsController = loader.getController();
+        menuAdminsController.setIsAdmin(getisAdmin());
+
+        // Further code for scene setup and stage configuration
         Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -194,5 +212,7 @@ public class PaiementsStatistiques implements Initializable {
 
         stage.show();
     }
+
+
     ///////////////////////////
 }

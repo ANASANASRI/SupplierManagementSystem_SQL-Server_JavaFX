@@ -47,6 +47,8 @@ public class MenuAdmins {
     @FXML
     private Button btnSave;
     @FXML
+    private Button btnUpdate;
+    @FXML
     private TableColumn<Fournisseur, Integer> tableColumnnumIF;
     @FXML
     private TableColumn<Fournisseur, String> tableColumnNom;
@@ -77,7 +79,6 @@ public class MenuAdmins {
 
     public MenuAdmins() {
         fournisseurService = new FournisseurService();
-        System.out.println("Constructor: " + isAdmin);
     }
 
     public void setIsAdmin(boolean isAdmin) {
@@ -87,7 +88,15 @@ public class MenuAdmins {
 
     @FXML
     void initialize() {
-        System.out.println("first :  "+ isAdmin);
+        btnSave.setStyle("-fx-background-color: #14B8A6;-fx-text-fill: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-width: 0.5px; -fx-border-radius: 5px;");
+
+        if(isAdmin()) {
+            btnUpdate.setStyle("-fx-background-color: #5881F5; -fx-text-fill: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-width: 0.5px; -fx-border-radius: 5px;");
+        }
+        else {
+            btnUpdate.setStyle("-fx-background-color: #DBEAFE; -fx-text-fill: #000000; -fx-background-radius: 5px; -fx-border-width: 0.5px;");
+        }
+
         populateFournisseurTable();
         //
         tableViewFournisseur.setOnMouseClicked(event -> {
@@ -125,11 +134,9 @@ public class MenuAdmins {
             tableColumnNumeroCompteBancaire.setCellValueFactory(new PropertyValueFactory<>("numeroCompteBancaire"));
 
             setupPaiementColumn();
-            System.out.println("setupRemove  "+isAdmin());
-            if(isAdmin()){
-                tableColumnREMOVE.setVisible(true);
-                setupRemoveColumn();
-            }
+
+            setupRemoveColumn();
+
 
             tableViewFournisseur.getItems().addAll(fournisseurs);
 
@@ -293,24 +300,40 @@ public class MenuAdmins {
     private void setupRemoveColumn() {
         tableColumnREMOVE.setCellFactory(column -> {
             TableCell<Fournisseur, Button> remove = new TableCell<>() {
+
                 final Button removeButton = new Button("Supprimer");
 
                 {
+                    if(!isAdmin()) {
+                        tableColumnREMOVE.setStyle("-fx-background-color: #F8F8F8");
+                        removeButton.setStyle("-fx-background-color: #FFF1F1;");
+                    } else {
+                        removeButton.setStyle("-fx-background-color: #EF4444; -fx-text-fill: #FFFFFF;-fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-width: 0.5px; -fx-border-radius: 5px;");
+                    }
                     removeButton.setOnAction(event -> {
                         Fournisseur fournisseur = getTableView().getItems().get(getIndex());
 
-                        // Show a confirmation dialog before deleting
-                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                        alert.setTitle("Confirmation");
-                        alert.setHeaderText(null);
-                        alert.setContentText("Êtes-vous sûr de vouloir supprimer ce fournisseur ?");
-                        alert.showAndWait()
-                                .filter(response -> response == ButtonType.OK)
-                                .ifPresent(response -> {
-                                    fournisseurService.remove(fournisseur);
-                                    refreshTableView();
-                                    System.out.println("Removing fournisseur: " + fournisseur.getNumIF());
-                                });
+                        if(isAdmin()) {
+                            // Show a confirmation dialog before deleting
+                            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                            alert.setTitle("Confirmation");
+                            alert.setHeaderText(null);
+                            alert.setContentText("Êtes-vous sûr de vouloir supprimer ce fournisseur ?");
+                            alert.showAndWait()
+                                    .filter(response -> response == ButtonType.OK)
+                                    .ifPresent(response -> {
+                                        fournisseurService.remove(fournisseur);
+                                        refreshTableView();
+                                        System.out.println("Removing fournisseur: " + fournisseur.getNumIF());
+                                    });
+                        }else {
+                            Alert alert = new Alert(Alert.AlertType.WARNING);
+                            alert.setTitle("Privilèges d'administrateur requis");
+                            alert.setHeaderText(null);
+                            alert.setContentText("Seuls les administrateurs peuvent effectuer la suppression.");
+                            alert.showAndWait();
+                        }
+
                     });
                 }
 
@@ -337,6 +360,8 @@ public class MenuAdmins {
                 final Button paiementButton = new Button("Paiement");
 
                 {
+
+                    paiementButton.setStyle("-fx-background-color: #43BC70;-fx-text-fill: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-width: 0.5px; -fx-border-radius: 5px;");
                     paiementButton.setOnAction(event -> {
                         try {
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/PaiementManager.fxml"));
@@ -383,117 +408,75 @@ public class MenuAdmins {
 
 
 
-
-    /*?*?*?*??/
-
-     private void setupPaiementColumn() {
-        tableColumnPaiement.setCellFactory(column -> {
-            TableCell<Fournisseur, Button> paiement = new TableCell<>() {
-                final Button paiementButton = new Button("Paiement");
-
-                {
-                    paiementButton.setOnAction(event -> {
-                        Fournisseur fournisseur = getTableView().getItems().get(getIndex());
-                        openADDFournisseurWindow(fournisseur);
-                    });
-                }
-
-                @Override
-                protected void updateItem(Button item, boolean empty) {
-                    super.updateItem(item, empty);
-
-                    if (empty) {
-                        setGraphic(null);
-                    } else {
-                        setGraphic(paiementButton);
-                    }
-                }
-            };
-            return paiement;
-        });
-    }
-
-    private void openADDFournisseurWindow(Fournisseur fournisseur) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ADDFournisseur.fxml"));
-            Parent root = loader.load();
-
-            // Access the controller of ADDFournisseur.fxml and set the fournisseur values
-            Ins controller = loader.getController();
-            controller.setFournisseur(fournisseur);
-
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-     */
-
-    ///////////////////////////
+///////////////////////////////////////////////////
 
     @FXML
     private void handleAction1(ActionEvent event) throws IOException {
         MenuItem menuItem = (MenuItem) event.getSource();
-        Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
+
+        // Load the MenuAdmins.fxml and set the isAdmin value
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
+        Parent root = loader.load();
+        MenuAdmins menuAdminsController = loader.getController();
+        menuAdminsController.setIsAdmin(isAdmin()); // Set the value as required
 
         Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setResizable(false);
-        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
-        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 4);
-
         stage.show();
     }
+
 
     @FXML
     private void handleAction2(ActionEvent event) throws IOException {
         MenuItem menuItem = (MenuItem) event.getSource();
-        Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/Notes.fxml"));
+
+        // Load the MenuAdmins.fxml and set the isAdmin value
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/Notes.fxml"));
+        Parent root = loader.load();
+        Notes notesController = loader.getController();
+        notesController.setIsAdmin(isAdmin());
 
         Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setResizable(false);
-        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
-        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 4);
-
         stage.show();
     }
 
     @FXML
     private void handleAction3(ActionEvent event) throws IOException {
         MenuItem menuItem = (MenuItem) event.getSource();
-        Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/PaiementsStatistiques.fxml"));
+
+        // Load the PaiementsStatistiques.fxml and get the controller instance
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/PaiementsStatistiques.fxml"));
+        Parent root = loader.load();
+
+        PaiementsStatistiques paiementsStatistiquesController = loader.getController();
+
+        // Set the isAdmin value on the existing controller instance
+        System.out.println("handel3 :"+isAdmin);
+        paiementsStatistiquesController.setIsAdminPs(isAdmin);
+
 
         Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setResizable(false);
-        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
-        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 4);
-
         stage.show();
     }
+
 
     public void handleAction4(ActionEvent event) throws IOException {
         MenuItem menuItem = (MenuItem) event.getSource();
         Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/InscriptionEtAuthentification.fxml"));
 
+
         Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setResizable(false);
-        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
-        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 4);
-
         stage.show();
     }
 
