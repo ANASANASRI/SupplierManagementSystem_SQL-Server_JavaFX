@@ -23,7 +23,7 @@
                         <Font name="Segoe UI" size="18.0" />
                     </font>
                 </Label>
-                <Label alignment="CENTER" layoutX="153.0" layoutY="49.0" prefHeight="23.0" prefWidth="180.0" text="Gestion Paiement" textFill="WHITE">
+                <Label alignment="CENTER" layoutX="153.0" layoutY="49.0" prefHeight="23.0" prefWidth="180.0" text="Paiement" textFill="WHITE">
                     <font>
                         <Font name="Segoe UI" size="12.0" />
                     </font>
@@ -61,15 +61,15 @@
         <TableView fx:id="tableViewPaiement" layoutX="438.0" layoutY="221.0" prefHeight="322.0" prefWidth="831.0">
             <columns>
                 <TableColumn fx:id="tableColumnIdentifiant" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Identifiant" />
-                <TableColumn fx:id="tableColumnMontant" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Montant" />
-                <TableColumn fx:id="tableColumnDevise" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Devise" />
+                <TableColumn fx:id="tableColumnMontant" prefWidth="72.0" style="-fx-text-fill: #09253B;" text="Montant" />
+                <TableColumn fx:id="tableColumnDevise" prefWidth="50.0" style="-fx-text-fill: #09253B;" text="Devise" />
                 <TableColumn fx:id="tableColumnDate" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Date" />
-                <TableColumn fx:id="tableColumnEffectue" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Effectué" />
+                <TableColumn fx:id="tableColumnEffectue" prefWidth="50.0" style="-fx-text-fill: #09253B;" text="Effectué" />
                 <TableColumn fx:id="tableColumnMoyenPaiement" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Moyen de Paiement" />
-                <TableColumn fx:id="tableColumnAgence" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Agence" />
+                <TableColumn fx:id="tableColumnAgence" prefWidth="125.0" style="-fx-text-fill: #09253B;" text="Agence" />
                 <TableColumn fx:id="tableColumnLibelle" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Libellé" />
-                <TableColumn fx:id="tableColumnNumCheque" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Numéro de Chèque" />
-                <TableColumn fx:id="tableColumnPdf" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="GetPDF" />
+                <TableColumn fx:id="tableColumnNumCheque" prefWidth="90.0" style="-fx-text-fill: #09253B;" text="Numéro de Chèque" />
+                <TableColumn fx:id="tableColumnPdf" prefWidth="65.0" style="-fx-text-fill: #09253B;" text="GetPDF" />
                 <TableColumn fx:id="tableColumnREMOVE" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Supprimer" />
             </columns>
         </TableView>
@@ -94,8 +94,8 @@
             <Label fx:id="fournisseurNumeroCompteBancaireLabel" style="-fx-font-family: 'Century Gothic'; -fx-font-size: 14px; -fx-text-fill: #2e3131; -fx-padding: 5px;" />
         </VBox>
 
-        <VBox alignment="CENTER" layoutX="801.0" layoutY="26.0" prefHeight="185.0" prefWidth="258.0">
-            <ImageView fitHeight="185.0" fitWidth="255.0" pickOnBounds="true" preserveRatio="true">
+        <VBox alignment="CENTER" layoutX="801.0" layoutY="26.0" prefHeight="185.0" prefWidth="466.0">
+            <ImageView fitHeight="189.0" fitWidth="264.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="@../img/cost1.png" />
                 </image>

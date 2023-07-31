@@ -56,8 +56,8 @@
                 <TableColumn fx:id="tableColumnTelephone" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Téléphone" />
                 <TableColumn fx:id="tableColumnPseudoNom" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="PseudoNom" />
                 <TableColumn fx:id="tableColumnAdresse" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Adresse" />
-                <TableColumn fx:id="tableColumnEtat" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="État" />
-                <TableColumn fx:id="tableColumnIsAdmin" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="IsAdmin" />
+                <TableColumn fx:id="tableColumnEtat" prefWidth="61.0" style="-fx-text-fill: #09253B;" text="État" />
+                <TableColumn fx:id="tableColumnIsAdmin" prefWidth="61.0" style="-fx-text-fill: #09253B;" text="IsAdmin" />
                 <TableColumn fx:id="tableColumnREMOVE" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Supprimer" />
             </columns>
         </TableView>

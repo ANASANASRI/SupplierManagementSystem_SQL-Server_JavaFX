@@ -28,7 +28,7 @@ public class GetVirementPdf implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        btnPdf.setStyle("-fx-background-color: #B481E3; -fx-text-fill: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-width: 0.5px; -fx-border-radius: 5px;");
+        btnPdf.setStyle("-fx-background-color: #43BC70; -fx-text-fill: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-width: 0.5px; -fx-border-radius: 5px;");
         displayPDF();
     }
 

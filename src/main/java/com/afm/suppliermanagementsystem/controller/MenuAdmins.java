@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Screen;
@@ -381,8 +382,10 @@ public class MenuAdmins {
                             /*}*/
 
                             Stage newStage = new Stage();
-                            newStage.setScene(new Scene(root));
                             newStage.setResizable(false);
+                            newStage.setTitle("Attijari Factoring Manager Maroc");
+                            newStage.getIcons().add(new Image(getClass().getResourceAsStream("/com/afm/suppliermanagementsystem/img/logo.png")));
+                            newStage.setScene(new Scene(root));
                             newStage.show();
 
                         } catch (IOException e) {
@@ -424,6 +427,10 @@ public class MenuAdmins {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setResizable(false);
+
+        stage.setTitle("Attijari Factoring Manager Maroc");
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/com/afm/suppliermanagementsystem/img/logo.png")));
+
         stage.show();
     }
 

@@ -600,9 +600,9 @@ public class PaiementManager {
             Stage newStage = new Stage();
             newStage.setScene(scene);
             newStage.setResizable(false);
-            Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-            newStage.setX((primScreenBounds.getWidth() - newStage.getWidth()) / 2);
-            newStage.setY((primScreenBounds.getHeight() - newStage.getHeight()) / 4);
+
+            newStage.setTitle("Attijari Factoring Manager Maroc");
+            newStage.getIcons().add(new Image(getClass().getResourceAsStream("/com/afm/suppliermanagementsystem/img/logo.png")));
 
             newStage.show();
 
@@ -624,9 +624,9 @@ public class PaiementManager {
             Stage newStage = new Stage();
             newStage.setScene(scene);
             newStage.setResizable(false);
-            Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-            newStage.setX((primScreenBounds.getWidth() - newStage.getWidth()) / 2);
-            newStage.setY((primScreenBounds.getHeight() - newStage.getHeight()) / 4);
+
+            newStage.setTitle("Attijari Factoring Manager Maroc");
+            newStage.getIcons().add(new Image(getClass().getResourceAsStream("/com/afm/suppliermanagementsystem/img/logo.png")));
 
             newStage.show();
 

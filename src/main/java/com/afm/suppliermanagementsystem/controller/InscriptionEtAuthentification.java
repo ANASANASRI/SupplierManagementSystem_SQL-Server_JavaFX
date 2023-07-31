@@ -20,6 +20,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -79,8 +80,10 @@ public class InscriptionEtAuthentification {
             menuAdminsController.setIsAdmin(false); // Set the value as required
 
             Stage newStage = new Stage();
-            newStage.setScene(new Scene(root));
             newStage.setResizable(false);
+            newStage.setTitle("Attijari Factoring Manager Maroc");
+            newStage.getIcons().add(new Image(getClass().getResourceAsStream("/com/afm/suppliermanagementsystem/img/logo.png")));
+            newStage.setScene(new Scene(root));
             newStage.show();
 
         } else if (compteAdmExists) {
@@ -93,9 +96,8 @@ public class InscriptionEtAuthentification {
             Stage fenetre = (Stage) ((Node) e.getSource()).getScene().getWindow();
             fenetre.setScene(s);
             fenetre.setResizable(false);
-            Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-            fenetre.setX((primScreenBounds.getWidth() - fenetre.getWidth()) / 2);
-            fenetre.setY((primScreenBounds.getHeight() - fenetre.getHeight()) / 4);
+            fenetre.setTitle("Attijari Factoring Manager Maroc");
+            fenetre.getIcons().add(new Image(getClass().getResourceAsStream("/com/afm/suppliermanagementsystem/img/logo.png")));
 
             fenetre.show();
         }

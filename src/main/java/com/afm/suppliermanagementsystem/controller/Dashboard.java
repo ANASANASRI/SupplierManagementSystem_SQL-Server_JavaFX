@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Screen;
@@ -238,11 +239,18 @@ public class Dashboard {
                 {
                     removeButton.setStyle("-fx-background-color: #EF4444; -fx-text-fill: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-width: 0.5px; -fx-border-radius: 5px;");
                     removeButton.setOnAction(event -> {
-                        Compte compte = getTableView().getItems().get(getIndex());
-                        compteService.deleteCin(compte);
-                        compteList.remove(compte);
-                        tableViewCompte.refresh();
-                        System.out.println("Removing compte: " + compte.getCin());
+                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                        alert.setTitle("Confirmation");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Êtes-vous sûr de vouloir supprimer ce compte ?");
+                        alert.showAndWait()
+                                .filter(response -> response == ButtonType.OK)
+                                .ifPresent(response -> {
+                                    Compte compte = getTableView().getItems().get(getIndex());
+                                    compteService.deleteCin(compte);
+                                    compteList.remove(compte);
+                                    tableViewCompte.refresh();
+                                    System.out.println("Removing compte: " + compte.getCin()); });
                     });
                 }
 
@@ -315,10 +323,12 @@ public class Dashboard {
         // Call the constructor
         menuAdminsController.initialize();
 
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-        stage.show();
+        Stage newStage = new Stage();
+        newStage.setResizable(false);
+        newStage.setTitle("Attijari Factoring Manager Maroc");
+        newStage.getIcons().add(new Image(getClass().getResourceAsStream("/com/afm/suppliermanagementsystem/img/logo.png")));
+        newStage.setScene(new Scene(root));
+        newStage.show();
 
         // Print the isAdmin value again after the view is loaded
         System.out.println("After setIsAdmin: " + menuAdminsController.isAdmin());
