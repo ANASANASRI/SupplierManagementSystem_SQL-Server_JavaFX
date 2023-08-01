@@ -17,10 +17,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.PasswordField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
@@ -86,37 +89,52 @@ public class Inscription {
 
 				// Save the Compte object using the CompteService
 				CompteService compteService = new CompteService();
-				compteService.save(compte);
 
-				if (compteService.findCompte(nomValue, hashedPassword)) {
-					Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml"));
-					Scene s = new Scene(root);
-					Stage fenetre = (Stage) ((Node) e.getSource()).getScene().getWindow();
-					fenetre.setScene(s);
-					fenetre.setResizable(false);
-					Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-					fenetre.setX((primScreenBounds.getWidth() - fenetre.getWidth()) / 2);
-					fenetre.setY((primScreenBounds.getHeight() - fenetre.getHeight()) / 4);
-
-					fenetre.show();
+				if (compteService.findinfCompte(nomValue, prenomValue,pseudoValue,identifiantValue)) {
+					Alert informationAlert = new Alert(Alert.AlertType.INFORMATION);
+					informationAlert.setTitle("Ces informations existent déjà.");
+					informationAlert.setHeaderText(null);
+					informationAlert.setContentText("Essayer un autre pseudo ou vérifiez votre identification (CIN)");
+					informationAlert.initModality(Modality.WINDOW_MODAL);
+					informationAlert.showAndWait();
 				} else {
-					Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-					errorAlert.setTitle("Connection Error");
-					errorAlert.setHeaderText(null);
-					errorAlert.setContentText("Failed to connect! Invalid username or password.");
-					errorAlert.showAndWait();
+					compteService.saveins(compte);
+
+					if (compteService.findCompte(nomValue, hashedPassword)) {
+						Alert informationAlert = new Alert(Alert.AlertType.INFORMATION);
+						informationAlert.setTitle("Créé avec succès");
+						informationAlert.setHeaderText(null);
+						informationAlert.setContentText("Votre compte a été créé avec succès. Veuillez patienter pour l'activation du compte par l'administrateur.");
+
+						// Rendre la boîte de dialogue modale
+						informationAlert.initModality(Modality.WINDOW_MODAL);
+
+						// Afficher la boîte de dialogue et attendre la réponse de l'utilisateur
+						informationAlert.showAndWait();
+						clearInputFields();
+
+					} else {
+						Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+						errorAlert.setTitle("Connection Error");
+						errorAlert.setHeaderText(null);
+						errorAlert.setContentText("Failed to connect! Invalid username or password.");
+						errorAlert.showAndWait();
+					}
 				}
-			} else {
-				Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-				errorAlert.setTitle("Erreur");
-				errorAlert.setHeaderText(null);
-				errorAlert.setContentText("Erreur lors du hachage du mot de passe.");
-				errorAlert.showAndWait();
 			}
 		}
 	}
 
 
+	private void clearInputFields() {
+		prenom.clear();
+		nom.clear();
+		adresse.clear();
+		identifiant.clear();
+		mot_pass.clear();
+		pseudo.clear();
+		tel.clear();
+	}
 
 
 

@@ -30,9 +30,9 @@
 
                 <TextField fx:id="txtNom" layoutX="75.0" layoutY="121.0" prefHeight="32.0" prefWidth="139.0" promptText="Nom" />
                 <TextField fx:id="txtPrenom" layoutX="214.0" layoutY="121.0" prefHeight="32.0" prefWidth="139.0" promptText="Prénom" />
-                <TextField fx:id="txtTelephone" layoutX="75.0" layoutY="171.0" prefHeight="32.0" prefWidth="278.0" promptText="Téléphone" />
+                <TextField fx:id="txtTelephone" layoutX="75.0" layoutY="268.0" prefHeight="32.0" prefWidth="278.0" promptText="Téléphone" />
                 <TextField fx:id="txtPseudoNom" layoutX="75.0" layoutY="220.0" prefHeight="32.0" prefWidth="278.0" promptText="Pseudo Nom" />
-                <TextField fx:id="txtCIN" layoutX="75.0" layoutY="268.0" prefHeight="32.0" prefWidth="278.0" promptText="CIN" />
+                <TextField fx:id="txtCIN" layoutX="75.0" layoutY="171.0" prefHeight="32.0" prefWidth="278.0" promptText="CIN (Inmodifiable)" />
                 <TextField fx:id="txtMotPass" layoutX="75.0" layoutY="318.0" prefHeight="32.0" prefWidth="278.0" promptText="Mot de passe" />
                 <TextField fx:id="txtAdresse" layoutX="76.0" layoutY="368.0" prefHeight="32.0" prefWidth="278.0" promptText="Adresse" />
                 <CheckBox fx:id="Etat" layoutX="75.0" layoutY="407.0" prefHeight="32.0" prefWidth="139.0" text="Etat" textFill="white" />

@@ -67,7 +67,9 @@ public class InscriptionEtAuthentification {
         String hashedPassword = PasswordHasher.hashPassword(password);
         boolean compteExists = CompteService.findCompte(nom, hashedPassword);
         boolean compteAdmExists = CompteService.findAdmCompte(nom, hashedPassword);
+        boolean etatCompte = CompteService.findetat(nom, hashedPassword);
 
+if (etatCompte){
         if (compteExists) {
             // Get the reference to the current window
             Stage currentStage = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -101,8 +103,12 @@ public class InscriptionEtAuthentification {
 
             fenetre.show();
         }
-        else{
-            showAlert("Compte non existant", "Le compte spécifié n'existe pas.");
+    }
+    else if (etatCompte==false && (compteAdmExists==true || compteExists==true)){
+    showAlert("compte existe mais non activé", "Veuillez patienter pour l'activation du compte par l'administrateur");
+    }
+    else{
+        showAlert("Compte non existant", "Le compte spécifié n'existe pas.");
         }
     }
 

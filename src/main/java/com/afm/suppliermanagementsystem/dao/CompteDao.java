@@ -22,4 +22,10 @@ public interface CompteDao {
     boolean findAdmCompte(String nom, String password);
 
     void deleteByCin(String cin);
+
+    void insertins(Compte compte);
+
+    boolean findetat(String nom, String password);
+
+    boolean findinfCompte(String nomValue, String prenomValue, String pseudoValue, String identifiantValue);
 }

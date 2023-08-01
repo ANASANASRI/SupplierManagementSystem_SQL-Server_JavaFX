@@ -313,13 +313,10 @@ public class Dashboard {
 
         // Get the controller instance
         MenuAdmins menuAdminsController = loader.getController();
-
         // Set the isAdmin value before calling the constructor
         menuAdminsController.setIsAdmin(true); // Set the value as required
-
         // Print the isAdmin value after setting it
         System.out.println("Before initialize: " + menuAdminsController.isAdmin());
-
         // Call the constructor
         menuAdminsController.initialize();
 

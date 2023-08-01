@@ -20,6 +20,10 @@ public class CompteService {
         return compteDao.findAdmCompte(nom, password);
     }
 
+    public static boolean findetat(String nom, String password) {
+        return compteDao.findetat(nom, password);
+    }
+
     public void save(Compte compte) {
         compteDao.insert(compte);
     }
@@ -35,5 +39,13 @@ public class CompteService {
 
     public static List<Compte> findAll() {
         return compteDao.findAll();
+    }
+
+    public void saveins(Compte compte) {
+        compteDao.insertins(compte);
+    }
+
+    public boolean findinfCompte(String nomValue, String prenomValue, String pseudoValue, String identifiantValue) {
+        return compteDao.findinfCompte(nomValue, prenomValue,pseudoValue,identifiantValue);
     }
 }

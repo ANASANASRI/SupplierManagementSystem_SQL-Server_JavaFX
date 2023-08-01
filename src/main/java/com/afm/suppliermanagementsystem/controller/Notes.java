@@ -203,6 +203,7 @@ public class Notes implements Initializable {
 
         MenuAdmins menuAdminsController = loader.getController();
         menuAdminsController.setIsAdmin(isAdmin());
+        menuAdminsController.initialize();
 
         // Further code for scene setup and stage configuration
         Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
@@ -219,17 +220,17 @@ public class Notes implements Initializable {
     @FXML
     private void handleAction2(ActionEvent event) throws IOException {
         MenuItem menuItem = (MenuItem) event.getSource();
-        Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/Notes.fxml"));
 
-        // Further code for scene setup and stage configuration
+        // Load the MenuAdmins.fxml and set the isAdmin value
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/Notes.fxml"));
+        Parent root = loader.load();
+        Notes notesController = loader.getController();
+        notesController.setIsAdmin(isAdmin());
+
         Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setResizable(false);
-        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
-        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 4);
-
         stage.show();
     }
 
@@ -240,17 +241,22 @@ public class Notes implements Initializable {
     @FXML
     private void handleAction3(ActionEvent event) throws IOException {
         MenuItem menuItem = (MenuItem) event.getSource();
-        Parent root = FXMLLoader.load(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/PaiementsStatistiques.fxml"));
 
-        // Further code for scene setup and stage configuration
+        // Load the PaiementsStatistiques.fxml and get the controller instance
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/afm/suppliermanagementsystem/fxml/PaiementsStatistiques.fxml"));
+        Parent root = loader.load();
+
+        PaiementsStatistiques paiementsStatistiquesController = loader.getController();
+
+        // Set the isAdmin value on the existing controller instance
+        System.out.println("handel3 note:"+isAdmin);
+        paiementsStatistiquesController.setIsAdminPs(isAdmin());
+
+
         Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setResizable(false);
-        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
-        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 4);
-
         stage.show();
     }
 

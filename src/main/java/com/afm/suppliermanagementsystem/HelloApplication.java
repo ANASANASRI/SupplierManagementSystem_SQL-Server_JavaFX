@@ -38,6 +38,7 @@ public class HelloApplication extends Application {
         authentification.setApplication(this);
 
         primaryStage.setTitle("Attijari Factoring Manager Maroc");
+        primaryStage.setResizable(false);
         primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/com/afm/suppliermanagementsystem/img/logo.png")));
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

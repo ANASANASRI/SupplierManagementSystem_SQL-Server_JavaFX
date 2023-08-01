@@ -9,11 +9,18 @@
 
     <children>
 
+        <ImageView fitHeight="500.0" fitWidth="436.0" layoutX="-1.0" layoutY="-1.0">
+            <image>
+                <Image url="@../img/pdf1.png" />
+            </image>
+        </ImageView>
 
         <Label layoutX="142.0" layoutY="14.0" prefHeight="30.0" prefWidth="152.0" style="-fx-font-size: 20px;" text="Ordere Virement" underline="true">
         </Label>
-        <ImageView fx:id="pdfImageView" fitHeight="395.0" fitWidth="269.0" layoutX="83.0" layoutY="54.0" preserveRatio="true" />
-        <Button fx:id="btnPdf" layoutX="83.0" layoutY="459.0" mnemonicParsing="false" onAction="#displayVirementPDF" prefHeight="25.0" prefWidth="269.0" text="Afficher PDF" />
+        <StackPane layoutX="83.0" layoutY="54.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-padding: 3;">
+            <ImageView fx:id="pdfImageView" fitHeight="395.0" fitWidth="269.0" preserveRatio="true" />
+        </StackPane>
+        <Button fx:id="btnPdf" layoutX="83.0" layoutY="459.0" mnemonicParsing="false" onAction="#displayVirementPDF" prefHeight="25.0" prefWidth="277.0" text="Afficher PDF" />
 
     </children>
    <opaqueInsets>

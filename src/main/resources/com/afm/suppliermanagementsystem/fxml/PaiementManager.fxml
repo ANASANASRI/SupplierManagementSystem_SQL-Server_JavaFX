@@ -68,9 +68,9 @@
                 <TableColumn fx:id="tableColumnMoyenPaiement" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Moyen de Paiement" />
                 <TableColumn fx:id="tableColumnAgence" prefWidth="125.0" style="-fx-text-fill: #09253B;" text="Agence" />
                 <TableColumn fx:id="tableColumnLibelle" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Libellé" />
-                <TableColumn fx:id="tableColumnNumCheque" prefWidth="90.0" style="-fx-text-fill: #09253B;" text="Numéro de Chèque" />
+                <TableColumn fx:id="tableColumnNumCheque" prefWidth="85.0" style="-fx-text-fill: #09253B;" text="Numéro de Chèque" />
                 <TableColumn fx:id="tableColumnPdf" prefWidth="65.0" style="-fx-text-fill: #09253B;" text="GetPDF" />
-                <TableColumn fx:id="tableColumnREMOVE" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Supprimer" />
+                <TableColumn fx:id="tableColumnREMOVE" prefWidth="80.0" style="-fx-text-fill: #09253B;" text="Supprimer" />
             </columns>
         </TableView>
 

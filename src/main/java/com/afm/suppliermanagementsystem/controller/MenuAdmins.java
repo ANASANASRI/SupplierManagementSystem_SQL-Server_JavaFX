@@ -91,12 +91,12 @@ public class MenuAdmins {
     void initialize() {
         btnSave.setStyle("-fx-background-color: #14B8A6;-fx-text-fill: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-width: 0.5px; -fx-border-radius: 5px;");
 
-        if(isAdmin()) {
+        if(isAdmin()==true) {
+            System.out.println("UPDATE:"+isAdmin());
             btnUpdate.setStyle("-fx-background-color: #5881F5; -fx-text-fill: #FFFFFF; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-width: 0.5px; -fx-border-radius: 5px;");
-        }
-        else {
+        } else {
             btnUpdate.setStyle("-fx-background-color: #DBEAFE; -fx-text-fill: #000000; -fx-background-radius: 5px; -fx-border-width: 0.5px;");
-        }
+        };
 
         populateFournisseurTable();
         //
@@ -305,7 +305,8 @@ public class MenuAdmins {
                 final Button removeButton = new Button("Supprimer");
 
                 {
-                    if(!isAdmin()) {
+
+                    if(isAdmin()==false) {
                         tableColumnREMOVE.setStyle("-fx-background-color: #F8F8F8");
                         removeButton.setStyle("-fx-background-color: #FFF1F1;");
                     } else {
@@ -422,6 +423,7 @@ public class MenuAdmins {
         Parent root = loader.load();
         MenuAdmins menuAdminsController = loader.getController();
         menuAdminsController.setIsAdmin(isAdmin()); // Set the value as required
+        menuAdminsController.initialize();
 
         Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
         Scene scene = new Scene(root);
