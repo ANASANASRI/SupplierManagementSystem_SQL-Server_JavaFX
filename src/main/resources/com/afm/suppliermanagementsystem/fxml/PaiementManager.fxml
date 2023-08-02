@@ -33,7 +33,7 @@
                 <TextField fx:id="devise" layoutX="76.0" layoutY="145.0" prefHeight="32.0" prefWidth="278.0" promptText="devise" />
                 <TextField fx:id="date" layoutX="76.0" layoutY="189.0" prefHeight="32.0" prefWidth="278.0" promptText="date" />
                 <CheckBox fx:id="effectue" layoutX="76.0" layoutY="229.0" prefHeight="32.0" prefWidth="278.0" text="Effectué" textFill="white" />
-                <Label layoutX="76.0" layoutY="267.0" text="Mode Paiement" textFill="white" />
+                <Label layoutX="76.0" layoutY="261.0" prefHeight="29.0" prefWidth="87.0" text="Mode Paiement" textFill="white" />
                 <ComboBox fx:id="moyenPaiement" layoutX="76.0" layoutY="286.0" prefHeight="32.0" prefWidth="278.0">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
@@ -42,7 +42,7 @@
                         </FXCollections>
                     </items>
                 </ComboBox>
-                <Label layoutX="76.0" layoutY="328.0" text="Agences" textFill="white" />
+                <Label layoutX="76.0" layoutY="328.0" prefHeight="23.0" prefWidth="45.0" text="Agences" textFill="white" />
 
 <!--
                 <TextField fx:id="agenceSearch" layoutX="438.0" layoutY="190.0" prefHeight="32.0" prefWidth="354.0" promptText="iugiuguhui" />

@@ -54,6 +54,15 @@
 
             </children>
         </Pane>
+        <TextField fx:id="txtSearch" layoutX="438.0" layoutY="26.0" prefHeight="32.0" prefWidth="354.0" promptText="Rechercher un fournisseur par numIF..." />
+        <ImageView fx:id="lblsearch" fitHeight="25.0" fitWidth="23.0" layoutX="798.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../img/icons8-search.gif" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
 
         <TableView fx:id="tableViewFournisseur" layoutX="438.0" layoutY="71.0" prefHeight="488.0" prefWidth="651.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="438.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="71.0">
             <columns>
@@ -67,22 +76,6 @@
                 <TableColumn fx:id="tableColumnREMOVE" prefWidth="80.0" style="-fx-text-fill: #09253B;" text="Supprimer" />
             </columns>
         </TableView>
-        <TextField fx:id="txtSearch" layoutX="438.0" layoutY="26.0" prefHeight="32.0" prefWidth="354.0" promptText="Rechercher un fournisseur par numIF..." />
-        <ImageView fx:id="lblsearch" fitHeight="25.0" fitWidth="23.0" layoutX="798.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../img/icons8-search.gif" />
-            </image>
-            <cursor>
-                <Cursor fx:constant="HAND" />
-            </cursor>
-        </ImageView>
-        <!--<VBox layoutX="800.0" layoutY="26.0" prefHeight="32.0" prefWidth="354.0" alignment="CENTER">
-            <ImageView fitWidth="354.0" fitHeight="32.0" pickOnBounds="true" preserveRatio="true">
-                <image>
-                    <Image url="@../img/Frame 5.png" />
-                </image>
-            </ImageView>
-        </VBox>-->
     </children>
 
 </AnchorPane>

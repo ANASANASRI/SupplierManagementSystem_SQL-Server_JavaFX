@@ -63,7 +63,7 @@
                                                 </padding>
                                             </TextArea>
 
-                                            <DatePicker fx:id="datePicker" layoutX="657.0" layoutY="12.0" prefHeight="25.0" prefWidth="179.0" />
+                                            <DatePicker fx:id="datePicker" layoutX="641.0" layoutY="12.0" prefHeight="25.0" prefWidth="161.0" />
                                         </children>
                                     </AnchorPane>
                                 </content>
@@ -77,16 +77,16 @@
                     </TabPane>
                 </center>
                 <right>
-                    <VBox alignment="BOTTOM_CENTER" prefHeight="633.0" prefWidth="55.0" BorderPane.alignment="CENTER">
+                    <VBox alignment="BOTTOM_CENTER" prefHeight="441.0" prefWidth="82.0" BorderPane.alignment="CENTER">
                         <children>
-                            <Button fx:id="saveButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#saveNote" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: rgba(30, 215, 96, 0.5);" text="sauvegarder">
+                            <Button fx:id="saveButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#saveNote" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: rgba(30, 215, 96, 0.5);" text="sauvegarder">
                                 <cursor>
                                     <Cursor fx:constant="HAND" />
                                 </cursor>
                             </Button>
-                            <Button fx:id="deleteButton" mnemonicParsing="false" prefHeight="24.0" prefWidth="55.0" style="-fx-background-color: rgba(255, 60, 0, 0.8);" text="Supprimer" />
-                            <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clearFields" prefHeight="24.0" prefWidth="55.0" style="-fx-background-color: rgba(255, 60, 0, 0.5);" text="Effacer" />
-                            <Button fx:id="setReminderButton" alignment="CENTER" mnemonicParsing="false" onAction="#setNoteAsReminder" prefHeight="24.0" prefWidth="55.0" text="Définir comme rappel">
+                            <Button fx:id="deleteButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" style="-fx-background-color: rgba(255, 60, 0, 0.8);" text="Supprimer" />
+                            <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clearFields" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: rgba(255, 60, 0, 0.5);" text="Effacer" />
+                            <Button fx:id="setReminderButton" alignment="CENTER" mnemonicParsing="false" onAction="#setNoteAsReminder" prefHeight="25.0" prefWidth="82.0" text="Définir comme rappel">
                                 <VBox.margin>
                                     <Insets />
                                 </VBox.margin>
