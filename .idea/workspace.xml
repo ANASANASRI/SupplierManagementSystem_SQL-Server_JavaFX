@@ -4,8 +4,111 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3bef24c-488d-4179-bfd1-8955b3015909" name="Changes" comment="Make interfaces adjustments 1">
+    <list default="true" id="e3bef24c-488d-4179-bfd1-8955b3015909" name="Changes" comment="Connect to SQL Server">
+      <change afterPath="$PROJECT_DIR$/.idea/SupplierManagementSystem.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/dd37bfdd-df27-4c37-b2f6-4ae126d5d9e5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/dd37bfdd-df27-4c37-b2f6-4ae126d5d9e5/storage_v2/_src_/database/afm.6HgBAA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/dd37bfdd-df27-4c37-b2f6-4ae126d5d9e5/storage_v2/_src_/database/afm.6HgBAA/schema/INFORMATION_SCHEMA.NBgcMw.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/dd37bfdd-df27-4c37-b2f6-4ae126d5d9e5/storage_v2/_src_/database/afm.6HgBAA/schema/sys.zb4BAA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqlDataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SupplierManagementSystem.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/SupplierManagementSystem-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/PDFs/OrdereVirement.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/PDFs/ReglementAssurance.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/HelloApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/HelloController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/controller/Dashboard$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/controller/Dashboard$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/controller/Dashboard.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/controller/GetChequePdf.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/controller/GetPdfs.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/controller/GetVirementPdf.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/controller/Inscription.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/controller/InscriptionEtAuthentification.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/controller/MenuAdmins$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/controller/MenuAdmins$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/controller/MenuAdmins$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/controller/MenuAdmins.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/controller/Notes$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/controller/Notes.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/controller/PaiementManager$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/controller/PaiementManager$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/controller/PaiementManager$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/controller/PaiementManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/controller/PaiementsStatistiques.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/css/authent.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/css/buttonMenuAjouter.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/css/buttonMenuSupprimer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/css/eye-toggle-button.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/css/inscription.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/dao/AdminDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/dao/AgenceDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/dao/CompteDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/dao/DocumentDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/dao/FournisseurDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/dao/NoteDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/dao/PaiementDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/dao/imp/AdminDaoImp.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/dao/imp/AgenceDaoImp.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/dao/imp/CompteDaoImp.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/dao/imp/DB.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/dao/imp/DocumentDaoImp.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/dao/imp/FournisseurDaoImp.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/dao/imp/NoteDaoImp.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/dao/imp/PaiementDaoImp.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/fxml/Dashboard.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/fxml/GetChequePdf.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/fxml/GetPdfs.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/fxml/GetVirementPdf.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/fxml/Ins.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/fxml/InscriptionEtAuthentification.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/fxml/MenuAdmis.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/fxml/Notes.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/fxml/PaiementManager.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/fxml/PaiementsStatistiques.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/fxml/hello-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/img/Frame 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/img/Frame 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/img/Frame 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/img/check.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/img/check.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/img/cost1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/img/icons8-closed-eye-48.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/img/icons8-done.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/img/icons8-eye-48.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/img/icons8-search.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/img/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/img/pdf1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/model/AdminFinancier.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/model/Agence.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/model/Compte.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/model/DocumentPDF$TypeDocument.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/model/DocumentPDF.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/model/Fournisseur.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/model/Note.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/model/NoteDataModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/model/Paiement$MoyenPaiement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/model/Paiement.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/services/AdminService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/services/AgenceService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/services/CompteService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/services/DocumentService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/services/FournisseurService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/services/NoteService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/services/PaiementService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/afm/suppliermanagementsystem/services/PasswordHasher.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/db.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
@@ -254,7 +357,7 @@
       <workItem from="1691395106025" duration="19450000" />
       <workItem from="1691479585062" duration="4132000" />
       <workItem from="1691485543881" duration="3409000" />
-      <workItem from="1691499591590" duration="4373000" />
+      <workItem from="1691499591590" duration="4683000" />
     </task>
     <task id="LOCAL-00001" summary="first structure folders">
       <created>1687269102778</created>
@@ -557,7 +660,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690989527770</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Connect to SQL Server">
+      <created>1691504188632</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1691504188632</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -576,7 +686,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add logo icon" />
     <MESSAGE value="add the Password Hashing services" />
     <MESSAGE value="some simple modification" />
     <MESSAGE value="ajouter form des nouvelles donnees" />
@@ -601,7 +710,8 @@
     <MESSAGE value="Set App Icon, Window Name on all pages ,and privilèges" />
     <MESSAGE value="add pdf background" />
     <MESSAGE value="Make interfaces adjustments 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make interfaces adjustments 1" />
+    <MESSAGE value="Connect to SQL Server" />
+    <option name="LAST_COMMIT_MESSAGE" value="Connect to SQL Server" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
