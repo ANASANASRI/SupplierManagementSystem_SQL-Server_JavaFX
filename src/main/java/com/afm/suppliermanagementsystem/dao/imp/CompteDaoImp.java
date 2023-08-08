@@ -22,7 +22,7 @@ public class CompteDaoImp implements CompteDao {
         PreparedStatement ps = null;
 
         try {
-            ps = conn.prepareStatement("INSERT INTO compte (nom, prenom, telephone, pseudo_nom, cin, mot_pass, adresse, etat,isAdmin) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)");
+            ps = conn.prepareStatement("INSERT INTO [afm].[afm].[compte] (nom, prenom, telephone, pseudo_nom, cin, mot_pass, adresse, etat,isAdmin) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)");
 
             ps.setString(1, compte.getNom());
             ps.setString(2, compte.getPrenom());
@@ -47,7 +47,7 @@ public class CompteDaoImp implements CompteDao {
         PreparedStatement ps = null;
 
         try {
-            ps = conn.prepareStatement("INSERT INTO compte (nom, prenom, telephone, pseudo_nom, cin, mot_pass, adresse, etat,isAdmin) VALUES (?, ?, ?, ?, ?, ?, ?, 0,?)");
+            ps = conn.prepareStatement("INSERT INTO [afm].[afm].[compte] (nom, prenom, telephone, pseudo_nom, cin, mot_pass, adresse, etat,isAdmin) VALUES (?, ?, ?, ?, ?, ?, ?, 0,?)");
 
             ps.setString(1, compte.getNom());
             ps.setString(2, compte.getPrenom());
@@ -71,7 +71,7 @@ public class CompteDaoImp implements CompteDao {
         PreparedStatement ps = null;
 
         try {
-            StringBuilder queryBuilder = new StringBuilder("UPDATE compte SET nom = ?, prenom = ?, telephone = ?, pseudo_nom = ?, cin = ?, adresse = ?, etat = ?, isAdmin = ?");
+            StringBuilder queryBuilder = new StringBuilder("UPDATE [afm].[afm].[compte] SET nom = ?, prenom = ?, telephone = ?, pseudo_nom = ?, cin = ?, adresse = ?, etat = ?, isAdmin = ?");
             List<Object> params = new ArrayList<>();
 
             // Append password update only if it's not null and not empty
@@ -130,7 +130,7 @@ public class CompteDaoImp implements CompteDao {
         ResultSet rs = null;
 
         try {
-            ps = conn.prepareStatement("SELECT * FROM compte");
+            ps = conn.prepareStatement("SELECT * FROM [afm].[afm].[compte]");
             rs = ps.executeQuery();
 
             List<Compte> compteList = new ArrayList<>();
@@ -166,7 +166,7 @@ public class CompteDaoImp implements CompteDao {
         PreparedStatement ps = null;
 
         try {
-            ps = conn.prepareStatement("DELETE FROM compte WHERE id = ?");
+            ps = conn.prepareStatement("DELETE FROM [afm].[afm].[compte] WHERE id = ?");
 
             ps.setInt(1, id);
 
@@ -181,7 +181,7 @@ public class CompteDaoImp implements CompteDao {
     @Override
     public boolean findCompte(String nom, String password) {
         boolean compteExists = false;
-        String query = "SELECT COUNT(*) AS count FROM compte WHERE pseudo_nom = ? AND mot_pass = ? AND IsAdmin = 0";
+        String query = "SELECT COUNT(*) AS count FROM [afm].[afm].[compte] WHERE pseudo_nom = ? AND mot_pass = ? AND IsAdmin = 0";
 
         try (PreparedStatement statement = conn.prepareStatement(query)) {
             statement.setString(1, nom);
@@ -203,7 +203,7 @@ public class CompteDaoImp implements CompteDao {
     @Override
     public boolean findetat(String nom, String password) {
         boolean findetat = false;
-        String query = "SELECT COUNT(*) AS count FROM compte WHERE pseudo_nom = ? AND mot_pass = ? AND etat = 1";
+        String query = "SELECT COUNT(*) AS count FROM [afm].[afm].[compte] WHERE pseudo_nom = ? AND mot_pass = ? AND etat = 1";
 
         try (PreparedStatement statement = conn.prepareStatement(query)) {
             statement.setString(1, nom);
@@ -225,7 +225,7 @@ public class CompteDaoImp implements CompteDao {
     @Override
     public boolean findinfCompte(String nomValue, String prenomValue, String pseudoValue, String identifiantValue) {
         boolean findinfCompte = false;
-        String query = "SELECT COUNT(*) AS count FROM compte WHERE (nom = ? AND prenom = ? AND pseudo_nom = ? AND cin = ?) OR pseudo_nom = ? OR cin = ?";
+        String query = "SELECT COUNT(*) AS count FROM [afm].[afm].[compte] WHERE (nom = ? AND prenom = ? AND pseudo_nom = ? AND cin = ?) OR pseudo_nom = ? OR cin = ?";
 
         try (PreparedStatement statement = conn.prepareStatement(query)) {
             statement.setString(1, nomValue);
@@ -252,7 +252,7 @@ public class CompteDaoImp implements CompteDao {
     @Override
     public boolean findAdmCompte(String nom, String password) {
         boolean compteExists = false;
-        String query = "SELECT COUNT(*) AS count FROM compte WHERE pseudo_nom = ? AND mot_pass = ? AND IsAdmin = 1";
+        String query = "SELECT COUNT(*) AS count FROM [afm].[afm].[compte] WHERE pseudo_nom = ? AND mot_pass = ? AND IsAdmin = 1";
 
         try (PreparedStatement statement = conn.prepareStatement(query)) {
             statement.setString(1, nom);
@@ -296,7 +296,7 @@ public class CompteDaoImp implements CompteDao {
         PreparedStatement ps = null;
 
         try {
-            ps = conn.prepareStatement("DELETE FROM compte WHERE CIN = ?");
+            ps = conn.prepareStatement("DELETE FROM [afm].[afm].[compte] WHERE CIN = ?");
 
             ps.setString(1, cin);
 

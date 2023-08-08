@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e3bef24c-488d-4179-bfd1-8955b3015909" name="Changes" comment="Make interfaces adjustments 1">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afm/suppliermanagementsystem/controller/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afm/suppliermanagementsystem/controller/Dashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afm/suppliermanagementsystem/dao/imp/AdminDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afm/suppliermanagementsystem/dao/imp/AdminDaoImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afm/suppliermanagementsystem/dao/imp/AgenceDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afm/suppliermanagementsystem/dao/imp/AgenceDaoImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afm/suppliermanagementsystem/dao/imp/CompteDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afm/suppliermanagementsystem/dao/imp/CompteDaoImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afm/suppliermanagementsystem/dao/imp/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afm/suppliermanagementsystem/dao/imp/DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afm/suppliermanagementsystem/dao/imp/FournisseurDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afm/suppliermanagementsystem/dao/imp/FournisseurDaoImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/afm/suppliermanagementsystem/dao/imp/PaiementDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/afm/suppliermanagementsystem/dao/imp/PaiementDaoImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/PDFs/OrdereVirement.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/PDFs/OrdereVirement.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/PDFs/ReglementAssurance.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/PDFs/ReglementAssurance.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseLocalColorSettings">
+    <colors>
+      <entry key="dd37bfdd-df27-4c37-b2f6-4ae126d5d9e5" value="Rose" />
+    </colors>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="FxmlFile" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2RTHJFWeS09qaMSUPmRBpQi6hha" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;18&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/USER/Desktop/SupplierManagementSystem/src/main/resources/com&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.68123394&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlserver&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.afm.suppliermanagementsystem.controller" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\USER\Desktop\SupplierManagementSystem\src\main\resources\com\afm\suppliermanagementsystem\img" />
+      <recent name="C:\Users\USER\Desktop\SupplierManagementSystem\src\main\resources\PDFs" />
+      <recent name="C:\Users\USER\Desktop\SupplierManagementSystem\src\main\java\com\afm\suppliermanagementsystem\controller" />
+      <recent name="C:\Users\USER\Desktop\SupplierManagementSystem\src\main\java\com\afm\suppliermanagementsystem" />
+      <recent name="C:\Users\USER\Desktop\SupplierManagementSystem\src\main\resources\com\afm\suppliermanagementsystem\css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\controller" />
+      <recent name="C:\Users\USER\Desktop\SupplierManagementSystem\src\main\resources\notepack" />
+      <recent name="C:\Users\USER\Desktop\SupplierManagementSystem\src\main\java\notepack" />
+      <recent name="C:\Users\USER\Desktop\SupplierManagementSystem\src\main\java\afm\calendar" />
+      <recent name="C:\Users\USER\Desktop\SupplierManagementSystem\src\main\resources" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.afm.suppliermanagementsystem.dao.imp" />
+      <recent name="com.afm.suppliermanagementsystem.controller" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.afm.suppliermanagementsystem" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.HelloApplication">
+    <configuration name="HelloApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.afm.suppliermanagementsystem.HelloApplication" />
+      <module name="SupplierManagementSystem" />
+      <option name="VM_PARAMETERS" value="-Djdk.tls.client.protocols=TLSv1.2,TLSv1.1,TLSv1,TLSv1.0" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.afm.suppliermanagementsystem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.afm.suppliermanagementsystem.HelloApplication" />
+      <module name="SupplierManagementSystem" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\jfx\javafx-sdk-20.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml " />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in SupplierManagementSystem" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="SupplierManagementSystem" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-Djdk.tls.client.protocols=TLSv1.2,TLSv1.1,TLSv1 " />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="SupplierManagementSystem - SQL Server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="SupplierManagementSystem - SQL Server" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.HelloApplication" />
+      <item itemvalue="Application.Unnamed" />
+      <item itemvalue="JUnit.All in SupplierManagementSystem" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e3bef24c-488d-4179-bfd1-8955b3015909" name="Changes" comment="" />
+      <created>1687267080567</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1687267080567</updated>
+      <workItem from="1687267081819" duration="8683000" />
+      <workItem from="1687333152574" duration="12478000" />
+      <workItem from="1687345722715" duration="3623000" />
+      <workItem from="1687352639416" duration="28218000" />
+      <workItem from="1687431628577" duration="501000" />
+      <workItem from="1687432140091" duration="145000" />
+      <workItem from="1687432297546" duration="45654000" />
+      <workItem from="1687611536794" duration="6888000" />
+      <workItem from="1687695805996" duration="926000" />
+      <workItem from="1687698135994" duration="2433000" />
+      <workItem from="1687764109666" duration="25106000" />
+      <workItem from="1687850965940" duration="37516000" />
+      <workItem from="1687958393621" duration="3736000" />
+      <workItem from="1688369078276" duration="14666000" />
+      <workItem from="1688383796404" duration="31021000" />
+      <workItem from="1688546430548" duration="5944000" />
+      <workItem from="1688561049674" duration="3553000" />
+      <workItem from="1688628243924" duration="4732000" />
+      <workItem from="1688646321242" duration="3502000" />
+      <workItem from="1688650143666" duration="5286000" />
+      <workItem from="1688714545500" duration="7505000" />
+      <workItem from="1688976533056" duration="7594000" />
+      <workItem from="1689060148121" duration="11241000" />
+      <workItem from="1689089046304" duration="606000" />
+      <workItem from="1689146842272" duration="18226000" />
+      <workItem from="1689233635979" duration="14944000" />
+      <workItem from="1689319402837" duration="11479000" />
+      <workItem from="1689348017840" duration="650000" />
+      <workItem from="1689578683183" duration="5052000" />
+      <workItem from="1689666894310" duration="2077000" />
+      <workItem from="1689678731872" duration="1784000" />
+      <workItem from="1689838248483" duration="1916000" />
+      <workItem from="1689861458502" duration="681000" />
+      <workItem from="1689865747798" duration="14889000" />
+      <workItem from="1690204243956" duration="4982000" />
+      <workItem from="1690269939680" duration="6723000" />
+      <workItem from="1690276870857" duration="2864000" />
+      <workItem from="1690279773768" duration="5654000" />
+      <workItem from="1690356550634" duration="21131000" />
+      <workItem from="1690442511743" duration="6320000" />
+      <workItem from="1690448875397" duration="17497000" />
+      <workItem from="1690528867774" duration="8638000" />
+      <workItem from="1690547889524" duration="9894000" />
+      <workItem from="1690792619427" duration="14577000" />
+      <workItem from="1690809998050" duration="2059000" />
+      <workItem from="1690813241724" duration="2428000" />
+      <workItem from="1690819662789" duration="423000" />
+      <workItem from="1690874906560" duration="11032000" />
+      <workItem from="1690886541587" duration="6977000" />
+      <workItem from="1690961507601" duration="1731000" />
+      <workItem from="1690963268278" duration="3104000" />
+      <workItem from="1690989429419" duration="596000" />
+      <workItem from="1691049728051" duration="2348000" />
+      <workItem from="1691054329523" duration="7725000" />
+      <workItem from="1691065504409" duration="1654000" />
+      <workItem from="1691157260039" duration="3561000" />
+      <workItem from="1691160865970" duration="1026000" />
+      <workItem from="1691393006460" duration="1860000" />
+      <workItem from="1691395106025" duration="19450000" />
+      <workItem from="1691479585062" duration="4132000" />
+      <workItem from="1691485543881" duration="3409000" />
+      <workItem from="1691499591590" duration="4373000" />
+    </task>
+    <task id="LOCAL-00001" summary="first structure folders">
+      <created>1687269102778</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1687269102778</updated>
+    </task>
+    <task id="LOCAL-00002" summary="first interface Authentification and inscrire">
+      <created>1687377972604</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1687377972604</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fix interface Authentification and inscrire">
+      <created>1687434369549</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1687434369549</updated>
+    </task>
+    <task id="LOCAL-00004" summary="done interface Authentification , S'inscrire ,et AddFournisseur">
+      <created>1687440540482</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1687440540482</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add First Dao and DaoImp Clacces">
+      <created>1687444273943</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1687444273943</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add Ajout and search">
+      <created>1687516114198</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1687516114198</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Add Modifier and Cleare">
+      <created>1687517681725</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1687517681725</updated>
+    </task>
+    <task id="LOCAL-00008" summary="update colors">
+      <created>1687622052118</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1687622052118</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add Authenttification">
+      <created>1687700556766</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1687700556766</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Paiement first commit">
+      <created>1687782940730</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1687782940730</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Inscription first commit">
+      <created>1687784217393</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1687784217393</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Paiement generate PDFs first commit">
+      <created>1687860898906</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1687860898906</updated>
+    </task>
+    <task id="LOCAL-00013" summary="GetPdfs (fxml/java) First Commit">
+      <created>1687937475962</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1687937475962</updated>
+    </task>
+    <task id="LOCAL-00014" summary="add hide and show password icon">
+      <created>1688383604514</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1688383604514</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add images icons">
+      <created>1688383657267</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1688383657267</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add notes first commit">
+      <created>1688469154722</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1688469154722</updated>
+    </task>
+    <task id="LOCAL-00017" summary="add check images">
+      <created>1688469178938</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1688469178938</updated>
+    </task>
+    <task id="LOCAL-00018" summary="add logo icon">
+      <created>1688555016223</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1688555016223</updated>
+    </task>
+    <task id="LOCAL-00019" summary="add the Password Hashing services">
+      <created>1688650837206</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1688650837206</updated>
+    </task>
+    <task id="LOCAL-00020" summary="some simple modification">
+      <created>1689061192655</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1689061192655</updated>
+    </task>
+    <task id="LOCAL-00021" summary="ajouter form des nouvelles donnees">
+      <created>1689064764468</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1689064764468</updated>
+    </task>
+    <task id="LOCAL-00022" summary="add showImagePopup (done,pdfs)">
+      <created>1689152209210</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1689152209210</updated>
+    </task>
+    <task id="LOCAL-00023" summary="add Dashboard for admin">
+      <created>1689172733735</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1689172733735</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Complete Dashboard">
+      <created>1689242624531</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1689242624532</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Code Organization 1">
+      <created>1689251732521</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1689251732521</updated>
+    </task>
+    <task id="LOCAL-00026" summary="fix PDFs not being displayed in the 'GetPdfs' view">
+      <created>1689325221182</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1689325221183</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Refactored Code: Clarity and Readability">
+      <created>1689583881932</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1689583881932</updated>
+    </task>
+    <task id="LOCAL-00028" summary="V1">
+      <created>1689866060609</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1689866060609</updated>
+    </task>
+    <task id="LOCAL-00029" summary="V1">
+      <created>1689866091065</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1689866091065</updated>
+    </task>
+    <task id="LOCAL-00030" summary="add note services ,Dao and DaoImp">
+      <created>1690207231467</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1690207231467</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Complet PaiementsStatistiques code">
+      <created>1690280774151</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1690280774151</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Add PaiementsStatistiques image">
+      <created>1690282198861</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1690282198861</updated>
+    </task>
+    <task id="LOCAL-00033" summary=" Fix the data issue in the 'Notes' list">
+      <created>1690359437214</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1690359437214</updated>
+    </task>
+    <task id="LOCAL-00034" summary="version α">
+      <created>1690374368638</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1690374368638</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Generate the cheque-related PDF,add agence and agences informations to Paiement.">
+      <created>1690456327250</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1690456327250</updated>
+    </task>
+    <task id="LOCAL-00036" summary="fix privilege admin delete and update">
+      <created>1690557810798</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1690557810798</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Get the controller from the loader and set and fix buttons">
+      <created>1690809547135</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1690809547135</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Update screens">
+      <created>1690813317593</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1690813317593</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Update screens">
+      <created>1690813347113</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1690813347113</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Set App Icon And Window Name on all pages">
+      <created>1690815601365</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1690815601365</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Set App Icon, Window Name on all pages ,and privilèges">
+      <created>1690902992782</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1690902992782</updated>
+    </task>
+    <task id="LOCAL-00042" summary="add pdf background">
+      <created>1690903022331</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1690903022331</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Make interfaces adjustments 1">
+      <created>1690989527770</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1690989527770</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="add logo icon" />
+    <MESSAGE value="add the Password Hashing services" />
+    <MESSAGE value="some simple modification" />
+    <MESSAGE value="ajouter form des nouvelles donnees" />
+    <MESSAGE value="add showImagePopup (done,pdfs)" />
+    <MESSAGE value="add Dashboard for admin" />
+    <MESSAGE value="Complete Dashboard" />
+    <MESSAGE value="Code Organization" />
+    <MESSAGE value="Code Organization 1" />
+    <MESSAGE value="fix PDFs not being displayed in the 'GetPdfs' view" />
+    <MESSAGE value="Refactored Code: Clarity and Readability" />
+    <MESSAGE value="V1" />
+    <MESSAGE value="add note services ,Dao and DaoImp" />
+    <MESSAGE value="Complet PaiementsStatistiques code" />
+    <MESSAGE value="Add PaiementsStatistiques image" />
+    <MESSAGE value=" Fix the data issue in the 'Notes' list" />
+    <MESSAGE value="version α" />
+    <MESSAGE value="Generate the cheque-related PDF,add agence and agences informations to Paiement." />
+    <MESSAGE value="fix privilege admin delete and update" />
+    <MESSAGE value="Get the controller from the loader and set and fix buttons" />
+    <MESSAGE value="Update screens" />
+    <MESSAGE value="Set App Icon And Window Name on all pages" />
+    <MESSAGE value="Set App Icon, Window Name on all pages ,and privilèges" />
+    <MESSAGE value="add pdf background" />
+    <MESSAGE value="Make interfaces adjustments 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make interfaces adjustments 1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/afm/suppliermanagementsystem/controller/PaiementManager.java</url>
+          <line>255</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/SupplierManagementSystem$Unnamed.ic" NAME="Unnamed Coverage Results" MODIFIED="1687439589087" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>

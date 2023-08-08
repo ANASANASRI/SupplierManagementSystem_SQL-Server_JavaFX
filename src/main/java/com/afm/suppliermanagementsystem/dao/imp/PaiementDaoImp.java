@@ -24,7 +24,7 @@ public class PaiementDaoImp implements PaiementDao {
         PreparedStatement ps = null;
 
         try {
-            ps = connection.prepareStatement("INSERT INTO paiement (montant, devise, date, effectue, moyenPaiement, numIF, agence, libelle, numCheque) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            ps = connection.prepareStatement("INSERT INTO [afm].[afm].[paiement] (montant, devise, date, effectue, moyenPaiement, numIF, agence, libelle, numCheque) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             ps.setDouble(1, paiement.getMontant());
             ps.setString(2, paiement.getDevise());
@@ -49,7 +49,7 @@ public class PaiementDaoImp implements PaiementDao {
         PreparedStatement ps = null;
 
         try {
-            ps = connection.prepareStatement("UPDATE paiement SET montant = ?, devise = ?, date = ?, effectue = ?, moyenPaiement = ?, agence = ?, libelle = ?, numCheque = ? WHERE identifiant = ?");
+            ps = connection.prepareStatement("UPDATE [afm].[afm].[paiement] SET montant = ?, devise = ?, date = ?, effectue = ?, moyenPaiement = ?, agence = ?, libelle = ?, numCheque = ? WHERE identifiant = ?");
 
             ps.setDouble(1, paiement.getMontant());
             ps.setString(2, paiement.getDevise());
@@ -76,7 +76,7 @@ public class PaiementDaoImp implements PaiementDao {
         PreparedStatement ps = null;
 
         try {
-            ps = connection.prepareStatement("DELETE FROM paiement WHERE identifiant = ?");
+            ps = connection.prepareStatement("DELETE FROM [afm].[afm].[paiement] WHERE identifiant = ?");
 
             ps.setString(1, String.valueOf(identifiant));
 
@@ -96,7 +96,7 @@ public class PaiementDaoImp implements PaiementDao {
         Paiement paiement = null;
 
         try {
-            ps = connection.prepareStatement("SELECT * FROM paiement WHERE identifiant = ?");
+            ps = connection.prepareStatement("SELECT * FROM [afm].[afm].[paiement] WHERE identifiant = ?");
 
             ps.setString(1, identifiant);
 
@@ -122,7 +122,7 @@ public class PaiementDaoImp implements PaiementDao {
         List<Paiement> paiements = new ArrayList<>();
 
         try {
-            ps = connection.prepareStatement("SELECT * FROM paiement");
+            ps = connection.prepareStatement("SELECT * FROM [afm].[afm].[paiement]");
             rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -148,7 +148,7 @@ public class PaiementDaoImp implements PaiementDao {
     public List<Paiement> findAllIF(int numIF) {
         List<Paiement> paiements = new ArrayList<>();
 
-        try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM paiement WHERE numIF = ?")) {
+        try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM [afm].[afm].[paiement] WHERE numIF = ?")) {
             statement.setInt(1, numIF);
 
             try (ResultSet resultSet = statement.executeQuery()) {

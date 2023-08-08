@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="576.0" prefWidth="1101.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.afm.suppliermanagementsystem.controller.PaiementsStatistiques">
+<children>
+        <Pane prefHeight="128.0" prefWidth="1101.0" style="-fx-background-color: #B7B7B7;" AnchorPane.bottomAnchor="448.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                    <ImageView fitHeight="76.0" fitWidth="93.0" layoutX="396.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../img/Frame 2.png" />
+                        </image>
+                    </ImageView>
+                    <Label layoutX="496.0" layoutY="39.0" prefHeight="65.0" prefWidth="244.0" text="Statistiques" textFill="WHITE">
+                        <font>
+                            <Font size="48.0" />
+                        </font>
+                    </Label>
+                    <Label layoutX="508.0" layoutY="95.0" prefHeight="19.0" prefWidth="110.0" text="Paiement" textFill="WHITE">
+                        <font>
+                            <Font size="13.0" />
+                        </font>
+                    </Label>
+
+                <MenuButton layoutY="1.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Menu">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleAction1" text="page d'accueil" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleAction2" text="notes" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleAction3" text="statistiques" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleAction4" text="déconnexion" />
+                    </items>
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </MenuButton>
+            </children>
+        </Pane>
+    <Pane layoutY="168.0" prefHeight="452.0" prefWidth="1101.0">
+         <children>
+
+             <Label layoutX="71.0" layoutY="42.0" text="Somme totale et Moyen des Paiements">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.07098765671253204" blue="0.07098765671253204" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.007633587786259542">
+                           <color>
+                              <Color red="1.0" green="0.07098765671253204" blue="0.07098765671253204" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill></Label>
+             <StackedBarChart fx:id="stackedBarChart" layoutX="6.0" layoutY="97.0" prefHeight="329.0" prefWidth="424.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </StackedBarChart>
+
+             <Label layoutX="535.0" layoutY="42.0" text="Paiement effectue ou non">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.07098765671253204" blue="0.07098765671253204" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.007633587786259542">
+                           <color>
+                              <Color red="1.0" green="0.07098765671253204" blue="0.07098765671253204" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.9592875318066155">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill></Label>
+            <PieChart fx:id="pieChart" layoutX="779.0" layoutY="119.0" prefHeight="244.0" prefWidth="332.0" />
+
+             <Label layoutX="818.0" layoutY="42.0" text="Paiement par chèque ou virement">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.07098765671253204" blue="0.07098765671253204" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.007633587786259542">
+                           <color>
+                              <Color red="1.0" green="0.07098765671253204" blue="0.07098765671253204" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.9592875318066155">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill></Label>
+             <PieChart fx:id="pieChart1" layoutX="466.0" layoutY="119.0" prefHeight="244.0" prefWidth="332.0" />
+         </children>
+    </Pane>
+    </children>
+</AnchorPane>

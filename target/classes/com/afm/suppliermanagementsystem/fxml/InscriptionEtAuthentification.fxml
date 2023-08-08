@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="590.0" prefWidth="1070.0" style="-fx-background-color: #C4C4C4;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.afm.suppliermanagementsystem.controller.InscriptionEtAuthentification">
+    <children>
+
+        <Pane layoutX="533.0" prefHeight="590.0" prefWidth="535.0">
+            <children>
+                <JFXTextField fx:id="pseudoc" focusColor="#FB3741" focusTraversable="false" labelFloat="true" layoutX="113.0" layoutY="271.0" maxWidth="356.0" minWidth="279.0" prefHeight="36.0" prefWidth="307.0" promptText="Nom utilisateur" style="-fx-text-inner-color: #2e3131;">
+                    <font>
+                        <Font name="Century Gothic" size="14.0" />
+                    </font>
+                </JFXTextField>
+
+                <!----> <!--show and hide password--><!---->
+                <JFXTextField fx:id="mot_pass_show" focusColor="#FB3741" labelFloat="true" layoutX="114.0" layoutY="335.0" maxWidth="307.0" minWidth="293.0" onKeyReleased="#showed_passWord" prefHeight="36.0" prefWidth="307.0" promptText="Mot de passe" style="-fx-text-inner-color: #2e3131;">
+                    <font>
+                        <Font name="Century Gothic" size="14.0" />
+                    </font>
+                </JFXTextField>
+
+                <ImageView fx:id="lblopen" fitHeight="25.0" fitWidth="25.0" layoutX="398.0" layoutY="342.0" onMouseClicked="#openEye" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/icons8-eye-48.png" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </ImageView>
+                <!---->
+                <JFXPasswordField fx:id="motpassc" focusColor="#FB3741" focusTraversable="false" labelFloat="true" layoutX="114.0" layoutY="335.0" maxWidth="356.0" minWidth="291.0" onKeyReleased="#hide_passWord" prefHeight="36.0" prefWidth="307.0" promptText="Mot de passe" style="-fx-text-inner-color: #2e3131;">
+                    <font>
+                        <Font name="Century Gothic" size="14.0" />
+                    </font>
+                </JFXPasswordField>
+
+                <ImageView fx:id="lblclose" fitHeight="25.0" fitWidth="25.0" layoutX="398.0" layoutY="342.0" onMouseClicked="#closeEye" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/icons8-closed-eye-48.png" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor></ImageView>
+                <!----><!---->
+
+<!--                ////-->
+                <JFXButton layoutX="112.0" layoutY="449.0" onAction="#ConnectAdmin" prefHeight="28.0" prefWidth="307.0" text="Connecter">
+                    <font>
+                        <Font name="Meiryo" size="14.0" />
+                    </font>
+               <textFill>
+                  <LinearGradient cycleMethod="REPEAT" endX="1.0" endY="1.0" startX="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.9882352948188782" green="0.7490196228027344" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.007633587786259542">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.628463871170135">
+                           <color>
+                              <Color red="0.9800000190734863" green="0.21559999883174896" blue="0.26655998826026917" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.8812785388127853">
+                           <color>
+                              <Color red="0.9800000190734863" green="0.21559999883174896" blue="0.26655998826026917" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.9452054794520548">
+                           <color>
+                              <Color red="0.9800000190734863" green="0.21559999883174896" blue="0.26655998826026917" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.9495102652584614">
+                           <color>
+                              <Color red="0.9800000190734863" green="0.21559999883174896" blue="0.26655998826026917" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.9843137264251709" green="0.21568627655506134" blue="0.2549019753932953" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+                </JFXButton>
+<!--                ////-->
+
+                <ImageView fitHeight="76.0" fitWidth="93.0" layoutX="230.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/logo.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="187.0" layoutY="189.0" prefHeight="31.0" prefWidth="163.0" text="Se connecter">
+                    <font>
+                        <Font name="Century Gothic" size="24.0" />
+                    </font>
+               <textFill>
+                  <LinearGradient endX="1.0" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.9843137264251709" green="0.21568627655506134" blue="0.2549019753932953" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+                </Label>
+            </children>
+        </Pane>
+
+
+
+        <Pane fx:id="sld" prefHeight="590.0" prefWidth="530.0" style="-fx-background-color: #ffffff;">
+            <children>
+                <ImageView fitHeight="590.0" fitWidth="535.0">
+                    <image>
+                        <Image url="@../img/Frame 4.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="inscrirelabel" layoutX="125.0" layoutY="465.0" prefHeight="46.0" prefWidth="279.0" text="Si vous n'avez pas un compte" textFill="#2e3131">
+                    <font>
+                        <Font name="Century Gothic" size="18.0" />
+                    </font>
+                </Label>
+                <JFXButton fx:id="inscrirevous1" layoutX="103.0" layoutY="514.0" onAction="#inscrire" prefHeight="28.0" prefWidth="307.0" text="Inscrire">
+                    <font>
+                        <Font name="Meiryo" size="14.0" />
+                    </font>
+               <textFill>
+                  <LinearGradient cycleMethod="REPEAT" endX="1.0" endY="1.0" startX="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.007633587786259542">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.633587786259542">
+                           <color>
+                              <Color red="0.9843137264251709" green="0.21568627655506134" blue="0.2549019753932953" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.9843137264251709" green="0.21568627655506134" blue="0.2549019753932953" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+                </JFXButton>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

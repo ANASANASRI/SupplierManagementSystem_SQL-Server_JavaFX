@@ -22,7 +22,7 @@ public class AdminDaoImp implements AdminDao {
         PreparedStatement ps = null;
 
         try {
-            ps = conn.prepareStatement("INSERT INTO admin_financier (cin, nom, prenom) VALUES (?, ?, ?)");
+            ps = conn.prepareStatement("INSERT INTO [afm].[afm].[adminfinancier] (cin, nom, prenom) VALUES (?, ?, ?)");
 
             ps.setString(1, admin.getCin());
             ps.setString(2, admin.getNom());
@@ -41,7 +41,7 @@ public class AdminDaoImp implements AdminDao {
         PreparedStatement ps = null;
 
         try {
-            ps = conn.prepareStatement("UPDATE admin_financier SET nom = ?, prenom = ? WHERE cin = ?");
+            ps = conn.prepareStatement("UPDATE [afm].[afm].[adminfinancier] SET nom = ?, prenom = ? WHERE cin = ?");
 
             ps.setString(1, admin.getNom());
             ps.setString(2, admin.getPrenom());
@@ -75,7 +75,7 @@ public class AdminDaoImp implements AdminDao {
         PreparedStatement ps = null;
 
         try {
-            ps = conn.prepareStatement("DELETE FROM admin_financier WHERE cin = ?");
+            ps = conn.prepareStatement("DELETE FROM [afm].[afm].[adminfinancier] WHERE cin = ?");
 
             ps.setString(1, cin);
 
@@ -93,7 +93,7 @@ public class AdminDaoImp implements AdminDao {
         ResultSet rs = null;
 
         try {
-            ps = conn.prepareStatement("SELECT * FROM admin_financier WHERE cin = ?");
+            ps = conn.prepareStatement("SELECT * FROM [afm].[afm].[adminfinancier] WHERE cin = ?");
             ps.setString(1, cin);
 
             rs = ps.executeQuery();

@@ -19,7 +19,7 @@ public class FournisseurDaoImp implements FournisseurDao {
         PreparedStatement ps = null;
 
         try {
-            ps = conn.prepareStatement("INSERT INTO fournisseur (numIF, nom, adresse, numeroTelephone, email, numeroCompteBancaire) VALUES (?, ?, ?, ?, ?, ?)");
+            ps = conn.prepareStatement("INSERT INTO [afm].[afm].[fournisseur] (numIF, nom, adresse, numeroTelephone, email, numeroCompteBancaire) VALUES (?, ?, ?, ?, ?, ?)");
 
             ps.setInt(1, fournisseur.getNumIF());
             ps.setString(2, fournisseur.getNom());
@@ -41,7 +41,7 @@ public class FournisseurDaoImp implements FournisseurDao {
         PreparedStatement ps = null;
 
         try {
-            ps = conn.prepareStatement("UPDATE fournisseur SET nom = ?, adresse = ?, numeroTelephone = ?, email = ?, numeroCompteBancaire = ?, numIF = ? WHERE numIF = ?");
+            ps = conn.prepareStatement("UPDATE [afm].[afm].[fournisseur] SET nom = ?, adresse = ?, numeroTelephone = ?, email = ?, numeroCompteBancaire = ?, numIF = ? WHERE numIF = ?");
 
             ps.setString(1, fournisseur.getNom());
             ps.setString(2, fournisseur.getAdresse());
@@ -63,7 +63,7 @@ public class FournisseurDaoImp implements FournisseurDao {
         PreparedStatement ps = null;
 
         try {
-            ps = conn.prepareStatement("DELETE FROM fournisseur WHERE numIF = ?");
+            ps = conn.prepareStatement("DELETE FROM [afm].[afm].[fournisseur] WHERE numIF = ?");
 
             ps.setInt(1, numIF);
 
@@ -81,7 +81,7 @@ public class FournisseurDaoImp implements FournisseurDao {
         ResultSet rs = null;
 
         try {
-            ps = conn.prepareStatement("SELECT * FROM fournisseur WHERE numIF = ?");
+            ps = conn.prepareStatement("SELECT * FROM [afm].[afm].[fournisseur] WHERE numIF = ?");
             ps.setInt(1, numIF);
 
             rs = ps.executeQuery();
@@ -111,7 +111,7 @@ public class FournisseurDaoImp implements FournisseurDao {
         ResultSet rs = null;
 
         try {
-            ps = conn.prepareStatement("SELECT * FROM fournisseur");
+            ps = conn.prepareStatement("SELECT * FROM [afm].[afm].[fournisseur]");
             rs = ps.executeQuery();
 
             List<Fournisseur> fournisseurList = new ArrayList<>();

@@ -1,0 +1,8 @@
+.eye-toggle-button {
+    -fx-graphic: url('../img/icons8-closed-eye-48.png');
+}
+
+.eye-toggle-button:hover {
+    -fx-graphic: url('../img/icons8-eye-48.png');
+    -fx-cursor: hand;
+}

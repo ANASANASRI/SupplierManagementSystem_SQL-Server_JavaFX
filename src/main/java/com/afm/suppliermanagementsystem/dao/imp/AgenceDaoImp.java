@@ -17,7 +17,7 @@ public class AgenceDaoImp implements AgenceDao {
     public List<Agence> findAll() {
         List<Agence> agenceList = new ArrayList<>();
 
-        try (PreparedStatement ps = conn.prepareStatement("SELECT * FROM agences");
+        try (PreparedStatement ps = conn.prepareStatement("SELECT * FROM [afm].[afm].[agences]");
              ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {

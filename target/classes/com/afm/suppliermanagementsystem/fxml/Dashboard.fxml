@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="572.0" prefWidth="1101.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.afm.suppliermanagementsystem.controller.Dashboard">
+    <children>
+        <Pane prefHeight="575.0" prefWidth="429.0" style="-fx-background-color: #B7B7B7;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+
+                <ImageView fitHeight="52.0" fitWidth="52.0" layoutX="83.0" layoutY="36.0" onMouseClicked="#handleImageClick" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/Frame 2.png" />
+                    </image>
+                </ImageView>
+                <Label alignment="CENTER" layoutX="143.0" layoutY="34.0" prefHeight="23.0" prefWidth="200.0" text="ATTIJARI FACTORING MAROC" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe UI" size="18.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" layoutX="151.0" layoutY="57.0" prefHeight="23.0" prefWidth="180.0" text="Dashboard" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe UI" size="12.0" />
+                    </font>
+                </Label>
+
+                <TextField fx:id="txtNom" layoutX="75.0" layoutY="121.0" prefHeight="32.0" prefWidth="139.0" promptText="Nom" />
+                <TextField fx:id="txtPrenom" layoutX="214.0" layoutY="121.0" prefHeight="32.0" prefWidth="139.0" promptText="Prénom" />
+                <TextField fx:id="txtTelephone" layoutX="75.0" layoutY="268.0" prefHeight="32.0" prefWidth="278.0" promptText="Téléphone" />
+                <TextField fx:id="txtPseudoNom" layoutX="75.0" layoutY="220.0" prefHeight="32.0" prefWidth="278.0" promptText="Pseudo Nom" />
+                <TextField fx:id="txtCIN" layoutX="75.0" layoutY="171.0" prefHeight="32.0" prefWidth="278.0" promptText="CIN (Inmodifiable)" />
+                <TextField fx:id="txtMotPass" layoutX="75.0" layoutY="318.0" prefHeight="32.0" prefWidth="278.0" promptText="Mot de passe" />
+                <TextField fx:id="txtAdresse" layoutX="76.0" layoutY="368.0" prefHeight="32.0" prefWidth="278.0" promptText="Adresse" />
+                <CheckBox fx:id="Etat" layoutX="75.0" layoutY="407.0" prefHeight="32.0" prefWidth="139.0" text="Etat" textFill="white" />
+                <CheckBox fx:id="IsAdmin" layoutX="214.0" layoutY="407.0" prefHeight="32.0" prefWidth="139.0" text="IsAdmin" textFill="white" />
+
+                <Button fx:id="btnSave" layoutX="75.0" layoutY="455.0" mnemonicParsing="false" onAction="#handleSaveButtonAction" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Ajouter" />
+                <Button fx:id="btnUpdate" layoutX="75.0" layoutY="503.0" mnemonicParsing="false" onAction="#handleUpdateButtonAction" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Modifier">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </Button>
+
+            </children>
+        </Pane>
+
+        <TableView fx:id="tableViewCompte" layoutX="438.0" layoutY="71.0" prefHeight="488.0" prefWidth="651.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="438.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="71.0">
+            <columns>
+                <TableColumn fx:id="tableColumnCIN" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="CIN" />
+                <TableColumn fx:id="tableColumnNom" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Nom" />
+                <TableColumn fx:id="tableColumnPrenom" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Prénom" />
+                <TableColumn fx:id="tableColumnTelephone" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Téléphone" />
+                <TableColumn fx:id="tableColumnPseudoNom" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="PseudoNom" />
+                <TableColumn fx:id="tableColumnAdresse" prefWidth="75.0" style="-fx-text-fill: #09253B;" text="Adresse" />
+                <TableColumn fx:id="tableColumnEtat" prefWidth="54.33331298828125" style="-fx-text-fill: #09253B;" text="État" />
+                <TableColumn fx:id="tableColumnIsAdmin" prefWidth="61.66668701171875" style="-fx-text-fill: #09253B;" text="IsAdmin" />
+                <TableColumn fx:id="tableColumnREMOVE" prefWidth="82.3333740234375" style="-fx-text-fill: #09253B;" text="Supprimer" />
+            </columns>
+        </TableView>
+        <TextField fx:id="txtSearch" layoutX="438.0" layoutY="26.0" prefHeight="32.0" prefWidth="354.0" promptText="Rechercher un compte par CIN..." />
+        <ImageView fx:id="lblSearch" fitHeight="25.0" fitWidth="23.0" layoutX="798.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../img/icons8-search.gif" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
+        <Button fx:id="goToButton" layoutX="827.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleGoToButton" prefHeight="32.0" prefWidth="261.0" text="Accédez à votre interface de gestion" />
+    </children>
+
+</AnchorPane>
