@@ -1,19 +1,44 @@
-C:\Users\USER\Desktop\SupplierManagementSystem\src\main\java\com\afm\suppliermanagementsystem\controller\Det.java
-C:\Users\USER\Desktop\SupplierManagementSystem\src\main\java\com\afm\suppliermanagementsystem\controller\Inscription.java
-C:\Users\USER\Desktop\SupplierManagementSystem\src\main\java\com\afm\suppliermanagementsystem\controller\Authentification.java
-C:\Users\USER\Desktop\SupplierManagementSystem\src\main\java\com\afm\suppliermanagementsystem\controller\MenuAdmins.java
-C:\Users\USER\Desktop\SupplierManagementSystem\src\main\java\com\afm\suppliermanagementsystem\model\Comptable.java
-C:\Users\USER\Desktop\SupplierManagementSystem\src\main\java\com\afm\suppliermanagementsystem\controller\DetMag.java
-C:\Users\USER\Desktop\SupplierManagementSystem\src\main\java\module-info.java
-C:\Users\USER\Desktop\SupplierManagementSystem\src\main\java\com\afm\suppliermanagementsystem\model\Compte.java
-C:\Users\USER\Desktop\SupplierManagementSystem\src\main\java\com\afm\suppliermanagementsystem\model\Fournisseur.java
-C:\Users\USER\Desktop\SupplierManagementSystem\src\main\java\com\afm\suppliermanagementsystem\controller\MenuAdherent.java
-C:\Users\USER\Desktop\SupplierManagementSystem\src\main\java\com\afm\suppliermanagementsystem\controller\detDict.java
-C:\Users\USER\Desktop\SupplierManagementSystem\src\main\java\com\afm\suppliermanagementsystem\controller\InscriptionEtAuthentification.java
-C:\Users\USER\Desktop\SupplierManagementSystem\src\main\java\com\afm\suppliermanagementsystem\db\DB.java
-C:\Users\USER\Desktop\SupplierManagementSystem\src\main\java\com\afm\suppliermanagementsystem\HelloController.java
-C:\Users\USER\Desktop\SupplierManagementSystem\src\main\java\com\afm\suppliermanagementsystem\model\DocumentPDF.java
-C:\Users\USER\Desktop\SupplierManagementSystem\src\main\java\com\afm\suppliermanagementsystem\controller\Home.java
-C:\Users\USER\Desktop\SupplierManagementSystem\src\main\java\com\afm\suppliermanagementsystem\HelloApplication.java
-C:\Users\USER\Desktop\SupplierManagementSystem\src\main\java\com\afm\suppliermanagementsystem\model\Paiement.java
-C:\Users\USER\Desktop\SupplierManagementSystem\src\main\java\com\afm\suppliermanagementsystem\model\AdminFinancier.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\controller\Inscription.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\controller\InscriptionEtAuthentification.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\dao\AdminDao.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\dao\imp\PaiementDaoImp.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\dao\AgenceDao.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\controller\Dashboard.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\dao\imp\CompteDaoImp.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\dao\DocumentDao.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\controller\GetChequePdf.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\model\AdminFinancier.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\controller\PaiementManager.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\services\AgenceService.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\controller\MenuAdmins.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\dao\PaiementDao.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\model\Agence.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\services\NoteService.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\model\Fournisseur.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\dao\imp\NoteDaoImp.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\services\PaiementService.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\dao\CompteDao.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\dao\imp\DB.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\dao\imp\AgenceDaoImp.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\dao\NoteDao.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\controller\GetVirementPdf.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\model\Paiement.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\controller\Notes.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\dao\FournisseurDao.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\module-info.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\services\AdminService.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\services\CompteService.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\dao\imp\AdminDaoImp.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\services\DocumentService.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\dao\imp\DocumentDaoImp.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\dao\imp\FournisseurDaoImp.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\services\FournisseurService.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\model\DocumentPDF.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\model\Note.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\model\Compte.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\controller\GetPdfs.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\model\NoteDataModel.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\services\PasswordHasher.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\controller\PaiementsStatistiques.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\HelloApplication.java
+C:\Users\USER\OneDrive\Desktop\SupplierManagementSystem - SQL Server\src\main\java\com\afm\suppliermanagementsystem\Main.java

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact name="javafx-base-18_0_2_jar_">
+    <output-path>$PROJECT_DIR$/out/artifacts/javafx_base_18_0_2_jar_</output-path>
+    <root id="root">
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/18.0.2/javafx-base-18.0.2.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
