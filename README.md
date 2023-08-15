@@ -29,8 +29,7 @@ The application should enable users to quickly and easily add suppliers, choose 
 The Supplier Management System is built using JavaFX, a Java library for building desktop applications with a modern user interface.
 
 ## :rocket: Getting Started
-
-To get started with the Supplier Management System, follow the steps below:
+-->
 
   ## :hammer_and_wrench: Show
 <div align="left">
