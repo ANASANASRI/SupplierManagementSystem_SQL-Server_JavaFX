@@ -1,8 +1,0 @@
-.eye-toggle-button {
-    -fx-graphic: url('../img/eye_icon.png');
-}
-
-.eye-toggle-button:hover {
-    -fx-graphic: url('../img/eye_icon_hover.png');
-    -fx-cursor: hand;
-}
